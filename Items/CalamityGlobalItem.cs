@@ -14,16 +14,6 @@ namespace CLocalizationMod.Items
 {
     public class CalamityGlobalItem : GlobalItem
     {
-        public override void SetDefaults(Item item)
-        {
-            if(ModLoader.GetMod("CalamityMod") != null)
-            {
-                if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("AbyssBath")))
-                {
-                    item.SetNameOverride("寂渊浴缸");
-                }
-            }
-        }
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
             if(LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)

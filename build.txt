@@ -1,4 +1,4 @@
-displayName = ÔÖ¶òºº»¯²¹³ä²¹¶¡mod
+displayName = ç¾å„æ±‰åŒ–è¡¥ä¸mod
 author = Cerberus
 version = 0.1
 includePDB = true
