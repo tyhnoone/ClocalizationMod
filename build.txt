@@ -1,0 +1,4 @@
+displayName = ‘÷∂Ú∫∫ªØ≤π≥‰≤π∂°mod
+author = Cerberus
+version = 0.1
+includePDB = true
