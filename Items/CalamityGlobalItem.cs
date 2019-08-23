@@ -886,8 +886,12 @@ namespace CLocalizationMod.Items
 						}
 					}
 				}
+
+				
+					
+			}
+				
 		    }
-            }
             }
         }
     }

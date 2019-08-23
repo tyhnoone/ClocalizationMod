@@ -391,6 +391,17 @@ namespace CLocalizationMod.Items
         {
             if(LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)
             {
+                        ModTile tilename = TileLoader.GetTile(item.createTile);
+					    if (tilename != null)
+					    {
+						
+							TooltipLine line = new TooltipLine(mod, Lang.GetItemNameValue(item.type), "挖掘镐力需求：" + tilename.minPick);
+				        	line.overrideColor = Color.Goldenrod;
+				        	tooltips.Insert(1,line);
+						
+					    }
+                        
+                
                 if(ModLoader.GetMod("CalamityMod") != null)
                 {
                     if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("BlueBrickWallUnsafe")))
@@ -430,6 +441,12 @@ namespace CLocalizationMod.Items
 						        Cinderplatetooltip.text = "其上回响着异界之能量";
 					        }
 				        }
+                        TooltipLine line = new TooltipLine(mod, "Cinderplate", "生成条件：随地图生成");
+				        line.overrideColor = Color.LightGreen;
+				        tooltips.Insert(1,line);
+                        TooltipLine line2 = new TooltipLine(mod, "Cinderplate", "生成位置：最大的小行星正中，红色");
+				        line2.overrideColor = Color.LightBlue;
+				        tooltips.Insert(2,line2);
 			        }
                     if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("DraedonsForge")))
 			        {
@@ -456,6 +473,12 @@ namespace CLocalizationMod.Items
 						        ExodiumClusterOretooltip.text = "来自未知的冰冷奇物";
 					        }
 				        }
+                        TooltipLine line = new TooltipLine(mod, "ExodiumClusterOre", "生成条件：击败月球领主");
+				        line.overrideColor = Color.LightGreen;
+				        tooltips.Insert(1,line);
+                        TooltipLine line2 = new TooltipLine(mod, "ExodiumClusterOre", "生成位置：小行星，黑色");
+				        line2.overrideColor = Color.LightBlue;
+				        tooltips.Insert(2,line2);
 			        }
                     if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("GreenBrickWallUnsafe")))
 			        {
@@ -518,6 +541,70 @@ namespace CLocalizationMod.Items
 				        line2.overrideColor = Color.LightBlue;
 				        tooltips.Insert(2,line2);
 			        }
+                    if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("AstralOre")))
+			        {
+				        TooltipLine line = new TooltipLine(mod, "AstralOre", "生成条件：击败血肉之墙");
+				        line.overrideColor = Color.LightGreen;
+				        tooltips.Insert(1,line);
+                        TooltipLine line2 = new TooltipLine(mod, "AstralOre", "生成位置：彗星地，炫彩色");
+				        line2.overrideColor = Color.LightBlue;
+				        tooltips.Insert(2,line2);
+			        }
+                    if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("AuricOre")))
+			        {
+				        TooltipLine line = new TooltipLine(mod, "AuricOre", "生成条件：击败丛林龙犽戎");
+				        line.overrideColor = Color.LightGreen;
+				        tooltips.Insert(1,line);
+                        TooltipLine line2 = new TooltipLine(mod, "AuricOre", "生成位置：洞穴层，金色");
+				        line2.overrideColor = Color.LightBlue;
+				        tooltips.Insert(2,line2);
+			        }
+                    if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("ChaoticOre")))
+			        {
+				        TooltipLine line = new TooltipLine(mod, "ChaoticOre", "生成条件：随地图生成");
+				        line.overrideColor = Color.LightGreen;
+				        tooltips.Insert(1,line);
+                        TooltipLine line2 = new TooltipLine(mod, "ChaoticOre", "生成位置：深渊浮岛，红色");
+				        line2.overrideColor = Color.LightBlue;
+				        tooltips.Insert(2,line2);
+			        }
+                    if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("CharredOre")))
+			        {
+				        TooltipLine line = new TooltipLine(mod, "CharredOre", "生成条件：随地图生成");
+				        line.overrideColor = Color.LightGreen;
+				        tooltips.Insert(1,line);
+                        TooltipLine line2 = new TooltipLine(mod, "CharredOre", "生成位置：亵渎之涯，红色");
+				        line2.overrideColor = Color.LightBlue;
+				        tooltips.Insert(2,line2);
+			        }
+                    if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("CryonicOre")))
+			        {
+				        TooltipLine line = new TooltipLine(mod, "CryonicOre", "生成条件：击败极地之灵");
+				        line.overrideColor = Color.LightGreen;
+				        tooltips.Insert(1,line);
+                        TooltipLine line2 = new TooltipLine(mod, "CryonicOre", "生成位置：雪地地下，蓝白色");
+				        line2.overrideColor = Color.LightBlue;
+				        tooltips.Insert(2,line2);
+			        }
+                    if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("PerennialOre")))
+			        {
+				        TooltipLine line = new TooltipLine(mod, "PerennialOre", "生成条件：击败世纪之花");
+				        line.overrideColor = Color.LightGreen;
+				        tooltips.Insert(1,line);
+                        TooltipLine line2 = new TooltipLine(mod, "PerennialOre", "生成位置：洞穴层，碧绿色");
+				        line2.overrideColor = Color.LightBlue;
+				        tooltips.Insert(2,line2);
+			        }
+                    if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("UelibloomOre")))
+			        {
+				        TooltipLine line = new TooltipLine(mod, "UelibloomOre", "生成条件：击败亵渎天神");
+				        line.overrideColor = Color.LightGreen;
+				        tooltips.Insert(1,line);
+                        TooltipLine line2 = new TooltipLine(mod, "UelibloomOre", "生成位置：丛林地下，黄色");
+				        line2.overrideColor = Color.LightBlue;
+				        tooltips.Insert(2,line2);
+			        }
+
                 }
             }
         }

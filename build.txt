@@ -1,4 +1,5 @@
-displayName = 灾厄汉化补丁mod
+displayName = 灾厄辅助mod
 author = Cerberus
 version = 0.1
 includePDB = true
+
