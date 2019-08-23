@@ -580,7 +580,7 @@ namespace CLocalizationMod.Items
 				{
 					if (tooltipLine57.mod == "Terraria" && tooltipLine57.Name == "Defense")
 					{
-						tooltipLine57.text = "4防御力\n增加5% rogue 盗贼伤害";
+						tooltipLine57.text = "4防御力\n增加5%盗贼伤害";
 					}
 				}
 			}
@@ -590,7 +590,7 @@ namespace CLocalizationMod.Items
 				{
 					if (tooltipLine58.mod == "Terraria" && tooltipLine58.Name == "Defense")
 					{
-						tooltipLine58.text = "7防御力\n增加5% rogue 盗贼暴击率";
+						tooltipLine58.text = "7防御力\n增加5%盗贼暴击率";
 					}
 				}
 			}
@@ -600,7 +600,7 @@ namespace CLocalizationMod.Items
 				{
 					if (tooltipLine59.mod == "Terraria" && tooltipLine59.Name == "Defense")
 					{
-						tooltipLine59.text = "5防御力\n增加5% rogue 盗贼投掷速度";
+						tooltipLine59.text = "5防御力\n增加5%盗贼投掷速度";
 					}
 				}
 			}
@@ -610,7 +610,7 @@ namespace CLocalizationMod.Items
 				{
 					if (tooltipLine60.mod == "Terraria" && tooltipLine60.Name == "Defense")
 					{
-						tooltipLine60.text = "4防御力\n增加5% rogue 盗贼伤害";
+						tooltipLine60.text = "4防御力\n增加5%盗贼伤害";
 					}
 				}
 			}
@@ -620,7 +620,7 @@ namespace CLocalizationMod.Items
 				{
 					if (tooltipLine61.mod == "Terraria" && tooltipLine61.Name == "Defense")
 					{
-						tooltipLine61.text = "5防御力\n增加5% rogue 盗贼暴击率";
+						tooltipLine61.text = "5防御力\n增加5%盗贼暴击率";
 					}
 				}
 			}
@@ -630,7 +630,7 @@ namespace CLocalizationMod.Items
 				{
 					if (tooltipLine62.mod == "Terraria" && tooltipLine62.Name == "Defense")
 					{
-						tooltipLine62.text = "4防御力\n增加5% rogue 盗贼投掷速度";
+						tooltipLine62.text = "4防御力\n增加5%盗贼投掷速度";
 					}
 				}
 			}

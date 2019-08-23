@@ -392,14 +392,15 @@ namespace CLocalizationMod.Items
             if(LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)
             {
                         ModTile tilename = TileLoader.GetTile(item.createTile);
-					    if (tilename != null)
+					    if (tilename != null && tilename.minPick > 0)
 					    {
 						
-							TooltipLine line = new TooltipLine(mod, Lang.GetItemNameValue(item.type), "挖掘镐力需求：" + tilename.minPick);
+							TooltipLine line = new TooltipLine(mod, Lang.GetItemNameValue(item.type), "挖掘镐力需求：" + tilename.minPick + "%");
 				        	line.overrideColor = Color.Goldenrod;
 				        	tooltips.Insert(1,line);
 						
 					    }
+
                         
                 
                 if(ModLoader.GetMod("CalamityMod") != null)
@@ -573,7 +574,7 @@ namespace CLocalizationMod.Items
 				        TooltipLine line = new TooltipLine(mod, "CharredOre", "生成条件：随地图生成");
 				        line.overrideColor = Color.LightGreen;
 				        tooltips.Insert(1,line);
-                        TooltipLine line2 = new TooltipLine(mod, "CharredOre", "生成位置：亵渎之涯，红色");
+                        TooltipLine line2 = new TooltipLine(mod, "CharredOre", "生成位置：地狱灾厄之地(硫磺火之崖、亵渎之涯)，红色");
 				        line2.overrideColor = Color.LightBlue;
 				        tooltips.Insert(2,line2);
 			        }
