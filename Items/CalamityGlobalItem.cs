@@ -1,4 +1,4 @@
-using CLocalizationMod;
+using ZZLocalizationMod;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Localization;
 
-namespace CLocalizationMod.Items
+namespace ZZLocalizationMod.Items
 {
     public class CalamityGlobalItem : GlobalItem
     {
@@ -350,7 +350,7 @@ namespace CLocalizationMod.Items
 				{
 					if (tooltipLine34.mod == "Terraria" && tooltipLine34.Name == "Tooltip1")
 					{
-						tooltipLine34.text = "60% increased minion damage and 25% increased magic damage and critical strike chance";
+						tooltipLine34.text = "增加60%召唤伤害以及25%魔法伤害和暴击率";
 					}
 				}
 			}
@@ -380,7 +380,7 @@ namespace CLocalizationMod.Items
 				{
 					if (tooltipLine37.mod == "Terraria" && tooltipLine37.Name == "Tooltip0")
 					{
-						tooltipLine37.text = "Increases your max number of sentries\nIncreases melee damage, speed, and critical strike chance by 20% and minion damage by 60%";
+						tooltipLine37.text = "提升你的哨兵召唤上限\n提升20%近战伤害, 速度和暴击率以及60%召唤伤害";
 					}
 				}
 			}

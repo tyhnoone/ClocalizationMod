@@ -1,4 +1,4 @@
-using CLocalizationMod;
+using ZZLocalizationMod;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Localization;
 
-namespace CLocalizationMod.Items
+namespace ZZLocalizationMod.Items
 {
     public class CalamityPlaceableBanners : GlobalItem
     {
@@ -184,7 +184,7 @@ namespace CLocalizationMod.Items
                 {
                     item.SetNameOverride("地元魔魂旗帜");
                 }
-                if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("EbonianBlightSlime")))
+                if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("EbonianBlightSlimeBanner")))
                 {
                     item.SetNameOverride("黑檀枯萎史莱姆旗帜");
                 }
@@ -260,7 +260,7 @@ namespace CLocalizationMod.Items
                 {
                     item.SetNameOverride("食魂冰虫旗帜");
                 }
-                if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("ImpiousImmolator")))
+                if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("ImpiousImmolatorBanner")))
                 {
                     item.SetNameOverride("亵渎献祭者旗帜");
                 }
@@ -287,6 +287,10 @@ namespace CLocalizationMod.Items
                 if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("MaulerBanner")))
                 {
                     item.SetNameOverride("轰鲨旗帜");
+                }
+                if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("MelterBanner")))
+                {
+                    item.SetNameOverride("蚀化者旗帜");
                 }
                 if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("MirageJellyBanner")))
                 {

@@ -1,4 +1,4 @@
-using CLocalizationMod;
+using ZZLocalizationMod;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ using Terraria.UI;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace CLocalizationMod.Tiles
+namespace ZZLocalizationMod.Tiles
 {
     public class CalamityGlobalTiles : GlobalTile
     {

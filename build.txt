@@ -1,5 +1,5 @@
 displayName = 灾厄辅助mod
 author = Cerberus
-version = 0.1
+version = 0.2
 includePDB = true
 

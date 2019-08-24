@@ -1,4 +1,4 @@
-using CLocalizationMod;
+using ZZLocalizationMod;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using Terraria.ModLoader.IO;
 using Terraria.Localization;
 using System.Text.RegularExpressions;
 
-namespace CLocalizationMod.Items
+namespace ZZLocalizationMod.Items
 {
     public class Calamitylevelmeter : GlobalItem
     {

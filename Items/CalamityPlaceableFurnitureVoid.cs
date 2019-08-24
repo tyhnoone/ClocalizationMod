@@ -1,4 +1,4 @@
-using CLocalizationMod;
+using ZZLocalizationMod;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Localization;
 
-namespace CLocalizationMod.Items
+namespace ZZLocalizationMod.Items
 {
     public class CalamityPlaceableFurnitureVoid : GlobalItem
     {

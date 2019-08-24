@@ -1,4 +1,4 @@
-using CLocalizationMod;
+using ZZLocalizationMod;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.Localization;
 
-namespace CLocalizationMod.Items
+namespace ZZLocalizationMod.Items
 {
     public class CLGlobalItem : GlobalItem
     {
@@ -52,26 +52,6 @@ namespace CLocalizationMod.Items
             }
 
             return line;
-        }
-		public void reforgePriceTooltip(Item item, TooltipLine line)
-        {
-            int totalValue = (int)(item.GetStoreValue() / 3.0f);
-
-            if (item.maxStack > 1 || item.vanity || totalValue == 0 || !NPC.savedGoblin ||
-			(!item.accessory && item.defense > 0))
-            {
-                line.text = "";
-                return;
-            }
-            else
-            {
-                line.text = "重铸花费 ";
-                line.overrideColor = new Color(80, 140, 80);
-            }
-
-            int plat, gold, silver, copper;
-            splitValue(totalValue, out plat, out gold, out silver, out copper);
-            line.text += valueAsString(plat, gold, silver, copper);
         }
 
         public void sellPriceTooltip(Item item, TooltipLine line)
@@ -256,13 +236,6 @@ namespace CLocalizationMod.Items
 			}
             if (Main.npcShop <= 0)
             {
-                TooltipLine line = new TooltipLine(mod, "Reforge", "");
-                reforgePriceTooltip(item, line);
-
-                if (line.text != "")
-                {
-                    tooltips.Add(line);
-                }
 
                 TooltipLine line2 = new TooltipLine(mod, "Sell", "");
                 sellPriceTooltip(item, line2);

@@ -13,13 +13,13 @@ using Terraria.ModLoader.IO;
 using Terraria.GameInput;
 using Terraria.Localization;
 
-namespace CLocalizationMod
+namespace ZZLocalizationMod
 {
-    public class CLocalizationModRecipe
+    public class ZZLocalizationModRecipe
     {
         private static ModRecipe GetNewRecipe()
         {
-            return new ModRecipe(CLocalizationMod.instance);
+            return new ModRecipe(ZZLocalizationMod.instance);
         }
         //public static void AddRecipes()
         //{
