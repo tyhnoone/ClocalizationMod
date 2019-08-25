@@ -1,58 +1,47 @@
-using ZZLocalizationMod;
-using Microsoft.Xna.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using Terraria;
-using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace ZZLocalizationMod.Items
 {
-    public class CalamityCustomThrowingDamage : GlobalItem
-    {
-        public override void SetDefaults(Item item)
-        {
-			if(LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)
-            {
-            if(ModLoader.GetMod("CalamityMod") != null)
-            {
-                if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("AccretionDisk")))
-                {
-                    item.SetNameOverride("元素飞盘");
-                }
-            }
+	// Token: 0x02000025 RID: 37
+	public class CalamityCustomThrowingDamage : GlobalItem
+	{
+		// Token: 0x0600004A RID: 74 RVA: 0x00006AB4 File Offset: 0x00004CB4
+		public override void SetDefaults(Item item)
+		{
+			if (LanguageManager.Instance.ActiveCulture == GameCulture.Chinese && ModLoader.GetMod("CalamityMod") != null && item.type == ModLoader.GetMod("CalamityMod").ItemType("AccretionDisk"))
+			{
+				item.SetNameOverride("元素飞盘");
 			}
-        }
-        public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
-        {
-            if(LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)
-            {
-                if(ModLoader.GetMod("CalamityMod") != null)
-                {
-                    if (item.type ==(ModLoader.GetMod("CalamityMod").ItemType("AccretionDisk")))
-			        {
-                        
-				        foreach (TooltipLine tooltipLine in tooltips)
-				        {
-                            if (tooltipLine.Name == "Damage")
-                            {
-                                string[] source = tooltipLine.text.Split(new char[] { ' ' });
-                                string str = source.First<string>();
-                                string str2 = source.Last<string>();
-                                tooltipLine.text = str + " 盗贼" + str2;
-                            }
-                            if (tooltipLine.Name == "Tooltip0")
-					        {
-						        tooltipLine.text = "切裂真实!";
-					        }
-				        }
-			        }
-                }
-            }
-        }
+		}
+
+		// Token: 0x0600004B RID: 75 RVA: 0x00006B08 File Offset: 0x00004D08
+		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
+		{
+			if (LanguageManager.Instance.ActiveCulture == GameCulture.Chinese && ModLoader.GetMod("CalamityMod") != null && item.type == ModLoader.GetMod("CalamityMod").ItemType("AccretionDisk"))
+			{
+				foreach (TooltipLine tooltipLine in tooltips)
+				{
+					if (tooltipLine.Name == "Damage")
+					{
+						string[] source = tooltipLine.text.Split(new char[]
+						{
+							' '
+						});
+						string str = source.First<string>();
+						string str2 = source.Last<string>();
+						tooltipLine.text = str + " 盗贼" + str2;
+					}
+					if (tooltipLine.Name == "Tooltip0")
+					{
+						tooltipLine.text = "切裂真实!";
+					}
+				}
+			}
+		}
 	}
 }

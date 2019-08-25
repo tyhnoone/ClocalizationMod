@@ -1,5 +1,4 @@
-displayName = 灾厄辅助mod
+displayName = 汉化辅助(内含部分灾厄文本汉化)
 author = Cerberus
 version = 0.2
 includePDB = true
-

@@ -1,33 +1,15 @@
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.IO;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.DataStructures;
-using Terraria.ID;
+﻿using System;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
-using Terraria.GameInput;
-using Terraria.Localization;
 
 namespace ZZLocalizationMod
 {
-    public class ZZLocalizationModRecipe
-    {
-        private static ModRecipe GetNewRecipe()
-        {
-            return new ModRecipe(ZZLocalizationMod.instance);
-        }
-        //public static void AddRecipes()
-        //{
 
-        //    ModRecipe recipe = GetNewRecipe();
-        //    recipe.SetResult((ModLoader.GetMod("CalamityMod").ItemType("AmidiasSpark")), 1);
-        //    recipe.AddRecipe();
-        //}
-    }
+	public class ZZLocalizationModRecipe
+	{
+
+		private static ModRecipe GetNewRecipe()
+		{
+			return new ModRecipe(ZZLocalizationMod.instance);
+		}
+	}
 }
-
