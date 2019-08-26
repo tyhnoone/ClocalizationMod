@@ -67,11 +67,55 @@ namespace ZZLocalizationMod
 			}
 			
 		}
+
+		public string zoneString(Player player) 
+		{
+			string zone="所处环境: ";
+			int num22 = (int)((double)((Main.player[Main.myPlayer].position.Y + (float)Main.player[Main.myPlayer].height) * 2f / 16f) - Main.worldSurface * 2.0);
+			
+			
+			if(Main.player[Main.myPlayer].ZoneTowerSolar) zone += "\n日耀柱";
+			if(Main.player[Main.myPlayer].ZoneTowerNebula) zone += "\n星云柱";
+			if(Main.player[Main.myPlayer].ZoneTowerVortex) zone += "\n星璇柱";
+			if(Main.player[Main.myPlayer].ZoneTowerStardust) zone += "\n星尘柱";
+			if(Main.player[Main.myPlayer].ZoneSnow) zone += "\n苔原";
+			if(Main.player[Main.myPlayer].ZoneJungle) zone += "\n丛林";
+			if(Main.player[Main.myPlayer].ZoneCrimson) zone += "\n血腥之地";
+			if(Main.player[Main.myPlayer].ZoneDesert) zone += "\n沙漠";
+			if(Main.player[Main.myPlayer].ZoneRain) zone += "\n雨天";
+			if(Main.player[Main.myPlayer].ZoneSandstorm) zone += "\n沙尘暴";
+			if(Main.player[Main.myPlayer].ZoneBeach) zone += "\n海洋";
+			if(Main.player[Main.myPlayer].ZoneGlowshroom) zone += "\n荧光蘑菇地";
+			if(Main.player[Main.myPlayer].ZoneCorrupt) zone += "\n腐化之地";
+			if(Main.player[Main.myPlayer].ZoneDungeon) zone += "\n地牢";
+			if(Main.player[Main.myPlayer].ZoneHoly) zone += "\n神圣之地";
+			if(Main.player[Main.myPlayer].ZoneMeteor) zone += "\n陨石";
+			if(Main.player[Main.myPlayer].ZoneSkyHeight) zone += "\n太空";
+			if(ZZLocalizationModWorld.zoneMarble > 75) zone += "\n大理石穴";
+			if(ZZLocalizationModWorld.zoneGranite > 75) zone += "\n花岗岩穴";
+
+
+			if(ModLoader.GetMod("AAMod") != null) zone += AASupport.AAZone(player);
+			if(ModLoader.GetMod("CalamityMod") != null) zone += CalamitySupport.CalamityZone(player);
+			if(ModLoader.GetMod("ThoriumMod") != null) zone += ThoriumSupport.ThoriumZone(player);
+			
+			
+			if(zone == "所处环境: ") 
+			{
+				if(Main.player[Main.myPlayer].position.Y > (float)((Main.maxTilesY - 204) * 16)) zone += "\n地狱";
+				else if((double)Main.player[Main.myPlayer].position.Y > Main.rockLayer * 16.0 + (double)(1200 / 2) + 16.0) zone += "\n洞穴";
+				else if(num22 > 0) zone += "\n地下";
+				else if((float)((double)((Main.screenPosition.Y + (float)(Main.screenHeight / 2)) / 16f - (65f + 10f * (float)(Main.maxTilesX / 4200))) / (Main.worldSurface / 5.0)) >= 1f ) zone += "\n森林";
+				else zone = "";
+			};
+			
+			return zone;
+		}
 		public Texture2D[] infoIconTexture = new Texture2D[14];
 
 		private void DrawInterfaceInfoAccs()
 		{
-				bool flag7 = false;
+				bool flaghitlife = false;
 				int num = -1;
 				int num2 = -10;
 				int num3 = 0;
@@ -79,7 +123,7 @@ namespace ZZLocalizationMod
 				float num4 = 215f;
 				int num5 = 0;
 				Player player = Main.player[Main.myPlayer];
-				for (int i = 0; i < 8; i++)
+				for (int i = 0; i < 13; i++)
 				{
 					string text2 = "";
 					string text3 = "";
@@ -124,7 +168,7 @@ namespace ZZLocalizationMod
 							text2 = "哨兵炮塔上限：" + player.maxTurrets;
 							text3 = "炮塔栏";
 						}
-						if(i== (Main.playerInventory? 7:0) && !flag7)
+						if(i== (Main.playerInventory? 8:0) && !flaghitlife)
 						{
 							int num15 = 4000;
 							int num16 = 300;
@@ -145,7 +189,7 @@ namespace ZZLocalizationMod
 										
 										if(npcaround != null)
 										{
-											if ((npcaround.Center - Main.player[Main.myPlayer].Center).Length() - distance > (float)num16)
+											if (((npcaround.Center - Main.player[Main.myPlayer].Center).Length() - distance > (float)num16) && ((npcaround.Center - Main.player[Main.myPlayer].Center).Length() < 800))
 											{
 												npcaround = type;
 											}
@@ -172,6 +216,7 @@ namespace ZZLocalizationMod
 									}
 								}
 							}
+							
 
 							if (npcaround == null)
 							{
@@ -189,7 +234,14 @@ namespace ZZLocalizationMod
 							{
 								text2 += "\n" + npcaround3.GivenOrTypeName + ": "+ npcaround3.life + " / "+ npcaround3.lifeMax;
 							}
-							flag7 = true ;
+							flaghitlife = true ;
+						}
+						if(i== (Main.playerInventory? 12:6) && ZZLocalizationMod.modConfiguration.zonetext)
+						{
+							
+							text2 = zoneString(player);
+							text3 = "所处环境";
+							
 						}
 						
 					}

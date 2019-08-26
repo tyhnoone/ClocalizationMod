@@ -503,69 +503,17 @@ namespace ZZLocalizationMod
 			NPC.downedMechBossAny = true;
 			NPC.downedMoonlord = true;
 			NPC.downedGolemBoss = true;
-			
-			if(ModLoader.GetMod("CalamityMod") != null)
-			{
-				List<string> list = new List<string>();
-				list.Add("desertScourge");
-				list.Add("aquaticScourge");
-				list.Add("hiveMind");
-				list.Add("perforator");
-				list.Add("slimeGod");
-				list.Add("cryogen");
-				list.Add("brimstoneElemental");
-				list.Add("calamitas");
-				list.Add("leviathan");
-				list.Add("devourerOfGods");
-				list.Add("plaguebringerGoliath");
-				list.Add("guardians");
-				list.Add("providence");
-				list.Add("ceaselessVoid");
-				list.Add("stormWeaver");
-				list.Add("signus");
-				list.Add("yharon");
-				list.Add("eclipse");
-				list.Add("supremeCalamitas");
-				list.Add("bumblebirb");
-				list.Add("crabulon");
-				list.Add("betsy");
-				list.Add("scavenger");
-				list.Add("boss2");
-				list.Add("boss3");
-				list.Add("wall");
-				list.Add("skeletronPrime");
-				list.Add("planter");
-				list.Add("baby");
-				list.Add("moonDude");
-				list.Add("anyBoss");
-				list.Add("demonMode");
-				list.Add("onionMode");
-				list.Add("revenge");
-				list.Add("starGod");
-				list.Add("astrageldon");
-				list.Add("astralMeteor");
-				list.Add("astralMeteor2");
-				list.Add("astralMeteor3");
-				list.Add("hardBoss");
-				list.Add("polterghast");
-				list.Add("lorde");
-				list.Add("moth");
-				list.Add("oldDuke");
-				list.Add("death");
-				list.Add("defiled");
-				list.Add("armageddon");
-				list.Add("ironHeart");
-				list.Add("abyssSide");
-				list.Add("clam");
-				TagCompound tag = new TagCompound();
-				tag.Add("downed", list);
-				ModLoader.GetMod("CalamityMod").GetModWorld("CalamityWorld").Load(tag);
-			}
+
+			CalamitySupport.CalamityCalculateLootLoad();
+			ThoriumSupport.ThoriumCalculateLootLoad();
+			AASupport.AACalculateLootLoad();
+
 			npc.Center = new Microsoft.Xna.Framework.Vector2(1000, 1000);
 			int iterationsWithNoChange = 0;
 
 			var realRandom = Main.rand;
 			var fakeRandom = new LootUnifiedRandom();
+			
 			for (int i = 0; i < MaxNumberLootExperiments; i++)
 			{
 				if (i == 0)
@@ -619,12 +567,10 @@ namespace ZZLocalizationMod
 			NPC.downedMechBossAny = false;
 			NPC.downedMoonlord = false;
 			NPC.downedGolemBoss = false;
-			if(ModLoader.GetMod("CalamityMod") != null)
-			{
-				TagCompound tag = new TagCompound();
-				List<string> list = new List<string>();
-				ModLoader.GetMod("CalamityMod").GetModWorld("CalamityWorld").Load(tag);
-			}
+
+			CalamitySupport.CalamityCalculateLootUnLoad();
+			ThoriumSupport.ThoriumCalculateLootUnLoad();
+			AASupport.AACalculateLootUnLoad();
 		}
 	}
 

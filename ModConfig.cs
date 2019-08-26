@@ -31,6 +31,11 @@ namespace ZZLocalizationMod
 		[Label("ZZLocalizationMod掉落文本")]
 		[Tooltip("是, 将在物品提示中显示该物品的可掉落怪物")]
 		public bool droptext;
+
+		[DefaultValue(true)]
+		[Label("ZZLocalizationMod环境信息")]
+		[Tooltip("是, 将显示玩家所处的环境")]
+		public bool zonetext;
 		
 
 		public override ModConfig Clone() {

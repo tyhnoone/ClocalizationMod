@@ -5,10 +5,8 @@ using Terraria.ModLoader;
 
 namespace ZZLocalizationMod.NPCs
 {
-	// Token: 0x02000017 RID: 23
 	public class CalamityModNormalNPCs : GlobalNPC
 	{
-		// Token: 0x0600002E RID: 46 RVA: 0x00004B90 File Offset: 0x00002D90
 		public override void SetDefaults(NPC npc)
 		{
 			if (LanguageManager.Instance.ActiveCulture == GameCulture.Chinese && ModLoader.GetMod("CalamityMod") != null)

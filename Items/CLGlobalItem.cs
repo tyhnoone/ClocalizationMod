@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.GameInput;
 
 namespace ZZLocalizationMod.Items
 {
@@ -108,6 +110,13 @@ namespace ZZLocalizationMod.Items
 							line += npc.GivenOrTypeName + "\n";
 						}
 						lastname = npc.GivenOrTypeName;
+						string r = line.Replace("\n", "");
+						int num = (line.Length - r.Length);
+						if(num > 20) 
+						{
+							line += "......等等";
+							break;
+						}
 					}
 				}
 			linedrop.text = line;
@@ -214,7 +223,7 @@ namespace ZZLocalizationMod.Items
 					if (ammoDamage > 0f)
 					{
 						TooltipLine l = new TooltipLine(base.mod, "Ammo", "");
-						l.text = "目前弹药: " + ammoItem.Name;
+						l.text = "目前弹药: [i:" + ammoItem.type + "]";
 						if (k < tooltips.Count - 1)
 						{
 							tooltips.Insert(k + 1, l);
