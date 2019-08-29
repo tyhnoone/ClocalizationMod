@@ -357,13 +357,16 @@ namespace ZZLocalizationMod
 					catch {
 					}
 				}
-				setLoadProgressText?.Invoke("正在计算掉落物品，请稍等");
+				setLoadProgressText?.Invoke("正在计算掉落物品，时间较长请稍等");
 				setLoadProgressProgress?.Invoke(0f);
 
 				// expert drops?
 				for (int playernum = 0; playernum < 256; playernum++)
 				{
 					Main.player[playernum] = new Player();
+					
+					for (int i = 0 ; i < 50; i++)
+					Main.player[playernum].inventory[i].type = 3507;
 				}
 				//Main.player[0].active = true;
 
@@ -416,7 +419,7 @@ namespace ZZLocalizationMod
 					JSONNPC jsonNPC = new JSONNPC(npc.modNPC?.mod.Name ?? "Terraria", npc.modNPC?.Name ?? npc.TypeName, npc.modNPC != null ? 0 : i);
 
 					loots.Clear();
-					CalculateLoot(npc);  // ...calculate drops
+					CalculateLoot(npc, Main.player[0]);  // ...calculate drops
 
 					foreach (var loot in loots)
 					{
@@ -493,17 +496,12 @@ namespace ZZLocalizationMod
 		public const int MaxNumberLootExperiments = 5000;
 		internal static HashSet<int> loots;
 
-		internal static void CalculateLoot(NPC npc)
+		internal static void CalculateLoot(NPC npc, Player player)
 		{
-			if (npc.type == NPCID.WallofFlesh) Main.hardMode = true;//return;
+			ModItem itembag = null;
+			Main.hardMode = true;//return;
 																	// Hmmmmmm, start hardmode code might overwrite world....
-			NPC.downedBoss1 = true;
-			NPC.downedBoss2 = true;
-			NPC.downedBoss3 = true;
-			NPC.downedMechBossAny = true;
-			NPC.downedMoonlord = true;
-			NPC.downedGolemBoss = true;
-
+			Main.expertMode = true;
 			CalamitySupport.CalamityCalculateLootLoad();
 			ThoriumSupport.ThoriumCalculateLootLoad();
 			AASupport.AACalculateLootLoad();
@@ -514,12 +512,50 @@ namespace ZZLocalizationMod
 			var realRandom = Main.rand;
 			var fakeRandom = new LootUnifiedRandom();
 			
+			for (int i = 0; i < 500; i++)
+			{
+				if(npc.type == NPCID.KingSlime) player.OpenBossBag(3318);
+				if(npc.type == NPCID.EyeofCthulhu) player.OpenBossBag(3319);
+				if(npc.type == NPCID.EaterofWorldsHead) player.OpenBossBag(3320);
+				if(npc.type == NPCID.BrainofCthulhu) player.OpenBossBag(3321);
+				if(npc.type == NPCID.QueenBee) player.OpenBossBag(3322);
+				if(npc.type == NPCID.SkeletronHead) player.OpenBossBag(3323);
+				if(npc.type == NPCID.WallofFlesh) player.OpenBossBag(3324);
+				if(npc.type == NPCID.TheDestroyer) player.OpenBossBag(3325);
+				if(npc.type == NPCID.Retinazer) player.OpenBossBag(3326);
+				if(npc.type == NPCID.Spazmatism) player.OpenBossBag(3326);
+				if(npc.type == NPCID.SkeletronPrime) player.OpenBossBag(3327);
+				if(npc.type == NPCID.Plantera) player.OpenBossBag(3328);
+				if(npc.type == NPCID.Golem) player.OpenBossBag(3329);
+				if(npc.type == NPCID.DukeFishron) player.OpenBossBag(3330);
+				if(npc.type == NPCID.CultistBoss) player.OpenBossBag(3331);
+				if(npc.type == NPCID.MoonLordCore) player.OpenBossBag(3332);
+				if(npc.type == NPCID.DD2Betsy) player.OpenBossBag(3860);
+				foreach (var item in Main.item)
+				{
+					if (item.active)
+					{
+						//if (ignoreItemIDS.Contains(item.type))  // npc.value = 0;
+						//	continue;
+						loots.Add(item.type); // hmm, Item.NewItem reverseLookup?
+						item.active = false;
+						//if (iterationsWithNoChange > 150)
+						//	Debug.WriteLine($"{i}: {iterationsWithNoChange} {item.Name}");
+					}
+					else
+					{
+						break;
+					}
+				}
+			}
+			
 			for (int i = 0; i < MaxNumberLootExperiments; i++)
 			{
 				if (i == 0)
 					Main.rand = fakeRandom;
 				if (i == 50)
 					Main.rand = realRandom;
+				
 				try
 				{
 					LootUnifiedRandom.loop = i;
@@ -534,12 +570,18 @@ namespace ZZLocalizationMod
 				//{
 				//	Console.WriteLine();
 				//}
+				
 				foreach (var item in Main.item)
 				{
 					if (item.active)
 					{
 						//if (ignoreItemIDS.Contains(item.type))  // npc.value = 0;
 						//	continue;
+						ModItem item2 = ItemLoader.GetItem(item.type);
+						if (item2 != null && item2.CanRightClick())
+						{
+							itembag = item2;
+						}
 						loots.Add(item.type); // hmm, Item.NewItem reverseLookup?
 						item.active = false;
 						anyNew = true;
@@ -559,14 +601,33 @@ namespace ZZLocalizationMod
 				if (iterationsWithNoChange > 250)
 					break;
 			}
+			
+				for (int i = 0; i < 500; i++)
+				{
+					if(itembag != null && itembag.BossBagNPC > 0) 
+						{
+							itembag.OpenBossBag(player);
+							itembag.RightClick(player);
+						}
+					foreach (var item in Main.item)
+					{
+						if (item.active)
+						{
+						//if (ignoreItemIDS.Contains(item.type))  // npc.value = 0;
+						//	continue;
+							loots.Add(item.type); // hmm, Item.NewItem reverseLookup?
+							item.active = false;
+						//if (iterationsWithNoChange > 150)
+						//	Debug.WriteLine($"{i}: {iterationsWithNoChange} {item.Name}");
+						}
+						else
+						{
+							break;
+						}
+					}
+				}
 			//}
 			Main.hardMode = false;
-			NPC.downedBoss1 = false;
-			NPC.downedBoss2 = false;
-			NPC.downedBoss3 = false;
-			NPC.downedMechBossAny = false;
-			NPC.downedMoonlord = false;
-			NPC.downedGolemBoss = false;
 
 			CalamitySupport.CalamityCalculateLootUnLoad();
 			ThoriumSupport.ThoriumCalculateLootUnLoad();

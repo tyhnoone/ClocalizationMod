@@ -27,10 +27,11 @@ namespace ZZLocalizationMod
 		[Tooltip("是, 以启用ZZLocalizationMod的辅助文本")]
 		public bool uitext;
 
-		[DefaultValue(true)]
-		[Label("ZZLocalizationMod掉落文本")]
-		[Tooltip("是, 将在物品提示中显示该物品的可掉落怪物")]
-		public bool droptext;
+		[Range(0, 30)]
+		[DefaultValue(10)]
+		[Label("ZZLocalizationMod掉落文本长度")]
+		[Tooltip("在物品提示中显示该物品的可掉落怪物列表中的怪物数量")]
+		public int droptext;
 
 		[DefaultValue(true)]
 		[Label("ZZLocalizationMod环境信息")]

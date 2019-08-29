@@ -22,23 +22,27 @@ namespace ZZLocalizationMod.Items
 		// Token: 0x0600004B RID: 75 RVA: 0x00006B08 File Offset: 0x00004D08
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
-			if (LanguageManager.Instance.ActiveCulture == GameCulture.Chinese && ModLoader.GetMod("CalamityMod") != null && item.type == ModLoader.GetMod("CalamityMod").ItemType("AccretionDisk"))
+			if (LanguageManager.Instance.ActiveCulture == GameCulture.Chinese && ModLoader.GetMod("CalamityMod") != null)
 			{
 				foreach (TooltipLine tooltipLine in tooltips)
 				{
 					if (tooltipLine.Name == "Damage")
 					{
-						string[] source = tooltipLine.text.Split(new char[]
-						{
-							' '
-						});
-						string str = source.First<string>();
-						string str2 = source.Last<string>();
-						tooltipLine.text = str + " 盗贼" + str2;
+						string str = tooltipLine.text;
+						string resultA = str.Replace("rogue ", "盗贼");
+						tooltipLine.text = resultA;
 					}
-					if (tooltipLine.Name == "Tooltip0")
+				}
+				if(item.type == ModLoader.GetMod("CalamityMod").ItemType("AccretionDisk"))
+				{
+					
+					foreach (TooltipLine tooltipLine in tooltips)
 					{
-						tooltipLine.text = "切裂真实!";
+						
+						if (tooltipLine.Name == "Tooltip0")
+						{
+							tooltipLine.text = "切裂真实!";
+						}
 					}
 				}
 			}

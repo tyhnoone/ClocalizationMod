@@ -62,6 +62,7 @@ namespace ZZLocalizationMod
 		public override void TileCountsAvailable(int[] tileCounts)
 		{
 			//CalamityMod
+			if(ModLoader.GetMod("CalamityMod") != null){
 			ZZLocalizationModWorld.calamityTiles = tileCounts[ModLoader.GetMod("CalamityMod").TileType("CharredOre")] + tileCounts[ModLoader.GetMod("CalamityMod").TileType("BrimstoneSlag")];
 			ZZLocalizationModWorld.sunkenSeaTiles = tileCounts[ModLoader.GetMod("CalamityMod").TileType("EutrophicSand")] + tileCounts[ModLoader.GetMod("CalamityMod").TileType("Navystone")] + tileCounts[ModLoader.GetMod("CalamityMod").TileType("SeaPrism")];
 			ZZLocalizationModWorld.abyssTiles = tileCounts[ModLoader.GetMod("CalamityMod").TileType("AbyssGravel")];
@@ -71,13 +72,16 @@ namespace ZZLocalizationMod
 			Main.sandTiles += num;
 			Main.snowTiles += num2;
 			ZZLocalizationModWorld.astralTiles = num + num2 + tileCounts[ModLoader.GetMod("CalamityMod").TileType("AstralDirt")] + tileCounts[ModLoader.GetMod("CalamityMod").TileType("AstralStone")] + tileCounts[ModLoader.GetMod("CalamityMod").TileType("AstralGrass")] + tileCounts[ModLoader.GetMod("CalamityMod").TileType("AstralOre")];
+			}
 			//ThoriumMod
+			if(ModLoader.GetMod("ThoriumMod") != null){
 			ZZLocalizationModWorld.AquaTiles = tileCounts[ModLoader.GetMod("ThoriumMod").TileType("MarineRock")];
 			ZZLocalizationModWorld.AquaTiles2 = tileCounts[ModLoader.GetMod("ThoriumMod").TileType("MarineRockMoss")];
 			ZZLocalizationModWorld.zoneMarble = tileCounts[367];
 			ZZLocalizationModWorld.zoneGranite = tileCounts[368];
+			}
 			//AAMod
-
+			if(ModLoader.GetMod("AAMod") != null){
 			ZZLocalizationModWorld.mireTiles = tileCounts[ModLoader.GetMod("AAMod").TileType("MireGrass")]+ tileCounts[ModLoader.GetMod("AAMod").TileType("Depthstone")] + tileCounts[ModLoader.GetMod("AAMod").TileType("Depthsand")] + tileCounts[ModLoader.GetMod("AAMod").TileType("Depthsandstone")] + tileCounts[ModLoader.GetMod("AAMod").TileType("DepthsandHardened")] + tileCounts[ModLoader.GetMod("AAMod").TileType("IndigoIce")];
             ZZLocalizationModWorld.infernoTiles = tileCounts[ModLoader.GetMod("AAMod").TileType("InfernoGrass")]+ tileCounts[ModLoader.GetMod("AAMod").TileType("Torchstone")] + tileCounts[ModLoader.GetMod("AAMod").TileType("Torchsand")] + tileCounts[ModLoader.GetMod("AAMod").TileType("Torchsandstone")] + tileCounts[ModLoader.GetMod("AAMod").TileType("TorchsandHardened")] + tileCounts[ModLoader.GetMod("AAMod").TileType("Torchice")] + tileCounts[ModLoader.GetMod("AAMod").TileType("TorchAsh")];
             ZZLocalizationModWorld.voidTiles = tileCounts[ModLoader.GetMod("AAMod").TileType("Doomstone")] + tileCounts[ModLoader.GetMod("AAMod").TileType("Apocalyptite")];
@@ -89,7 +93,7 @@ namespace ZZLocalizationMod
             ZZLocalizationModWorld.Radium = tileCounts[ModLoader.GetMod("AAMod").TileType("RadiumOre")];
             ZZLocalizationModWorld.HoardTiles = tileCounts[ModLoader.GetMod("AAMod").TileType("GreedBrick")] + tileCounts[ModLoader.GetMod("AAMod").TileType("GreedStone")] + tileCounts[ModLoader.GetMod("AAMod").TileType("GreedDoorClosed")] + tileCounts[ModLoader.GetMod("AAMod").TileType("GreedDoorOpen")];
             ZZLocalizationModWorld.CloudTiles = tileCounts[ModLoader.GetMod("AAMod").TileType("AcropolisBlock")] + tileCounts[ModLoader.GetMod("AAMod").TileType("AcropolisAltarBlock")] + tileCounts[ModLoader.GetMod("AAMod").TileType("AcropolisClouds")];
-        
+			}
 		}
 	}
 }

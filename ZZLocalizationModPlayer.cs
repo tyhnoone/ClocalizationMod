@@ -2,7 +2,8 @@
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using System.Collections.Generic;
+using Terraria.GameInput;
+using ZZLocalizationMod.Interface;
 
 namespace ZZLocalizationMod
 {
@@ -37,9 +38,12 @@ namespace ZZLocalizationMod
 				Main.NewText("You didn't select Chinese, so the Chinese and other modifytooltips won't take effect.", 67, 110, 238, false);
 			}
 		}
-			public override void SetupStartInventory(IList<Item> items, bool mediumcoreDeath)
+		public override void ProcessTriggers(TriggersSet triggersSet)
+		{
+			if (ZZLocalizationMod.ZZPlayerInfoOK.JustPressed)
 			{
-				base.player.inventory[1].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SilvaBathtub"), false);
+				ZZPlayerInfo.visible = !ZZPlayerInfo.visible;
 			}
+		}
 	}
 }

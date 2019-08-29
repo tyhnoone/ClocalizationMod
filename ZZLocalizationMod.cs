@@ -12,10 +12,7 @@ using Terraria.Localization;
 using Terraria.UI;
 using Terraria.UI.Chat;
 using Terraria.UI.Gamepad;
-using Terraria.Utilities;
-using Terraria.DataStructures;
-using Terraria.GameContent.UI;
-using ZZLocalizationMod.Items;
+using ZZLocalizationMod.Interface;
 
 namespace ZZLocalizationMod
 {
@@ -36,10 +33,35 @@ namespace ZZLocalizationMod
 		internal static ZZLocalizationMod instance;
 
 		internal static ModConfiguration modConfiguration;
+		private UserInterface ZZPlayerInterfaceUserInfo;
+		internal ZZPlayerInfo ZZPlayerInfo;
 
-		public override void Unload() {
+			
+			
+		public override void Load()
+		{
+			
+			ZZPlayerInfoOK = RegisterHotKey("人物信息菜单", "P");
+
+			ZZPlayerInfo = new ZZPlayerInfo();
+			ZZPlayerInfo.Activate();
+			ZZPlayerInterfaceUserInfo = new UserInterface();
+			ZZPlayerInterfaceUserInfo.SetState(ZZPlayerInfo);
+
+			if(ModLoader.GetMod("CalamityMod") != null && LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)
+			{
+				Mod mod = ModLoader.GetMod("CalamityMod");
+				CalamitySupport.CalamityAddLocalizations();
+			}
+			
+		}
+
+		public override void Unload() 
+		{
 			LootCache.instance = null;
 			modConfiguration = null;
+
+			ZZPlayerInfoOK = null;
 		}
 
 		public override void PostAddRecipes()
@@ -49,6 +71,7 @@ namespace ZZLocalizationMod
 				LootCacheManager.Setup(this);
 			}
 		}
+		public static ModHotKey ZZPlayerInfoOK;
 
 		public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers) 
 		{
@@ -65,10 +88,27 @@ namespace ZZLocalizationMod
 					InterfaceScaleType.UI)
 				);
 			}
+
+			int MouseTextIndexP = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
+			if (MouseTextIndexP != -1)
+			{
+				layers.Insert(MouseTextIndexP, new LegacyGameInterfaceLayer(
+					"ZZLocalizationMod: PlayerInfo",
+					delegate
+					{
+						if (ZZPlayerInfo.visible)
+						{
+							ZZPlayerInfo.Draw(Main.spriteBatch);
+						}
+						return true;
+					},
+					InterfaceScaleType.UI)
+				);
+			}
 			
 		}
 
-		public string zoneString(Player player) 
+		public static string zoneString(Player player) 
 		{
 			string zone="所处环境: ";
 			int num22 = (int)((double)((Main.player[Main.myPlayer].position.Y + (float)Main.player[Main.myPlayer].height) * 2f / 16f) - Main.worldSurface * 2.0);
@@ -123,50 +163,58 @@ namespace ZZLocalizationMod
 				float num4 = 215f;
 				int num5 = 0;
 				Player player = Main.player[Main.myPlayer];
-				for (int i = 0; i < 13; i++)
+				
+				for (int i = 0; i < 14; i++)
 				{
 					string text2 = "";
 					string text3 = "";
+					ZZLocalizationMod.instance.ZZPlayerInfo.UpdateValue(player);
 					if ((Main.npcChatText == null || Main.npcChatText == "") && Main.player[Main.myPlayer].sign < 0 && ZZLocalizationMod.modConfiguration.uitext)
 					{
-						if(i== (Main.playerInventory? 0:-1))
+						if(i== (Main.playerInventory? 0:-1) && !ZZPlayerInfo.visible)
 						{
 							
 							text2 = "每秒" + player.lifeRegen + "生命再生";
 							text3 = "生命再生速度";
 							
 						}
-						if(i== (Main.playerInventory? 1:-1))
+						if(i== (Main.playerInventory? 1:-1) && !ZZPlayerInfo.visible)
 						{
 							
 							text2 = "每秒" + player.manaRegen + "魔力再生";
 							text3 = "魔力再生速度";
 							
 						}
-						if(i== (Main.playerInventory? 2:-1))
+						if(i== (Main.playerInventory? 2:-1) && !ZZPlayerInfo.visible)
 						{
 							
-							text2 = player.wingTimeMax + "飞行时间";
+							text2 = player.wingTimeMax + "最大飞行时间";
 							text3 = "飞行时间";
 							
 						}
-						if(i== (Main.playerInventory? 3:-1))
+						if(i== (Main.playerInventory? 3:-1) && !ZZPlayerInfo.visible)
 						{
 							
 							text2 = "获得" + player.endurance*100 + "%伤害减免";
 							text3 = "伤害减免";
 						}
-						if(i== (Main.playerInventory? 4:-1))
+						if(i== (Main.playerInventory? 4:-1) && !ZZPlayerInfo.visible)
 						{
 							
 							text2 = "召唤物栏已用/上限："+ player.slotsMinions + " / " + player.maxMinions;
 							text3 = "召唤栏";
 						}
-						if(i== (Main.playerInventory? 5:-1))
+						if(i== (Main.playerInventory? 5:-1) && !ZZPlayerInfo.visible)
 						{
 							
 							text2 = "哨兵炮塔上限：" + player.maxTurrets;
 							text3 = "炮塔栏";
+						}
+						if(i== (Main.playerInventory? 6:-1)  && !ZZPlayerInfo.visible && ModLoader.GetMod("ThoriumMod") != null)
+						{
+							ModPlayer playerthorium = Main.player[Main.myPlayer].GetModPlayer(ModLoader.GetMod("ThoriumMod"), "ThoriumPlayer");
+							text2 = "瑟银乐师灵感: " + ModLoader.GetMod("ThoriumMod").GetPlayer("ThoriumPlayer").GetType().GetField("bardResource").GetValue(playerthorium)+"灵感";
+							text3 = "瑟银乐师灵感";
 						}
 						if(i== (Main.playerInventory? 8:0) && !flaghitlife)
 						{
@@ -236,7 +284,7 @@ namespace ZZLocalizationMod
 							}
 							flaghitlife = true ;
 						}
-						if(i== (Main.playerInventory? 12:6) && ZZLocalizationMod.modConfiguration.zonetext)
+						if(i== (Main.playerInventory? 13:6) && ZZLocalizationMod.modConfiguration.zonetext && !ZZPlayerInfo.visible)
 						{
 							
 							text2 = zoneString(player);
@@ -431,6 +479,13 @@ namespace ZZLocalizationMod
 					}
 				}
 				
+		}
+		public override void UpdateUI(GameTime gameTime)
+		{
+			if (ZZPlayerInterfaceUserInfo != null)
+			{
+				ZZPlayerInterfaceUserInfo.Update(gameTime);
+			}
 		}
 
 	}

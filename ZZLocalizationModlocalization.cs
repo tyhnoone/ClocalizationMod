@@ -6,11 +6,7 @@ namespace ZZLocalizationMod
 
 	public class ZZLocalizationModlocalization
 	{
-		public static void Load()
-		{
-			
-		}
-
+		
 		
 	}
 }

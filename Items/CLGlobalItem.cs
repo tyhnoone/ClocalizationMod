@@ -112,9 +112,9 @@ namespace ZZLocalizationMod.Items
 						lastname = npc.GivenOrTypeName;
 						string r = line.Replace("\n", "");
 						int num = (line.Length - r.Length);
-						if(num > 20) 
+						if(num >= ZZLocalizationMod.modConfiguration.droptext) 
 						{
-							line += "......等等";
+							line += "......";
 							break;
 						}
 					}
@@ -244,7 +244,7 @@ namespace ZZLocalizationMod.Items
 					tooltips.Add(line2);
 				}
 			}
-			if (ZZLocalizationMod.modConfiguration.droptext)
+			if(ZZLocalizationMod.modConfiguration.droptext != 0)
 			{
 				TooltipLine line3 = new TooltipLine(base.mod, "dropNPC", "");
 				TooltipLine line4 = new TooltipLine(base.mod, "dropNPC2", "");

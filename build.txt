@@ -1,4 +1,5 @@
 displayName = 汉化辅助(内含部分灾厄文本汉化)
 author = Cerberus
-version = 0.3
+version = 0.4
 includePDB = true
+weakReferences = CalamityMod, ThoriumMod, AAMod

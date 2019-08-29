@@ -390,7 +390,64 @@ namespace ZZLocalizationMod.Items
 				ModTile tilename = TileLoader.GetTile(item.createTile);
 				if (tilename != null && tilename.minPick > 0)
 				{
-					tooltips.Insert(1, new TooltipLine(base.mod, Lang.GetItemNameValue(item.type), "挖掘镐力需求：" + tilename.minPick + "%")
+					tooltips.Insert(1, new TooltipLine(base.mod, "minpick", "挖掘镐力需求：" + tilename.minPick + "%")
+					{
+						overrideColor = new Color?(Color.Goldenrod)
+					});
+				}
+				if(item.createTile == 25 || item.createTile == 203 || item.createTile == 25 || item.createTile == 203
+				|| item.createTile == 117 || item.createTile == 404 || item.createTile == 56 || item.createTile == 58)
+				{
+					tooltips.Insert(1, new TooltipLine(base.mod, "minpick", "挖掘镐力需求：" + 65 + "%")
+					{
+						overrideColor = new Color?(Color.Goldenrod)
+					});
+				}
+				if(item.createTile == 22 || item.createTile == 204)
+				{
+					tooltips.Insert(1, new TooltipLine(base.mod, "minpick", "挖掘镐力需求：" + 55 + "%")
+					{
+						overrideColor = new Color?(Color.Goldenrod)
+					});
+				}
+				if(item.createTile == 211)
+				{
+					tooltips.Insert(1, new TooltipLine(base.mod, "minpick", "挖掘镐力需求：" + 200 + "%")
+					{
+						overrideColor = new Color?(Color.Goldenrod)
+					});
+				}
+				if(item.createTile == 37)
+				{
+					tooltips.Insert(1, new TooltipLine(base.mod, "minpick", "挖掘镐力需求：" + 50 + "%")
+					{
+						overrideColor = new Color?(Color.Goldenrod)
+					});
+				}
+				if(item.createTile == 226 || item.createTile == 237)
+				{
+					tooltips.Insert(1, new TooltipLine(base.mod, "minpick", "挖掘镐力需求：" + 210 + "%")
+					{
+						overrideColor = new Color?(Color.Goldenrod)
+					});
+				}
+				if(item.createTile == 107 || item.createTile == 221)
+				{
+					tooltips.Insert(1, new TooltipLine(base.mod, "minpick", "挖掘镐力需求：" + 100 + "%")
+					{
+						overrideColor = new Color?(Color.Goldenrod)
+					});
+				}
+				if(item.createTile == 108 || item.createTile == 222)
+				{
+					tooltips.Insert(1, new TooltipLine(base.mod, "minpick", "挖掘镐力需求：" + 110 + "%")
+					{
+						overrideColor = new Color?(Color.Goldenrod)
+					});
+				}
+				if(item.createTile == 111 || item.createTile == 223)
+				{
+					tooltips.Insert(1, new TooltipLine(base.mod, "minpick", "挖掘镐力需求：" + 150 + "%")
 					{
 						overrideColor = new Color?(Color.Goldenrod)
 					});
