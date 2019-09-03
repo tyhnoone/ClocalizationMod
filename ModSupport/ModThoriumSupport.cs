@@ -198,6 +198,213 @@ namespace ZZLocalizationMod
 			}
 			ThoriumSupport.Unload();
 		}
+		public static void ThoriumBardClass()
+		{
+			for (int i = 0; i < 100; i++)
+			{
+                if (Main.combatText[i].text == "+4 defense" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+4 防御";
+                }
+                if (Main.combatText[i].text == "+8 defense" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+8 防御";
+                }
+                if (Main.combatText[i].text == "+12 defense" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+12 防御";
+                }
+                if (Main.combatText[i].text == "+16 defense" && Main.combatText[i].active)
+				{
+                     Main.combatText[i].text = "+16 防御";
+                }
+				if (Main.combatText[i].text == "+4% attack speed" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+4%攻击速度";
+                }
+				if (Main.combatText[i].text == "+8% attack speed" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+8%攻击速度";
+                }
+				if (Main.combatText[i].text == "+12% attack speed" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+12%攻击速度";
+                }
+				if (Main.combatText[i].text == "+16% attack speed" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+16%攻击速度";
+                }
+                if (Main.combatText[i].text == "+4% damage" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+4%伤害";
+                }
+                if (Main.combatText[i].text == "+8% damage" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+8%伤害";
+                }
+                if (Main.combatText[i].text == "+12% damage" && Main.combatText[i].active)
+				{
+                     Main.combatText[i].text = "+12%伤害";
+                }
+				if (Main.combatText[i].text == "+16% damage" && Main.combatText[i].active)
+				{
+                     Main.combatText[i].text = "+16%伤害";
+                }
+				if (Main.combatText[i].text == "+4% damage reduction" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+4%伤害减免";
+                }
+                if (Main.combatText[i].text == "+8% damage reduction" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+8%伤害减免";
+                }
+                if (Main.combatText[i].text == "+12% damage reduction" && Main.combatText[i].active)
+				{
+                     Main.combatText[i].text = "+12%伤害减免";
+                }
+				if (Main.combatText[i].text == "+16% damage reduction" && Main.combatText[i].active)
+				{
+                     Main.combatText[i].text = "+16%伤害减免";
+                }
+				if (Main.combatText[i].text == "+4% critical strike chance" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+4%暴击率";
+                }
+                if (Main.combatText[i].text == "+8% critical strike chance" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+8%暴击率";
+                }
+                if (Main.combatText[i].text == "+12% critical strike chance" && Main.combatText[i].active)
+				{
+                     Main.combatText[i].text = "+12%暴击率";
+                }
+				if (Main.combatText[i].text == "+16% critical strike chance" && Main.combatText[i].active)
+				{
+                     Main.combatText[i].text = "+16%暴击率";
+                }
+				if (Main.combatText[i].text == "+2 mana/sec" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+2魔力/秒";
+                }
+				if (Main.combatText[i].text == "+4 mana/sec" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+4魔力/秒";
+                }
+				if (Main.combatText[i].text == "+6 mana/sec" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+6魔力/秒";
+                }
+				if (Main.combatText[i].text == "+8 mana/sec" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+8魔力/秒";
+                }
+				if (Main.combatText[i].text == "+5% maximum life" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+5%生命上限";
+                }
+				if (Main.combatText[i].text == "+7.5% maximum life" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+7.5%生命上限";
+                }
+				if (Main.combatText[i].text == "+10% maximum life" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+10%生命上限";
+                }
+				if (Main.combatText[i].text == "+12.5% maximum life" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+12.5%生命上限";
+                }
+				if (Main.combatText[i].text == "+5% maximum mana" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+5%魔力上限";
+                }
+				if (Main.combatText[i].text == "+10% maximum mana" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+10%魔力上限";
+                }
+				if (Main.combatText[i].text == "+15% maximum mana" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+15%魔力上限";
+                }
+				if (Main.combatText[i].text == "+20% maximum mana" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+20%魔力上限";
+                }
+				if (Main.combatText[i].text == "+10% movement speed" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+10%移动速度";
+                }
+				if (Main.combatText[i].text == "+15% movement speed" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+15%移动速度";
+                }
+				if (Main.combatText[i].text == "+20% movement speed" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+20%移动速度";
+                }
+				if (Main.combatText[i].text == "+25% movement speed" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+25%移动速度";
+                }
+				if (Main.combatText[i].text == "+2 life/sec" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+2生命/秒";
+                }
+				if (Main.combatText[i].text == "+4 life/sec" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+4生命/秒";
+                }
+				if (Main.combatText[i].text == "+6 life/sec" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+6生命/秒";
+                }
+				if (Main.combatText[i].text == "+8 life/sec" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "+8生命/秒";
+                }
+				if (Main.combatText[i].text == "-4% ammo consumption" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "-4%弹药消耗";
+                }
+				if (Main.combatText[i].text == "-8% ammo consumption" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "-8%弹药消耗";
+                }
+				if (Main.combatText[i].text == "-12% ammo consumption" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "-12%弹药消耗";
+                }
+				if (Main.combatText[i].text == "-16% ammo consumption" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "-16%弹药消耗";
+                }
+				if (Main.combatText[i].text == "STRIKE" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "攻 击";
+                }
+				if (Main.combatText[i].text == "Will display heal streaks" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "将显示治愈文字";
+                }
+				if (Main.combatText[i].text == "Will NOT display heal streaks" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "将不会显示治愈文字";
+                }
+				if (Main.combatText[i].text == " life heal streak" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "生命治疗量";
+                }
+				if (Main.combatText[i].text == "ERADICATED" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "根 除";
+                }
+				if (Main.combatText[i].text == "Close call" && Main.combatText[i].active)
+				{
+                    Main.combatText[i].text = "脱险";
+                }
+				
+            }
+		}
 
 		// Token: 0x04000049 RID: 73
 		private static string[][] _translations;

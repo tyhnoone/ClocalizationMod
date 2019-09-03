@@ -16,6 +16,13 @@ namespace ZZLocalizationMod.Items
 			{
 				foreach (TooltipLine tooltipLine in tooltips)
 				{
+					if (tooltipLine.Name == "AccesoryWarning")
+					{
+						string str = tooltipLine.text;
+						string resultA = str.Replace("-Sound Device-", "-音响设备-");
+						string resultB = resultA.Replace("-Gem Ring-", "-宝石戒指-");
+						tooltipLine.text = resultB;
+					}
 					if (tooltipLine.Name == "TransformationTag")
 					{
 						string str = tooltipLine.text;
@@ -46,7 +53,7 @@ namespace ZZLocalizationMod.Items
 						string str = tooltipLine.text;
 						string resultA = str.Replace("Uses ", "使用");
 						string resultB = resultA.Replace(" mana & ", "魔法以及");
-						string resultC = str.Replace(" life", "生命");
+						string resultC = resultB.Replace(" life", "生命");
 						tooltipLine.text = resultC;
 					}
 					if (tooltipLine.Name == "ButterflyTag")
@@ -60,8 +67,8 @@ namespace ZZLocalizationMod.Items
 					{
 						string str = tooltipLine.text;
 						string resultA = str.Replace(" symphonic damage", "交响伤害");
-						string resultB = resultA.Replace(" radiant damage", "交响伤害");
-						tooltipLine.text = resultA;
+						string resultB = resultA.Replace(" radiant damage", "光辉伤害");
+						tooltipLine.text = resultB;
 					}
 					if (tooltipLine.Name == "CritChance")
 					{

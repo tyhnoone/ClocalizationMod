@@ -673,6 +673,10 @@ namespace ZZLocalizationMod.Items
 						{
 							overrideColor = new Color?(Color.LightBlue)
 						});
+						tooltips.Insert(3, new TooltipLine(base.mod, "PerennialOre", "zzMod注: Perennial 多年生的(植物) 结合世纪之花的对话\n推荐翻译: 亘青锭")
+						{
+							overrideColor = new Color?(Color.Gray)
+						});
 					}
 					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("UelibloomOre"))
 					{

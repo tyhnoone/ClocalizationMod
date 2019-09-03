@@ -12,7 +12,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using Terraria.ModLoader.IO;
+using Terraria.GameContent.Events;
 
 namespace ZZLocalizationMod
 {
@@ -339,6 +339,7 @@ namespace ZZLocalizationMod
 						itemToNPCs.Value.RemoveAll(x => x.mod == modName);
 					}
 					modsThatNeedRecalculate.Add(modName);
+					modsThatNeedRecalculate.Add("Terraria");
 					li.cachedMods[modName] = m.Version; // (new Tuple<string, Version>(modName, m.Version));
 				}
 			}
@@ -357,7 +358,7 @@ namespace ZZLocalizationMod
 					catch {
 					}
 				}
-				setLoadProgressText?.Invoke("正在计算掉落物品，时间较长请稍等");
+				setLoadProgressText?.Invoke("正在重新计算掉落物品，时间较长请稍等");
 				setLoadProgressProgress?.Invoke(0f);
 
 				// expert drops?
@@ -402,6 +403,13 @@ namespace ZZLocalizationMod
 				var oldRand = Main.rand;
 				if (Main.rand == null)
 					Main.rand = new Terraria.Utilities.UnifiedRandom();
+
+				Main.hardMode = true;
+
+				Main.expertMode = true;
+				CalamitySupport.CalamityCalculateLootLoad();
+				ThoriumSupport.ThoriumCalculateLootLoad();
+				AASupport.AACalculateLootLoad();
 
 				for (int i = 1; i < NPCLoader.NPCCount; i++) // for every npc...
 				{
@@ -455,7 +463,7 @@ namespace ZZLocalizationMod
 
 				// Reset Load Mods Progress bar
 				setLoadSubProgressText?.Invoke("");
-				setLoadProgressText?.Invoke("Adding Recipes");
+				setLoadProgressText?.Invoke("添加合成");
 				setLoadProgressProgress?.Invoke(0f);
 			}
 			LootCacheManagerActive = false;
@@ -499,12 +507,26 @@ namespace ZZLocalizationMod
 		internal static void CalculateLoot(NPC npc, Player player)
 		{
 			ModItem itembag = null;
-			Main.hardMode = true;//return;
-																	// Hmmmmmm, start hardmode code might overwrite world....
-			Main.expertMode = true;
-			CalamitySupport.CalamityCalculateLootLoad();
-			ThoriumSupport.ThoriumCalculateLootLoad();
-			AASupport.AACalculateLootLoad();
+			
+			if(npc.type == 22)	 npc.GivenName = "Andrew";
+
+			if(npc.type == 564 || npc.type == 565 ||npc.type == 576 ||npc.type == 577) DD2Event.Ongoing = true;
+
+			if(npc.type == 345 || npc.type == 346 || npc.type == 344) {Main.dayTime=false;Main.snowMoon =true;}
+
+			if(npc.type == 54 || npc.type == 55 || npc.type == 56 || npc.type == 325 || npc.type == 326 || npc.type == 327|| npc.type == 315 || (npc.type >= 305 && npc.type <= 314)) {Main.dayTime=false;Main.pumpkinMoon =true;}
+
+			if(npc.type == 489 || npc.type == 490 || npc.type == 109 ) {Main.dayTime=false; Main.bloodMoon =true;}
+
+			if(ModLoader.GetMod("CalamityMod") != null)
+			{
+				if(npc.type == ModLoader.GetMod("CalamityMod").NPCType("Yharon")) 
+				{
+					npc.modNPC.npc.ai[0] = 25f;
+					npc.modNPC.npc.ai[2] = 190;
+					npc.modNPC.npc.timeLeft = 6;
+				}
+			}
 
 			npc.Center = new Microsoft.Xna.Framework.Vector2(1000, 1000);
 			int iterationsWithNoChange = 0;
@@ -593,6 +615,7 @@ namespace ZZLocalizationMod
 						break;
 					}
 				}
+				
 				if (anyNew)
 					iterationsWithNoChange = 0;
 				else
@@ -601,6 +624,12 @@ namespace ZZLocalizationMod
 				if (iterationsWithNoChange > 250)
 					break;
 			}
+
+			
+			Main.snowMoon = false;
+			Main.pumpkinMoon = false;
+			Main.bloodMoon = false;
+			DD2Event.Ongoing = false;
 			
 				for (int i = 0; i < 500; i++)
 				{
@@ -627,11 +656,7 @@ namespace ZZLocalizationMod
 					}
 				}
 			//}
-			Main.hardMode = false;
-
-			CalamitySupport.CalamityCalculateLootUnLoad();
-			ThoriumSupport.ThoriumCalculateLootUnLoad();
-			AASupport.AACalculateLootUnLoad();
+			
 		}
 	}
 

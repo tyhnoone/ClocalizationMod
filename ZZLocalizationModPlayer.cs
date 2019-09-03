@@ -4,6 +4,9 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.GameInput;
 using ZZLocalizationMod.Interface;
+using Terraria.ID;
+using Terraria.DataStructures;
+using Terraria.GameContent.Tile_Entities;
 
 namespace ZZLocalizationMod
 {
@@ -40,10 +43,24 @@ namespace ZZLocalizationMod
 		}
 		public override void ProcessTriggers(TriggersSet triggersSet)
 		{
+
 			if (ZZLocalizationMod.ZZPlayerInfoOK.JustPressed)
 			{
 				ZZPlayerInfo.visible = !ZZPlayerInfo.visible;
 			}
+			//if (ZZLocalizationMod.ZZRecipeInfoOK.JustPressed)
+			//{
+			//	Item item = new Item();
+			//	if(!Main.HoverItem.IsAir)
+			//	{
+			//		ZZRicipeInfo.visible = true;
+			//		item = Main.HoverItem;
+			//	}
+			//	else ZZRicipeInfo.visible = false;
+			//	Player player = Main.player[Main.myPlayer];
+			//	ZZLocalizationMod.instance.ZZRecipeInfoUI.UpdateValue(item,player);
+			//}
 		}
+
 	}
 }

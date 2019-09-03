@@ -13,6 +13,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Terraria.DataStructures;
 
+
 namespace ZZLocalizationMod.Interface
 {
 	class ZZPlayerInfo : UIState
@@ -422,7 +423,7 @@ namespace ZZLocalizationMod.Interface
 				Color stresscolor;
 				if(stress == stressMax)
 				{
-					stresscolor = Color.Green;
+					stresscolor = Color.PaleGreen;
 				}
 				else
 				{
@@ -431,7 +432,7 @@ namespace ZZLocalizationMod.Interface
 				Color adrenalinecolor;
 				if(adrenaline == adrenalineMax)
 				{
-					adrenalinecolor = Color.Green;
+					adrenalinecolor = Color.PaleGreen;
 				}
 				else
 				{
@@ -545,8 +546,8 @@ namespace ZZLocalizationMod.Interface
 					DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "召唤物击退增加" + minionknockback + "%", new Vector2(shopx, shopy+70), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
 					if(ModLoader.GetMod("CalamityMod") != null)
 					{
-						DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "灾厄远程熟练度：" + (summonLevel - ((summonLevel > 12500) ? 1 : 0)), new Vector2(shopx, shopy+140), Color.DarkRed, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
-						DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "灾厄远程等级：" + exactSummonLevel, new Vector2(shopx, shopy+170), Color.DarkRed, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
+						DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "灾厄召唤熟练度：" + (summonLevel - ((summonLevel > 12500) ? 1 : 0)), new Vector2(shopx, shopy+140), Color.DarkRed, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
+						DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "灾厄召唤等级：" + exactSummonLevel, new Vector2(shopx, shopy+170), Color.DarkRed, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
 					}
 				}
 				if(ZZPlayerInfo.PlayButton[4])

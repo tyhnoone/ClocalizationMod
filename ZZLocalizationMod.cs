@@ -13,6 +13,14 @@ using Terraria.UI;
 using Terraria.UI.Chat;
 using Terraria.UI.Gamepad;
 using ZZLocalizationMod.Interface;
+using Terraria.GameContent.UI;
+using Terraria.GameContent.UI.Elements;
+using Terraria.GameInput;
+using Terraria.ModLoader.Audio;
+using Terraria.ModLoader.Default;
+using Terraria.ModLoader.Exceptions;
+using Terraria.ModLoader.IO;
+using Terraria.ModLoader.UI;
 
 namespace ZZLocalizationMod
 {
@@ -33,8 +41,10 @@ namespace ZZLocalizationMod
 		internal static ZZLocalizationMod instance;
 
 		internal static ModConfiguration modConfiguration;
-		private UserInterface ZZPlayerInterfaceUserInfo;
-		internal ZZPlayerInfo ZZPlayerInfo;
+		internal static UserInterface ZZPlayerInterfaceUserInfo;
+		internal ZZPlayerInfo ZZPlayerInfoUI;
+		internal static UserInterface ZZRecipeInterfaceUserInfo;
+		internal ZZRicipeInfo ZZRecipeInfoUI;
 
 			
 			
@@ -43,16 +53,29 @@ namespace ZZLocalizationMod
 			
 			ZZPlayerInfoOK = RegisterHotKey("人物信息菜单", "P");
 
-			ZZPlayerInfo = new ZZPlayerInfo();
-			ZZPlayerInfo.Activate();
+			ZZPlayerInfoUI = new ZZPlayerInfo();
+			ZZPlayerInfoUI.Activate();
 			ZZPlayerInterfaceUserInfo = new UserInterface();
-			ZZPlayerInterfaceUserInfo.SetState(ZZPlayerInfo);
+			ZZPlayerInterfaceUserInfo.SetState(ZZPlayerInfoUI);
+
+			//ZZRecipeInfoOK = RegisterHotKey("物品合成菜单", "O");
+
+			ZZRecipeInfoUI = new ZZRicipeInfo();
+			ZZRecipeInfoUI.Activate();
+			ZZRecipeInterfaceUserInfo = new UserInterface();
+			ZZRecipeInterfaceUserInfo.SetState(ZZRecipeInfoUI);
 
 			if(ModLoader.GetMod("CalamityMod") != null && LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)
 			{
 				Mod mod = ModLoader.GetMod("CalamityMod");
 				CalamitySupport.CalamityAddLocalizations();
 			}
+			if(ModLoader.GetMod("ThoriumMod") != null && LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)
+			{
+				Mod mod = ModLoader.GetMod("ThoriumMod");
+				ThoriumSupport.AddLocalizations();
+			}
+			
 			
 		}
 
@@ -62,6 +85,7 @@ namespace ZZLocalizationMod
 			modConfiguration = null;
 
 			ZZPlayerInfoOK = null;
+			//ZZRecipeInfoOK = null;
 		}
 
 		public override void PostAddRecipes()
@@ -71,10 +95,27 @@ namespace ZZLocalizationMod
 				LootCacheManager.Setup(this);
 			}
 		}
+
+		public override void PostSetupContent()
+		{
+			CalamitySupport.Setup();
+		}
+
 		public static ModHotKey ZZPlayerInfoOK;
+		public static ModHotKey ZZRecipeInfoOK;
 
 		public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers) 
 		{
+			if(ModLoader.GetMod("CalamityMod") != null && LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)
+			{
+				CalamitySupport.CalamityNPCChat();
+			}
+			if(ModLoader.GetMod("ThoriumMod") != null && LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)
+			{
+				ThoriumSupport.ThoriumBardClass();
+			}
+
+
 
 			int inventoryIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Info Accessories Bar"));
 			if (inventoryIndex != -1) {
@@ -98,7 +139,24 @@ namespace ZZLocalizationMod
 					{
 						if (ZZPlayerInfo.visible)
 						{
-							ZZPlayerInfo.Draw(Main.spriteBatch);
+							ZZPlayerInfoUI.Draw(Main.spriteBatch);
+						}
+						return true;
+					},
+					InterfaceScaleType.UI)
+				);
+			}
+
+			int MouseTextIndexP2 = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Info Accessories Bar"));
+			if (MouseTextIndexP2 != -1)
+			{
+				layers.Insert(MouseTextIndexP2, new LegacyGameInterfaceLayer(
+					"ZZLocalizationMod: RecipeInfo",
+					delegate
+					{
+						if (ZZRicipeInfo.visible)
+						{
+							ZZRecipeInfoUI.Draw(Main.spriteBatch);
 						}
 						return true;
 					},
@@ -168,7 +226,7 @@ namespace ZZLocalizationMod
 				{
 					string text2 = "";
 					string text3 = "";
-					ZZLocalizationMod.instance.ZZPlayerInfo.UpdateValue(player);
+					ZZLocalizationMod.instance.ZZPlayerInfoUI.UpdateValue(player);
 					if ((Main.npcChatText == null || Main.npcChatText == "") && Main.player[Main.myPlayer].sign < 0 && ZZLocalizationMod.modConfiguration.uitext)
 					{
 						if(i== (Main.playerInventory? 0:-1) && !ZZPlayerInfo.visible)
@@ -485,6 +543,10 @@ namespace ZZLocalizationMod
 			if (ZZPlayerInterfaceUserInfo != null)
 			{
 				ZZPlayerInterfaceUserInfo.Update(gameTime);
+			}
+			if (ZZRecipeInterfaceUserInfo != null)
+			{
+				ZZRecipeInterfaceUserInfo.Update(gameTime);
 			}
 		}
 

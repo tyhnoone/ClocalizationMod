@@ -23,20 +23,25 @@ namespace ZZLocalizationMod
 		public override ConfigScope Mode => ConfigScope.ServerSide;
 		
 		[DefaultValue(true)]
-		[Label("ZZLocalizationMod辅助文本")]
-		[Tooltip("是, 以启用ZZLocalizationMod的辅助文本")]
+		[Label("辅助文本")]
+		[Tooltip("是, 以启用ZZLocalizationMod的辅助文本, 默认为是")]
 		public bool uitext;
 
 		[Range(0, 30)]
 		[DefaultValue(10)]
-		[Label("ZZLocalizationMod掉落文本长度")]
-		[Tooltip("在物品提示中显示该物品的可掉落怪物列表中的怪物数量")]
+		[Label("掉落文本长度")]
+		[Tooltip("在物品提示中显示该物品的可掉落怪物列表中的怪物数量, 默认为10")]
 		public int droptext;
 
 		[DefaultValue(true)]
-		[Label("ZZLocalizationMod环境信息")]
-		[Tooltip("是, 将显示玩家所处的环境")]
+		[Label("环境信息")]
+		[Tooltip("是, 将显示玩家所处的环境, 默认为是")]
 		public bool zonetext;
+
+		[DefaultValue(true)]
+		[Label("NPC购买信息")]
+		[Tooltip("是, 将显示玩家可购买的npc物品, 默认为是")]
+		public bool buytext;
 		
 
 		public override ModConfig Clone() {

@@ -61,6 +61,9 @@ namespace ZZLocalizationMod
 		}
 		public override void TileCountsAvailable(int[] tileCounts)
 		{
+			
+			ZZLocalizationModWorld.zoneMarble = tileCounts[367];
+			ZZLocalizationModWorld.zoneGranite = tileCounts[368];
 			//CalamityMod
 			if(ModLoader.GetMod("CalamityMod") != null){
 			ZZLocalizationModWorld.calamityTiles = tileCounts[ModLoader.GetMod("CalamityMod").TileType("CharredOre")] + tileCounts[ModLoader.GetMod("CalamityMod").TileType("BrimstoneSlag")];
@@ -77,8 +80,6 @@ namespace ZZLocalizationMod
 			if(ModLoader.GetMod("ThoriumMod") != null){
 			ZZLocalizationModWorld.AquaTiles = tileCounts[ModLoader.GetMod("ThoriumMod").TileType("MarineRock")];
 			ZZLocalizationModWorld.AquaTiles2 = tileCounts[ModLoader.GetMod("ThoriumMod").TileType("MarineRockMoss")];
-			ZZLocalizationModWorld.zoneMarble = tileCounts[367];
-			ZZLocalizationModWorld.zoneGranite = tileCounts[368];
 			}
 			//AAMod
 			if(ModLoader.GetMod("AAMod") != null){
