@@ -715,66 +715,90 @@ namespace ZZLocalizationMod
 
 		public static void CalamityNPCChat()
 		{
-				if(Main.npcChatText == "Pockets of ore have appeared once more in the land. This will allow you to create the most powerful weaponry and armor imagined!")
+			for (int k = 0; k < 200; k++)
+			{
+				if(Main.npc[k].type == ModLoader.GetMod("CalamityMod").NPCType("DILF"))
 				{
-					string chatch = "在这片土地上又出现了一些新矿石. 这将让你打造出最强大的武器和盔甲！";
-					string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
-					Main.npcChatText = chatresult;
+					if(Main.npcChatText == "Pockets of ore have appeared once more in the land. This will allow you to create the most powerful weaponry and armor imagined!")
+					{
+						string chatch = "在这片土地上又出现了一些新矿石. 这将让你打造出最强大的武器和盔甲！";
+						string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
+						Main.npcChatText = chatresult;
+					}
+					if(Main.npcChatText == "Lord Yharim possesses god-like strength. He may not even fight you at full power which is fortunate for you. His attacks may just kill you in one hit, so be careful.")
+					{
+						string chatch = "犽戾武领主拥有着上帝般的力量. 幸运的是他可能不会出全力和你打, 他的攻击对你来说可以说是一击毙命, 所以务必小心";
+						string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
+						Main.npcChatText = chatresult;
+					}
+					if(Main.npcChatText == "Draedon's style of confrontation is very...alien and hands-off. You may be more likely to fight any one of his mechs before taking him down.")
+					{
+						string chatch = "嘉登的作战方式非常...另类, 就是放手不管. 击败他, 你可能需要打败他创造的每个机械玩具";
+						string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
+						Main.npcChatText = chatresult;
+					}
+					if(Main.npcChatText == "With the cosmic steel you can fashion many of your weapons into much more powerful forms.")
+					{
+						string chatch = "有了宇宙金属, 你可以把你的武器更新到更强力的形态";
+						string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
+						Main.npcChatText = chatresult;
+					}
+					if(Main.npcChatText == "The Devourer of God’s cosmic armor is unique in that it is capable of not only protecting his body from tearing itself apart when ripping through the fabric of space and time, but also allows him to control his powers.")
+					{
+						string chatch = "神明吞噬者的宇宙装甲是独一无二的, 既可以保护他在时空分裂时他的身体不会被撕裂, 也可以让他灵活自如地操控自己的能量";
+						string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
+						Main.npcChatText = chatresult;
+					}
+					if(Main.npcChatText == "The Devourer of God�s cosmic armor is unique in that it is capable of not only protecting his body from tearing itself apart when ripping through the fabric of space and time, but also allows him to control his powers.")
+					{
+						string chatch = "神明吞噬者的宇宙装甲是独一无二的, 既可以保护他在时空分裂时他的身体不会被撕裂, 也可以让他灵活自如地操控自己的能量";
+						string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
+						Main.npcChatText = chatresult;
+					}
+					if(Main.npcChatText == "The Devourer of Gods is extremely powerful. However, he is young, foolhardy, and very lazy. Perhaps if he had been given time to develop he would have turned into quite the threat.")
+					{
+						string chatch = "神明吞噬者相当强力. 但是, 他还年轻, 有勇无谋, 而且非常懒. 也许如果给他时间去成长, 他会成为一个巨大的威胁的";
+						string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
+						Main.npcChatText = chatresult;
+					}
+					if(Main.npcChatText == "Ah, the dragon Yharon is fickle. You may find that he will refuse to use his full power unless you are strong enough to unleash the power of the Dark Sun.")
+					{
+						string chatch = "啊, 丛林龙亚戎脾气怪异. 你可能会发现他会拒绝使用他的全部力量, 除非你有足够的力量来释放黑暗之日的全部力量";
+						string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
+						Main.npcChatText = chatresult;
+					}
+					if(Main.npcChatText == "The Rune of Kos holds a significant portion of Providence�s brand of magic, easily distinguishable from all others. Activating it in certain places would have some...risky consequences.")
+					{
+						string chatch = "宇宙符文拥有着亵渎天神魔法的重要部分, 很容易和其他的区分开来. 在某些地方激活它会产生一些......危险的后果";
+						string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
+						Main.npcChatText = chatresult;
+					}
+					if(Main.npcChatText == "The Rune of Kos holds a significant portion of Providence's brand of magic, easily distinguishable from all others. Activating it in certain places would have some...risky consequences.")
+					{
+						string chatch = "宇宙符文拥有着亵渎天神魔法的重要部分, 很容易和其他的区分开来. 在某些地方激活它会产生一些......危险的后果";
+						string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
+						Main.npcChatText = chatresult;
+					}
 				}
-				if(Main.npcChatText == "Lord Yharim possesses god-like strength. He may not even fight you at full power which is fortunate for you. His attacks may just kill you in one hit, so be careful.")
+				if(Main.npc[k].type == ModLoader.GetMod("CalamityMod").NPCType("FAP"))
 				{
-					string chatch = "犽戾武领主拥有着上帝般的力量. 幸运的是他可能不会出全力和你打, 他的攻击对你来说可以说是一击毙命, 所以务必小心";
-					string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
-					Main.npcChatText = chatresult;
+					string chatch1 = "你已经失败死亡了";
+					string chatch2= "次";
+					string chatch3= "次";
+					string chatresult1 = Main.npcChatText.Replace("You have failed ", chatch1);
+					string chatresult2 = chatresult1.Replace(" times", chatch2);
+					string chatresult3 = chatresult2.Replace(" time", chatch3);
+					Main.npcChatText = chatresult3;
+
+					if(Main.npcChatText == "Death Count")
+					{
+						string chatch = "死亡计数";
+						string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
+						Main.npcChatText = chatresult;
+					}
+					
 				}
-				if(Main.npcChatText == "Draedon's style of confrontation is very...alien and hands-off. You may be more likely to fight any one of his mechs before taking him down.")
-				{
-					string chatch = "嘉登的作战方式非常...另类, 就是放手不管. 击败他, 你可能需要打败他创造的每个机械玩具";
-					string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
-					Main.npcChatText = chatresult;
-				}
-				if(Main.npcChatText == "With the cosmic steel you can fashion many of your weapons into much more powerful forms.")
-				{
-					string chatch = "有了宇宙金属, 你可以把你的武器更新到更强力的形态";
-					string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
-					Main.npcChatText = chatresult;
-				}
-				if(Main.npcChatText == "The Devourer of God’s cosmic armor is unique in that it is capable of not only protecting his body from tearing itself apart when ripping through the fabric of space and time, but also allows him to control his powers.")
-				{
-					string chatch = "神明吞噬者的宇宙装甲是独一无二的, 既可以保护他在时空分裂时他的身体不会被撕裂, 也可以让他灵活自如地操控自己的能量";
-					string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
-					Main.npcChatText = chatresult;
-				}
-				if(Main.npcChatText == "The Devourer of God�s cosmic armor is unique in that it is capable of not only protecting his body from tearing itself apart when ripping through the fabric of space and time, but also allows him to control his powers.")
-				{
-					string chatch = "神明吞噬者的宇宙装甲是独一无二的, 既可以保护他在时空分裂时他的身体不会被撕裂, 也可以让他灵活自如地操控自己的能量";
-					string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
-					Main.npcChatText = chatresult;
-				}
-				if(Main.npcChatText == "The Devourer of Gods is extremely powerful. However, he is young, foolhardy, and very lazy. Perhaps if he had been given time to develop he would have turned into quite the threat.")
-				{
-					string chatch = "神明吞噬者相当强力. 但是, 他还年轻, 有勇无谋, 而且非常懒. 也许如果给他时间去成长, 他会成为一个巨大的威胁的";
-					string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
-					Main.npcChatText = chatresult;
-				}
-				if(Main.npcChatText == "Ah, the dragon Yharon is fickle. You may find that he will refuse to use his full power unless you are strong enough to unleash the power of the Dark Sun.")
-				{
-					string chatch = "啊, 丛林龙亚戎脾气怪异. 你可能会发现他会拒绝使用他的全部力量, 除非你有足够的力量来释放黑暗之日的全部力量";
-					string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
-					Main.npcChatText = chatresult;
-				}
-				if(Main.npcChatText == "The Rune of Kos holds a significant portion of Providence�s brand of magic, easily distinguishable from all others. Activating it in certain places would have some...risky consequences.")
-				{
-					string chatch = "宇宙符文拥有着亵渎天神魔法的重要部分, 很容易和其他的区分开来. 在某些地方激活它会产生一些......危险的后果";
-					string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
-					Main.npcChatText = chatresult;
-				}
-				if(Main.npcChatText == "The Rune of Kos holds a significant portion of Providence's brand of magic, easily distinguishable from all others. Activating it in certain places would have some...risky consequences.")
-				{
-					string chatch = "宇宙符文拥有着亵渎天神魔法的重要部分, 很容易和其他的区分开来. 在某些地方激活它会产生一些......危险的后果";
-					string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
-					Main.npcChatText = chatresult;
-				}
+			}
 		}
 
 		// Token: 0x04000001 RID: 1

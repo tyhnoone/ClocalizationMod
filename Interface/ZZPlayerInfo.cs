@@ -248,22 +248,22 @@ namespace ZZLocalizationMod.Interface
 			PlayerInfo.maxTurrets = player.maxTurrets;
 			PlayerInfo.around = ZZLocalizationMod.zoneString(player);
 
-			PlayerClass.meleedamage = (int)((player.meleeDamage*100)-100);
-			PlayerClass.meleeSpeed = (int)(100 - (player.meleeSpeed*100));
+			PlayerClass.meleedamage = (int)((player.meleeDamage*100)-100 + (player.allDamage*100)-100);
+			PlayerClass.meleeSpeed = (int)((1/player.meleeSpeed)*100 -100);
 			PlayerClass.meleeCrit = (int)(player.meleeCrit-4);
 
-			PlayerClass.magicDamage = (int)((player.magicDamage*100)-100);
+			PlayerClass.magicDamage = (int)((player.magicDamage*100)-100 + (player.allDamage*100)-100);
 			PlayerClass.manaCost = (int)((player.manaCost*100)-100);
 			PlayerClass.magicCrit = (int)(player.magicCrit-4);
 
-			PlayerClass.rangedDamage = (int)((player.rangedDamage*100)-100);
+			PlayerClass.rangedDamage = (int)((player.rangedDamage*100)-100 + (player.allDamage*100)-100);
 			PlayerClass.rangedCrit = (int)(player.rangedCrit-4);
 			PlayerClass.moveSpeed = (int)((player.moveSpeed*100)-100);
 
-			PlayerClass.miniondamage = (int)((player.minionDamage*100)-100);
+			PlayerClass.miniondamage = (int)((player.minionDamage*100)-100 + (player.allDamage*100)-100);
 			PlayerClass.minionknockback = (int)(player.minionKB)*100;
 
-			PlayerClass.thrownDamage = (int)((player.thrownDamage*100)-100);
+			PlayerClass.thrownDamage = (int)((player.thrownDamage*100)-100 + (player.allDamage*100)-100);
 			PlayerClass.thrownCrit = (int)(player.thrownCrit-4);
 			PlayerClass.thrownVelocity = (int)((player.thrownVelocity*100)-100);
 			
@@ -276,13 +276,13 @@ namespace ZZLocalizationMod.Interface
 				float symphonicDamage = (float)ModLoader.GetMod("ThoriumMod").GetPlayer("ThoriumPlayer").GetType().GetField("symphonicDamage").GetValue(playerthorium);
 				int symphonicCrit = (int) ModLoader.GetMod("ThoriumMod").GetPlayer("ThoriumPlayer").GetType().GetField("symphonicCrit").GetValue(playerthorium);
 
-				PlayerClass.symphonicDamage = (int)((symphonicDamage*100)-100);
+				PlayerClass.symphonicDamage = (int)((symphonicDamage*100)-100 + (player.allDamage*100)-100);
 				PlayerClass.symphonicCrit = (int)((symphonicCrit-4));
 
 				float radiantBoost = (float)ModLoader.GetMod("ThoriumMod").GetPlayer("ThoriumPlayer").GetType().GetField("radiantBoost").GetValue(playerthorium);
 				int radiantCrit = (int) ModLoader.GetMod("ThoriumMod").GetPlayer("ThoriumPlayer").GetType().GetField("radiantCrit").GetValue(playerthorium);
 
-				PlayerClass.radiantBoost = (int)((radiantBoost*100)-100);
+				PlayerClass.radiantBoost = (int)((radiantBoost*100)-100 + (player.allDamage*100)-100);
 				PlayerClass.radiantCrit = (int)(radiantCrit-4);
 
 			}
@@ -319,7 +319,7 @@ namespace ZZLocalizationMod.Interface
 		private void CalamityInfo(Player player)
         {
 			CalamityMod.Items.CalamityCustomThrowingDamage.CalamityCustomThrowingDamagePlayer CalamityPlayer = player.GetModPlayer<CalamityMod.Items.CalamityCustomThrowingDamage.CalamityCustomThrowingDamagePlayer>(Calamity);
-			PlayerClass.thrownDamage = (int)((CalamityPlayer.throwingDamage*100)-100);
+			PlayerClass.thrownDamage = (int)((CalamityPlayer.throwingDamage*100)-100 + (player.allDamage*100)-100);
 			PlayerClass.thrownCrit = (int)(CalamityPlayer.throwingCrit-4);
 			PlayerClass.thrownVelocity = (int)((CalamityPlayer.throwingVelocity*100)-100);
 		}
@@ -508,7 +508,7 @@ namespace ZZLocalizationMod.Interface
 				if(ZZPlayerInfo.PlayButton[0])
 				{
 					DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "近战伤害加成" + meleedamage + "%", new Vector2(shopx, shopy+40), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
-					//DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "近战速度加成" + meleeSpeed + "%", new Vector2(shopx, shopy+100), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
+					DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "近战速度加成" + meleeSpeed + "%", new Vector2(shopx, shopy+100), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
 					DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "近战暴击加成" + meleeCrit + "%", new Vector2(shopx, shopy+70), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
 					if(ModLoader.GetMod("CalamityMod") != null)
 					{

@@ -83,7 +83,7 @@ namespace ZZLocalizationMod.Tiles
 				tile17.AddMapEntry(new Color(51, 48, 68), ExodiumOre);
 				ModTile tile18 = TileLoader.GetTile(ModLoader.GetMod("CalamityMod").TileType("PerennialOre"));
 				ModTranslation PerennialOre = tile18.CreateMapEntryName(null);
-				PerennialOre.AddTranslation(GameCulture.Chinese, "永恒矿");
+				PerennialOre.AddTranslation(GameCulture.Chinese, "亘青矿");
 				tile18.AddMapEntry(new Color(200, 250, 100), PerennialOre);
 				ModTile tile19 = TileLoader.GetTile(ModLoader.GetMod("CalamityMod").TileType("UelibloomOre"));
 				ModTranslation UelibloomOre = tile19.CreateMapEntryName(null);

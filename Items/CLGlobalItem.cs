@@ -181,7 +181,7 @@ namespace ZZLocalizationMod.Items
 					overrideColor = new Color?(Color.MediumBlue)
 				});
 			}
-			if (item.type == 2331 || item.type == 2312 || item.type == 2312)
+			if (item.type == 2331 || item.type == 2312 || item.type == 2315)
 			{
 				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 熔岩钓鱼")
 				{
@@ -204,7 +204,7 @@ namespace ZZLocalizationMod.Items
 			}
 			if (item.type == 2429)
 			{
-				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 困难模式下腐化/猩红/神圣的雪地海洋环境钓鱼")
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 困难模式下腐化/猩红/神圣雪地洞穴层钓鱼")
 				{
 					overrideColor = new Color?(Color.BlueViolet)
 				});
@@ -237,14 +237,56 @@ namespace ZZLocalizationMod.Items
 					overrideColor = new Color?(Color.BlueViolet)
 				});
 			}
-			if (item.type == 2467 || item.type == 2470 || item.type == 2484 || item.type == 2466 || item.type == 3197 || item.type == 2306 || item.type == 2299 || item.type == 2309)
+			if (item.type == 2467)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 地表以上雪地钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 2470)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 地表雪地钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 2484 || item.type == 2466 || item.type == 2309)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 洞穴层及以下雪地钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 3197 || item.type == 2306 || item.type == 2299)
 			{
 				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 雪地钓鱼")
 				{
 					overrideColor = new Color?(Color.BlueViolet)
 				});
 			}
-			if (item.type == 2452 || item.type == 2483 || item.type == 2488 || item.type == 2486 || item.type == 2311 || item.type == 2313 || item.type == 2302 || item.type == 3208)
+			if (item.type == 2452 || item.type == 2483 || item.type == 2488)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 地表丛林钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 2486)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 地表及以下丛林钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 2311)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 洞穴层及以下丛林钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 2313 || item.type == 2302 || item.type == 3208)
 			{
 				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 丛林钓鱼")
 				{
@@ -265,16 +307,37 @@ namespace ZZLocalizationMod.Items
 					overrideColor = new Color?(Color.BlueViolet)
 				});
 			}
-			if (item.type == 2317 || item.type == 3207 || item.type == 2317 || item.type == 2465 || item.type == 2468 || item.type == 2310 || item.type == 2471 || item.type == 2307)
+			if (item.type == 2317 || item.type == 2465)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 洞穴层及以下神圣钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 2468)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 地表以上神圣钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 3207 || item.type == 2310 || item.type == 2471 || item.type == 2307)
 			{
 				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 神圣钓鱼")
 				{
 					overrideColor = new Color?(Color.BlueViolet)
 				});
 			}
-			if (item.type == 2336 || item.type == 3206 || item.type == 2335 || item.type == 2334 || item.type == 2423 || item.type == 3225 || item.type == 2420 || item.type == 3196)
+			if (item.type == 2487 || item.type == 2298 || item.type == 2290 || item.type == 2336 || item.type == 2335 || item.type == 2334 || item.type == 2423 || item.type == 3225 || item.type == 2420 || item.type == 3196)
 			{
 				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 任意地点钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 3206 || item.type == 2453 || item.type == 2473 || item.type == 2476 || item.type == 2304)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 太空钓鱼")
 				{
 					overrideColor = new Color?(Color.BlueViolet)
 				});
@@ -293,15 +356,54 @@ namespace ZZLocalizationMod.Items
 					overrideColor = new Color?(Color.BlueViolet)
 				});
 			}
-			foreach (int type in Main.anglerQuestItemNetIDs)
+			if (item.type == 2461 || item.type == 2458 || item.type == 2459 || item.type == 2459)
 			{
-				if (item.type == type)
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 地表及以上钓鱼")
 				{
-					tooltips.Insert(1, new TooltipLine(base.mod, "fish", "任务鱼")
-					{
-						overrideColor = new Color?(Color.BlueViolet)
-					});
-				}
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 2455)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 洞穴层钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 2479 || item.type == 2456 || item.type == 2474)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 地表钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 2436 || item.type == 2308 || item.type == 2320 || item.type == 2321 || item.type == 2478 || item.type == 2450 || item.type == 2464 || item.type == 2469 || item.type == 2303)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 洞穴层以下钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 2437)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 困难模式洞穴层以下钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 2462 || item.type == 2482 || item.type == 2472 || item.type == 2460)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 岩浆层以下钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
+			}
+			if (item.type == 2341 || item.type == 2342 || item.type == 2438 || item.type == 2332 || item.type == 2480 || item.type == 2481 || item.type == 2316 || item.type == 2301 || item.type == 2300  || item.type == 2301 || item.type == 2297)
+			{
+				tooltips.Insert(1, new TooltipLine(base.mod, "fish", "可获得方式: 地表及以上海洋环境钓鱼")
+				{
+					overrideColor = new Color?(Color.BlueViolet)
+				});
 			}
 			bool isTool = false;
 			bool firesProjectile = false;
@@ -421,7 +523,7 @@ namespace ZZLocalizationMod.Items
 					tooltips.Add(line2);
 				}
 			}
-			if(ZZLocalizationMod.modConfiguration.buytext)
+			if(Main.npcShop <= 0 && ZZLocalizationMod.modConfiguration.buytext)
 			{
 				
 				TooltipLine line5 = new TooltipLine(base.mod, "buy", "");

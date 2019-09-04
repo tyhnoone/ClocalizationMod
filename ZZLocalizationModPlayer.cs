@@ -31,7 +31,7 @@ namespace ZZLocalizationMod
 					{
 						Main.NewText("检测到你已启用CalamityMod v" + CalamityMod.Version + "，当前汉化对应版本是v" + Cala_vers, byte.MaxValue, byte.MaxValue, 147, false);
 					}
-					Main.NewText("由于Calamity的更新频率，ZZLocalizationMod将不完全保证汉化文本的正确性", 26, byte.MaxValue, 138, false);
+					Main.NewText("不匹配的版本下，可能会有文本因为灾厄版本改动而显示成英文", 26, byte.MaxValue, 138, false);
 					return;
 				}
 			
