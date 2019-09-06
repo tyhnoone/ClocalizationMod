@@ -448,28 +448,28 @@ namespace ZZLocalizationMod.Items
 				{
 					tooltips.Insert(1, new TooltipLine(base.mod, "usedname", "冥思溶剂")
 					{
-						overrideColor = new Color?(Color.SteelBlue)
+						overrideColor = new Color?(Color.LightSeaGreen)
 					});
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("MeldiateBar"))
 				{
 					tooltips.Insert(1, new TooltipLine(base.mod, "usedname", "冥思锭")
 					{
-						overrideColor = new Color?(Color.SteelBlue)
+						overrideColor = new Color?(Color.LightSeaGreen)
 					});
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("DraedonBar"))
 				{
 					tooltips.Insert(1, new TooltipLine(base.mod, "usedname", "永恒锭")
 					{
-						overrideColor = new Color?(Color.SteelBlue)
+						overrideColor = new Color?(Color.LightSeaGreen)
 					});
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ShadowspecBar"))
 				{
-					tooltips.Insert(1, new TooltipLine(base.mod, "usedname", "魔影锭\n注：Shadowspec灾厄的一个开发者")
+					tooltips.Insert(1, new TooltipLine(base.mod, "usedname", "魔影锭")
 					{
-						overrideColor = new Color?(Color.SteelBlue)
+						overrideColor = new Color?(Color.LightSeaGreen)
 					});
 				}
 				foreach (TooltipLine tooltipLine in tooltips)

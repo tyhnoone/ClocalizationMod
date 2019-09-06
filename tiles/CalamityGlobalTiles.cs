@@ -11,8 +11,13 @@ namespace ZZLocalizationMod.Tiles
 		// Token: 0x0600000C RID: 12 RVA: 0x00002A20 File Offset: 0x00000C20
 		public override void SetDefaults()
 		{
+			
+				
+				
 			if (ModLoader.GetMod("CalamityMod") != null)
 			{
+
+
 				ModTile tile = TileLoader.GetTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
 				ModTranslation DraedonsForge = tile.CreateMapEntryName(null);
 				DraedonsForge.AddTranslation(GameCulture.Chinese, "嘉登熔炉");
@@ -79,7 +84,7 @@ namespace ZZLocalizationMod.Tiles
 				tile16.AddMapEntry(new Color(0, 0, 150), CryonicOre);
 				ModTile tile17 = TileLoader.GetTile(ModLoader.GetMod("CalamityMod").TileType("ExodiumOre"));
 				ModTranslation ExodiumOre = tile17.CreateMapEntryName(null);
-				ExodiumOre.AddTranslation(GameCulture.Chinese, "起源之簇");
+				ExodiumOre.AddTranslation(GameCulture.Chinese, "天外星簇");
 				tile17.AddMapEntry(new Color(51, 48, 68), ExodiumOre);
 				ModTile tile18 = TileLoader.GetTile(ModLoader.GetMod("CalamityMod").TileType("PerennialOre"));
 				ModTranslation PerennialOre = tile18.CreateMapEntryName(null);

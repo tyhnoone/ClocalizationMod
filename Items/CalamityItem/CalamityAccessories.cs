@@ -238,6 +238,94 @@ namespace ZZLocalizationMod.Items
 				{
 					item.SetNameOverride("掠夺者护符");
 				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("RampartofDeities"))
+				{
+					item.SetNameOverride("神之壁垒");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("RogueEmblem"))
+				{
+					item.SetNameOverride("盗贼纹章");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SeaShell"))
+				{
+					item.SetNameOverride("海螺壳");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ShieldoftheOcean"))
+				{
+					item.SetNameOverride("海洋盾");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SigilofCalamitas"))
+				{
+					item.SetNameOverride("灾厄符章");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SpiritGenerator"))
+				{
+					item.SetNameOverride("灵魂浮雕");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Sponge"))
+				{
+					item.SetNameOverride("化绵留香石");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("StatisBeltOfCurses"))
+				{
+					item.SetNameOverride("斯塔提斯的诅咒系带");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("StatisBlessing"))
+				{
+					item.SetNameOverride("斯塔提斯的祝福");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("StatisCurse"))
+				{
+					item.SetNameOverride("斯塔提斯的诅咒");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("StatisNinjaBelt"))
+				{
+					item.SetNameOverride("斯塔提斯忍者系带");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("StressPills"))
+				{
+					item.SetNameOverride("压力药丸");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SupremeBaitTackleBoxFishingStation"))
+				{
+					item.SetNameOverride("万圣钓鱼台");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("TheAbsorber"))
+				{
+					item.SetNameOverride("阴阳吸星石");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("TheAmalgam"))
+				{
+					item.SetNameOverride("聚合之脑");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("TheCommunity"))
+				{
+					item.SetNameOverride("归一心元石");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("TheFirstShadowflame"))
+				{
+					item.SetNameOverride("始源暗影炎");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("VitalJelly"))
+				{
+					item.SetNameOverride("活力凝胶");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("VoidofExtinction"))
+				{
+					item.SetNameOverride("终结虚空");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("WifeinaBottle"))
+				{
+					item.SetNameOverride("元素瓶");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("WifeinaBottlewithBoobs"))
+				{
+					item.SetNameOverride("稀有元素瓶");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("YharimsInsignia"))
+				{
+					item.SetNameOverride("犽戾武之证章");
+				}
 			}
 		}
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
@@ -257,6 +345,10 @@ namespace ZZLocalizationMod.Items
 					if (tooltipLine.text == "Revengeance drop")
 					{
 						tooltipLine.text = "复仇模式专属";
+					}
+					if (tooltipLine.text == "Legendary Accessory")
+					{
+						tooltipLine.text = "传说饰品";
 					}
 					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("AlchemicalFlask"))
 					{
@@ -1165,6 +1257,484 @@ namespace ZZLocalizationMod.Items
 						if (tooltipLine.text == "Max rogue damage boost is 25%")
 						{
 							tooltipLine.text = "最高提升25%盗贼伤害";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("RampartofDeities"))
+					{
+						if (tooltipLine.text == "Taking damage makes you move very fast for a short time")
+						{
+							tooltipLine.text = "受到伤害会短时间内极大增幅你的移速";
+						}
+						if (tooltipLine.text == "Increases armor penetration by 50 and immune time after being struck")
+						{
+							tooltipLine.text = "增加50点护甲穿透和被击中后的无敌时间";
+						}
+						if (tooltipLine.text == "Provides light underwater and causes stars to fall when damaged")
+						{
+							tooltipLine.text = "在水下提供照明，并在受到伤害时会使星星坠落";
+						}
+						if (tooltipLine.text == "Absorbs 25% of damage done to players on your team")
+						{
+							tooltipLine.text = "为同队的玩家吸收25%伤害";
+						}
+						if (tooltipLine.text == "Only active above 25% life")
+						{
+							tooltipLine.text = "生命值高于25%生效";
+						}
+						if (tooltipLine.text == "Grants immunity to knockback and reduces the cooldown of healing potions")
+						{
+							tooltipLine.text = "免疫击退并减少药水病的时间";
+						}
+						if (tooltipLine.text == "Puts a shell around the owner when below 50% life that reduces damage")
+						{
+							tooltipLine.text = "生命值低于50%时生成护盾减少伤害";
+						}
+						if (tooltipLine.text == "The shell becomes more powerful when below 15% life and reduces damage even further")
+						{
+							tooltipLine.text = "生命值低于15%时护盾变得更强，减伤更多";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("RogueEmblem"))
+					{
+						if (tooltipLine.text == "15% increased rogue damage")
+						{
+							tooltipLine.text = "增加15%盗贼伤害";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SeaShell"))
+					{
+						if (tooltipLine.text == "Increased defense and damage reduction when submerged in liquid")
+						{
+							tooltipLine.text = "完全处于水中时增加防御和伤害减免";
+						}
+						if (tooltipLine.text == "Increased movement speed when submerged in liquid")
+						{
+							tooltipLine.text = "完全处于水中时增加移动速度";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ShieldoftheOcean"))
+					{
+						if (tooltipLine.text == "Increased defense by 5 when submerged in liquid")
+						{
+							tooltipLine.text = "完全处于水中时增加5点防御";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SigilofCalamitas"))
+					{
+						if (tooltipLine.text == "10% increased magic damage and 10% decreased mana usage")
+						{
+							tooltipLine.text = "增加10%魔法伤害，减少10%魔力消耗";
+						}
+						if (tooltipLine.text == "Increases pickup range for mana stars and you restore mana when damaged")
+						{
+							tooltipLine.text = "增加魔力星的拾取范围，并在受到伤害时恢复魔力";
+						}
+						if (tooltipLine.text == "+100 max mana and reveals treasure locations")
+						{
+							tooltipLine.text = "+100魔力上限，显示宝藏位置";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SpiritGenerator"))
+					{
+						if (tooltipLine.text == "Whenever your minions hit an enemy you will gain a random buff")
+						{
+							tooltipLine.text = "你的召唤物攻击敌人时会给你一个随机buff";
+						}
+						if (tooltipLine.text == "These buffs will either boost your defense, summon damage, or life regen for a while")
+						{
+							tooltipLine.text = "这些buff在增加防御、召唤伤害和生命再生速度中随机选择并持续一段时间";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Sponge"))
+					{
+						if (tooltipLine.text == "50% increased mining speed and you emit light")
+						{
+							tooltipLine.text = "增加50%挖掘速度，你会发光";
+						}
+						if (tooltipLine.text == "10% increased damage reduction and increased life regen")
+						{
+							tooltipLine.text = "增加10%伤害减免，增加生命再生速度";
+						}
+						if (tooltipLine.text == "Poison, Freeze, Chill, Frostburn, and Venom immunity")
+						{
+							tooltipLine.text = "免疫中毒，冻结，冷冻，霜火和剧毒";
+						}
+						if (tooltipLine.text == "Honey-like life regen with no speed penalty, +20 max life and mana")
+						{
+							tooltipLine.text = "受到蜂蜜增益的生命再生时不再降低移动, +20生命上限和魔力上限";
+						}
+						if (tooltipLine.text == "Most bee/hornet enemies and projectiles do 75% damage to you")
+						{
+							tooltipLine.text = "绝大多数蜂类敌人及其毒针伤害减少75%";
+						}
+						if (tooltipLine.text == "120% increased jump speed and 12% increased movement speed")
+						{
+							tooltipLine.text = "增加12%移动速度，增加120%跳跃速度";
+						}
+						if (tooltipLine.text == "Standing still boosts life and mana regen")
+						{
+							tooltipLine.text = "站立不动时增加生命及魔法再生速度";
+						}
+						if (tooltipLine.text == "Increased defense and damage reduction when submerged in liquid")
+						{
+							tooltipLine.text = "完全处于水中时增加防御和伤害减免";
+						}
+						if (tooltipLine.text == "Increased movement speed when submerged in liquid")
+						{
+							tooltipLine.text = "完全处于水中时增加移动速度";
+						}
+						if (tooltipLine.text == "Enemies take damage when they hit you")
+						{
+							tooltipLine.text = "敌人击中你时受到伤害";
+						}
+						if (tooltipLine.text == "Taking a hit will make you move very fast for a short time")
+						{
+							tooltipLine.text = "受到伤害时会让你暂时增加大量移速";
+						}
+						if (tooltipLine.text == "You emit a mushroom spore and spark explosion when you are hit")
+						{
+							tooltipLine.text = "受到伤害会释放爆炸孢子";
+						}
+						if (tooltipLine.text == "Enemy attacks will have part of their damage absorbed and used to heal you")
+						{
+							tooltipLine.text = "你会吸收敌人的一部分伤害并治疗自己";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("StatisBeltOfCurses"))
+					{
+						if (tooltipLine.text == "Increases jump speed and allows constant jumping")
+						{
+							tooltipLine.text = "让你能多段跳并增加跳跃速度";
+						}
+						if (tooltipLine.text == "Can climb walls, dash, and dodge attacks")
+						{
+							tooltipLine.text = "可以攀爬, 冲刺并且闪避";
+						}
+						if (tooltipLine.text == "10% increased rogue damage and velocity")
+						{
+							tooltipLine.text = "增加10%盗贼伤害和盗贼投掷速度";
+						}
+						if (tooltipLine.text == "5% increased rogue crit chance")
+						{
+							tooltipLine.text = "增加5%盗贼暴击率";
+						}
+						if (tooltipLine.text == "Increased max minions by 3 and 10% increased minion damage")
+						{
+							tooltipLine.text = "增加3召唤栏和10%召唤伤害";
+						}
+						if (tooltipLine.text == "Increased minion knockback")
+						{
+							tooltipLine.text = "增加召唤物击退";
+						}
+						if (tooltipLine.text == "Grants shadowflame powers to all minions")
+						{
+							tooltipLine.text = "召唤物获得暗影炎之力";
+						}
+						if (tooltipLine.text == "Minions make enemies cry on hit")
+						{
+							tooltipLine.text = "召唤物能打哭敌人";
+						}
+						if (tooltipLine.text == "Minion attacks have a chance to instantly kill normal enemies")
+						{
+							tooltipLine.text = "召唤物攻击有几率直接击杀普通敌人";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("StatisBlessing"))
+					{
+						if (tooltipLine.text == "Increased max minions by 3 and 10% increased minion damage")
+						{
+							tooltipLine.text = "增加3召唤栏和10%召唤伤害";
+						}
+						if (tooltipLine.text == "Increased minion knockback")
+						{
+							tooltipLine.text = "增加召唤物击退";
+						}
+						if (tooltipLine.text == "Minions make enemies cry on hit")
+						{
+							tooltipLine.text = "召唤物能打哭敌人";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("StatisCurse"))
+					{
+						if (tooltipLine.text == "Increased max minions by 3 and 10% increased minion damage")
+						{
+							tooltipLine.text = "增加3召唤栏和10%召唤伤害";
+						}
+						if (tooltipLine.text == "Increased minion knockback")
+						{
+							tooltipLine.text = "增加召唤物击退";
+						}
+						if (tooltipLine.text == "Minions make enemies cry on hit")
+						{
+							tooltipLine.text = "召唤物能打哭敌人";
+						}
+						if (tooltipLine.text == "Grants shadowflame powers to all minions")
+						{
+							tooltipLine.text = "召唤物获得暗影炎之力";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("StatisNinjaBelt"))
+					{
+						if (tooltipLine.text == "Increases jump speed and allows constant jumping")
+						{
+							tooltipLine.text = "让你能多段跳并增加跳跃速度";
+						}
+						if (tooltipLine.text == "Can climb walls, dash, and dodge attacks")
+						{
+							tooltipLine.text = "可以攀爬, 冲刺并且闪避";
+						}
+						if (tooltipLine.text == "5% increased rogue damage and velocity")
+						{
+							tooltipLine.text = "增加5%盗贼伤害和盗贼投掷速度";
+						}
+						if (tooltipLine.text == "5% increased rogue crit chance")
+						{
+							tooltipLine.text = "增加5%盗贼暴击率";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("StressPills"))
+					{
+						if (tooltipLine.text == "Boosts your damage by 8%,")
+						{
+							tooltipLine.text = "增加8%伤害";
+						}
+						if (tooltipLine.text == "defense by 8, and max movement speed and acceleration by 5%")
+						{
+							tooltipLine.text = "增加8防御以及5%最大移动速度和加速度";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SupremeBaitTackleBoxFishingStation"))
+					{
+						if (tooltipLine.text == "The ultimate fishing accessory")
+						{
+							tooltipLine.text = "终极钓鱼饰品";
+						}
+						if (tooltipLine.text == "Increases fishing skill by 100")
+						{
+							tooltipLine.text = "增加100钓力";
+						}
+						if (tooltipLine.text == "Fishing line will never break and decreases chance of bait consumption")
+						{
+							tooltipLine.text = "鱼线绝不会断鱼饵消耗率降低";
+						}
+						if (tooltipLine.text == "Crate potion effect, does not stack with crate potions")
+						{
+							tooltipLine.text = "板条箱药剂效果，不与板条箱药剂重叠";
+						}
+						if (tooltipLine.text == "Sonar potion effect")
+						{
+							tooltipLine.text = "声呐药剂效果";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("TheAbsorber"))
+					{
+						if (tooltipLine.text == "12% increased movement speed")
+						{
+							tooltipLine.text = "增加12%移动速度";
+						}
+						if (tooltipLine.text == "120% increased jump speed")
+						{
+							tooltipLine.text = "增加120跳跃速度";
+						}
+						if (tooltipLine.text == "+20 max life and mana")
+						{
+							tooltipLine.text = "+20生命上限和魔力上限";
+						}
+						if (tooltipLine.text == "Standing still boosts life and mana regen")
+						{
+							tooltipLine.text = "站立不动时增加生命及魔法再生速度";
+						}
+						if (tooltipLine.text == "Increased defense and damage reduction when submerged in liquid")
+						{
+							tooltipLine.text = "完全处于水中时增加防御和伤害减免";
+						}
+						if (tooltipLine.text == "Increased movement speed when submerged in liquid")
+						{
+							tooltipLine.text = "完全处于水中时增加移动速度";
+						}
+						if (tooltipLine.text == "Enemies take damage when they hit you")
+						{
+							tooltipLine.text = "敌人击中你时受到伤害";
+						}
+						if (tooltipLine.text == "Taking a hit will make you move very fast for a short time")
+						{
+							tooltipLine.text = "受到伤害时会让你暂时增加大量移速";
+						}
+						if (tooltipLine.text == "You emit a mushroom spore and spark explosion when you are hit")
+						{
+							tooltipLine.text = "受到伤害会释放爆炸孢子";
+						}
+						if (tooltipLine.text == "Enemy attacks will have part of their damage absorbed and used to heal you")
+						{
+							tooltipLine.text = "你会吸收敌人的一部分伤害并治疗自己";
+						}
+						if (tooltipLine.text == "5% increased damage reduction")
+						{
+							tooltipLine.text = "增加5%伤害减免";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("TheAmalgam"))
+					{
+						if (tooltipLine.text == "15% increased damage")
+						{
+							tooltipLine.text = "增加15%伤害";
+						}
+						if (tooltipLine.text == "Shade rains down when you are hit")
+						{
+							tooltipLine.text = "被击中后天降阴影之雨";
+						}
+						if (tooltipLine.text == "You will confuse nearby enemies when you are struck")
+						{
+							tooltipLine.text = "受到攻击会使你周围的敌人混乱";
+						}
+						if (tooltipLine.text == "Drops brimstone fireballs from the sky occasionally")
+						{
+							tooltipLine.text = "时不时会有硫磺火球从天而降";
+						}
+						if (tooltipLine.text == "Brimstone fire rains down while invincibility is active")
+						{
+							tooltipLine.text = "处于无敌帧时硫磺火雨会从天而降";
+						}
+						if (tooltipLine.text == "Temporary immunity to lava, greatly reduces lava burn damage, and 15% increased damage while in lava")
+						{
+							tooltipLine.text = "暂时免疫岩浆伤害，大幅削弱岩浆灼烧伤害，处于岩浆中时增加15%的伤害";
+						}
+						if (tooltipLine.text == "Summons a fungal clump to fight for you")
+						{
+							tooltipLine.text = "召唤一块真菌球为你而战";
+						}
+						if (tooltipLine.text == "You leave behind poisonous seawater as you move")
+						{
+							tooltipLine.text = "在水中移动时身后留下剧毒海水";
+						}
+						if (tooltipLine.text == "75% increased movement speed, 10% increase to all damage, and plus 40 defense while submerged in liquid")
+						{
+							tooltipLine.text = "完全处于水中增加75%移动速度，10%所有伤害和40防御";
+						}
+						if (tooltipLine.text == "If you are damaged while submerged in liquid you will gain a damaging aura for a short time")
+						{
+							tooltipLine.text = "如果完全处于水中时受到伤害，你会短暂获得能造成伤害的光环";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("TheCommunity"))
+					{
+						if (tooltipLine.text == "The heart of (most of) the Terraria community")
+						{
+							tooltipLine.text = "广大泰拉玩家的精神结晶";
+						}
+						if (tooltipLine.text == "Starts off with weak buffs to all of your stats")
+						{
+							tooltipLine.text = "早期你会获得增强所有属性的弱buff";
+						}
+						if (tooltipLine.text == "The stat buffs become more powerful as you progress")
+						{
+							tooltipLine.text = "随着游戏属性buff将不断强化";
+						}
+						if (tooltipLine.text == "Reduces the DoT effects of harmful debuffs inflicted on you")
+						{
+							tooltipLine.text = "减弱持续性伤害debuff对你的影响";
+						}
+						if (tooltipLine.text == "Boosts your maximum flight time by 15%")
+						{
+							tooltipLine.text = "增加15%最大飞行时间";
+						}
+						if (tooltipLine.text == "Thank you to all of my supporters that made this mod a reality")
+						{
+							tooltipLine.text = "感谢众多支持者的努力，让这一mod成为现实";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("TheFirstShadowflame"))
+					{
+						if (tooltipLine.text == "It is said that in the past, Prometheus descended from the heavens to grant man fire.")
+						{
+							tooltipLine.text = "据说，远古时代，普罗米修斯离开天界，走入人间，并赐予人类源初的火种";
+						}
+						if (tooltipLine.text == "If that were true, then it is surely the demons of hell that would have risen from below to do the same.")
+						{
+							tooltipLine.text = "如果那是真的，那么，恶魔们离开地狱做同样的事也就不稀奇了";
+						}
+						if (tooltipLine.text == "Minions inflict shadowflame on enemy hits.")
+						{
+							tooltipLine.text = "召唤物附着暗影炎debuff";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("VitalJelly"))
+					{
+						if (tooltipLine.text == "10% increased movement speed")
+						{
+							tooltipLine.text = "增加10%移动速度";
+						}
+						if (tooltipLine.text == "200% increased jump speed")
+						{
+							tooltipLine.text = "增加200%跳跃速度";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("VoidofExtinction"))
+					{
+						if (tooltipLine.text == "No longer cursed")
+						{
+							tooltipLine.text = "不再受到诅咒";
+						}
+						if (tooltipLine.text == "Drops brimstone fireballs from the sky occasionally")
+						{
+							tooltipLine.text = "时不时会有硫磺火球从天而降";
+						}
+						if (tooltipLine.text == "15% increase to all damage")
+						{
+							tooltipLine.text = "增加15%所有伤害";
+						}
+						if (tooltipLine.text == "Brimstone fire rains down while invincibility is active")
+						{
+							tooltipLine.text = "处于无敌帧时硫磺火雨会从天而降";
+						}
+						if (tooltipLine.text == "Temporary immunity to lava, greatly reduces lava burn damage, and 25% increased damage while in lava")
+						{
+							tooltipLine.text = "暂时免疫岩浆伤害，大幅削弱岩浆灼烧伤害，处于岩浆中时增加25%的伤害";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("WifeinaBottle"))
+					{
+						if (tooltipLine.text == "Summons a sand elemental to fight for you")
+						{
+							tooltipLine.text = "召唤一个沙暴元素为你而战";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("WifeinaBottlewithBoobs"))
+					{
+						if (tooltipLine.text == "Summons a sand elemental to heal you")
+						{
+							tooltipLine.text = "召唤一个沙暴元素治疗你";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("YharimsInsignia"))
+					{
+						if (tooltipLine.text == "10% increased damage when under 50% life")
+						{
+							tooltipLine.text = "低于50%生命值时增加10%伤害";
+						}
+						if (tooltipLine.text == "10% increased melee speed")
+						{
+							tooltipLine.text = "增加10%近战速度";
+						}
+						if (tooltipLine.text == "5% increased melee damage")
+						{
+							tooltipLine.text = "增加5%近战伤害";
+						}
+						if (tooltipLine.text == "Melee attacks and melee projectiles inflict holy fire")
+						{
+							tooltipLine.text = "近战攻击和弹幕造成神圣之火";
+						}
+						if (tooltipLine.text == "Increased invincibility after taking damage")
+						{
+							tooltipLine.text = "增加受伤后无敌时间";
+						}
+						if (tooltipLine.text == "Temporary immunity to lava")
+						{
+							tooltipLine.text = "暂时免疫岩浆伤害";
+						}
+						if (tooltipLine.text == "Increased melee knockback")
+						{
+							tooltipLine.text = "增加近战击退";
 						}
 					}
 				}

@@ -410,6 +410,7 @@ namespace ZZLocalizationMod
 				CalamitySupport.CalamityCalculateLootLoad();
 				ThoriumSupport.ThoriumCalculateLootLoad();
 				AASupport.AACalculateLootLoad();
+				SacredtoolsSupport.SacredtoolsCalculateLootLoad();
 
 				for (int i = 1; i < NPCLoader.NPCCount; i++) // for every npc...
 				{

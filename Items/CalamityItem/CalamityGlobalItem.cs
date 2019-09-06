@@ -6,10 +6,8 @@ using Terraria.ModLoader;
 
 namespace ZZLocalizationMod.Items
 {
-	// Token: 0x02000026 RID: 38
 	public class CalamityGlobalItem : GlobalItem
-	{
-		// Token: 0x0600004D RID: 77 RVA: 0x00006C00 File Offset: 0x00004E00
+	{	
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
 		{
 			if (LanguageManager.Instance.ActiveCulture == GameCulture.Chinese && ModLoader.GetMod("CalamityMod") != null)

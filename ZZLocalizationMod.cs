@@ -46,6 +46,9 @@ namespace ZZLocalizationMod
 		internal static UserInterface ZZRecipeInterfaceUserInfo;
 		internal ZZRicipeInfo ZZRecipeInfoUI;
 
+		internal static UserInterface ZZBuffInterfaceUserInfo;
+		internal ZZBuffInfo ZZBuffInfoUI;
+
 			
 			
 		public override void Load()
@@ -64,6 +67,13 @@ namespace ZZLocalizationMod
 			ZZRecipeInfoUI.Activate();
 			ZZRecipeInterfaceUserInfo = new UserInterface();
 			ZZRecipeInterfaceUserInfo.SetState(ZZRecipeInfoUI);
+
+			ZZBuffInfoOK = RegisterHotKey("免疫buff信息", "O");
+
+			ZZBuffInfoUI = new ZZBuffInfo();
+			ZZBuffInfoUI.Activate();
+			ZZBuffInterfaceUserInfo = new UserInterface();
+			ZZBuffInterfaceUserInfo.SetState(ZZBuffInfoUI);
 
 			if(ModLoader.GetMod("CalamityMod") != null && LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)
 			{
@@ -103,6 +113,7 @@ namespace ZZLocalizationMod
 
 		public static ModHotKey ZZPlayerInfoOK;
 		public static ModHotKey ZZRecipeInfoOK;
+		public static ModHotKey ZZBuffInfoOK;
 
 		public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers) 
 		{
@@ -140,6 +151,23 @@ namespace ZZLocalizationMod
 						if (ZZPlayerInfo.visible)
 						{
 							ZZPlayerInfoUI.Draw(Main.spriteBatch);
+						}
+						return true;
+					},
+					InterfaceScaleType.UI)
+				);
+			}
+
+			int MouseTextIndexB = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
+			if (MouseTextIndexB != -1)
+			{
+				layers.Insert(MouseTextIndexB, new LegacyGameInterfaceLayer(
+					"ZZLocalizationMod: PlayerInfo",
+					delegate
+					{
+						if (ZZBuffInfo.visible)
+						{
+							ZZBuffInfoUI.Draw(Main.spriteBatch);
 						}
 						return true;
 					},
@@ -189,13 +217,32 @@ namespace ZZLocalizationMod
 			if(Main.player[Main.myPlayer].ZoneHoly) zone += "\n神圣之地";
 			if(Main.player[Main.myPlayer].ZoneMeteor) zone += "\n陨石";
 			if(Main.player[Main.myPlayer].ZoneSkyHeight) zone += "\n太空";
+
 			if(ZZLocalizationModWorld.zoneMarble > 75) zone += "\n大理石穴";
 			if(ZZLocalizationModWorld.zoneGranite > 75) zone += "\n花岗岩穴";
 
+			bool spiderCave = false;
+			int num39 = (int)Main.player[Main.myPlayer].position.X / 16;
+			int num40 = (int)Main.player[Main.myPlayer].position.Y / 16;
+			if (Main.tile[num39, num40].wall == 62)
+			{
+				spiderCave = true;
+			}
+			if(spiderCave) zone += "\n蜘蛛洞";
+
+			bool lihzahrd = false;
+			int num7 = (int)(Main.player[Main.myPlayer].position.X + (float)(Main.player[Main.myPlayer].width / 2)) / 16;
+			int num8 = (int)(Main.player[Main.myPlayer].position.Y + (float)(Main.player[Main.myPlayer].height / 2)) / 16;
+			if (Main.tile[num7, num8].wall == 87)
+			{
+				lihzahrd = true;
+			}
+			if(lihzahrd) zone += "\n蜥蜴神庙";
 
 			if(ModLoader.GetMod("AAMod") != null) zone += AASupport.AAZone(player);
 			if(ModLoader.GetMod("CalamityMod") != null) zone += CalamitySupport.CalamityZone(player);
 			if(ModLoader.GetMod("ThoriumMod") != null) zone += ThoriumSupport.ThoriumZone(player);
+			if(ModLoader.GetMod("SacredTools") != null) zone += SacredtoolsSupport.SacredToolsZone(player);
 			
 			
 			if(zone == "所处环境: ") 
@@ -213,6 +260,7 @@ namespace ZZLocalizationMod
 
 		private void DrawInterfaceInfoAccs()
 		{
+
 				bool flaghitlife = false;
 				int num = -1;
 				int num2 = -10;
@@ -322,7 +370,6 @@ namespace ZZLocalizationMod
 									}
 								}
 							}
-							
 
 							if (npcaround == null)
 							{
@@ -330,15 +377,15 @@ namespace ZZLocalizationMod
 							}
 							else
 							{
-								text2 = npcaround.GivenOrTypeName + ": "+ npcaround.life + " / "+ npcaround.lifeMax;
+								text2 = npcaround.GivenOrTypeName + ": " + npcaround.life + " / "+ npcaround.lifeMax;
 							}
 							if (npcaround2 != null)
 							{
-								text2 += "\n" + npcaround2.GivenOrTypeName + ": "+ npcaround2.life + " / "+ npcaround2.lifeMax;
+								text2 += "\n" + npcaround2.GivenOrTypeName + ": " + npcaround2.life + " / "+ npcaround2.lifeMax;
 							}
 							if (npcaround3 != null)
 							{
-								text2 += "\n" + npcaround3.GivenOrTypeName + ": "+ npcaround3.life + " / "+ npcaround3.lifeMax;
+								text2 += "\n" + npcaround3.GivenOrTypeName + ": " + npcaround3.life + " / "+ npcaround3.lifeMax;
 							}
 							flaghitlife = true ;
 						}
@@ -547,6 +594,10 @@ namespace ZZLocalizationMod
 			if (ZZRecipeInterfaceUserInfo != null)
 			{
 				ZZRecipeInterfaceUserInfo.Update(gameTime);
+			}
+			if (ZZBuffInterfaceUserInfo != null)
+			{
+				ZZBuffInterfaceUserInfo.Update(gameTime);
 			}
 		}
 

@@ -233,7 +233,7 @@ namespace ZZLocalizationMod.Items
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ExodiumClusterOre"))
 				{
-					item.SetNameOverride("起源之簇");
+					item.SetNameOverride("天外星簇");
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("GreenBrickWallUnsafe"))
 				{
@@ -537,6 +537,10 @@ namespace ZZLocalizationMod.Items
 						{
 							overrideColor = new Color?(Color.LightBlue)
 						});
+						tooltips.Insert(1, new TooltipLine(base.mod, "usedname", "起源之簇")
+						{
+							overrideColor = new Color?(Color.LightSeaGreen)
+						});
 					}
 					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("GreenBrickWallUnsafe"))
 					{
@@ -675,7 +679,7 @@ namespace ZZLocalizationMod.Items
 						});
 						tooltips.Insert(1, new TooltipLine(base.mod, "usedname", "永恒矿")
 						{
-							overrideColor = new Color?(Color.SteelBlue)
+							overrideColor = new Color?(Color.LightSeaGreen)
 						});
 					}
 					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("UelibloomOre"))

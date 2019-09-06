@@ -48,6 +48,12 @@ namespace ZZLocalizationMod
 			{
 				ZZPlayerInfo.visible = !ZZPlayerInfo.visible;
 			}
+			if (ZZLocalizationMod.ZZBuffInfoOK.JustPressed)
+			{
+				ZZBuffInfo.visible = !ZZBuffInfo.visible;
+				Player player = Main.player[Main.myPlayer];
+				ZZLocalizationMod.instance.ZZBuffInfoUI.UpdateValue(player);
+			}
 			//if (ZZLocalizationMod.ZZRecipeInfoOK.JustPressed)
 			//{
 			//	Item item = new Item();

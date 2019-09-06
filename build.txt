@@ -1,5 +1,8 @@
 displayName = 汉化辅助(内含部分灾厄文本汉化)
 author = Cerberus
-version = 0.5.1
+version = 0.6
 includePDB = true
-weakReferences = CalamityMod, ThoriumMod, AAMod
+weakReferences = CalamityMod, ThoriumMod, AAMod, SacredTools
+includeSource = true
+buildIgnore = *.user, obj\*, bin\*, .vs\*, .git*, referenceImages*.png, .gitattributes, *.csproj
+includePDB = true
