@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 
 namespace ZZLocalizationMod.Items
 {
-	public class AbyssalDivingSuitPlates : GlobalItem
+	public class AbyssalWeapon : GlobalItem
 	{
 		public override void SetDefaults(Item item)
 		{
@@ -18,8 +18,8 @@ namespace ZZLocalizationMod.Items
 				{
 					item.consumable = false;
 				}
-				ModLoader.GetMod("CalamityMod").GetBuff("AbyssalDivingSuitPlates").DisplayName.AddTranslation(GameCulture.Chinese,"深渊潜游服金属外壳");
-				ModLoader.GetMod("CalamityMod").GetBuff("AbyssalDivingSuitPlates").Description.AddTranslation(GameCulture.Chinese, "外壳金属会吸收15%的伤害");
+				ModLoader.GetMod("CalamityMod").GetBuff("AbyssalWeapon").DisplayName.AddTranslation(GameCulture.Chinese, "深渊武器");
+				ModLoader.GetMod("CalamityMod").GetBuff("AbyssalWeapon").Description.AddTranslation(GameCulture.Chinese, "近战武器施加深渊之火，增加15%移速");
 			}
 		}
 	}

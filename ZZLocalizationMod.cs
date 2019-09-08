@@ -15,12 +15,22 @@ using Terraria.UI.Gamepad;
 using ZZLocalizationMod.Interface;
 using Terraria.GameContent.UI;
 using Terraria.GameContent.UI.Elements;
+using Terraria.GameContent;
+using Terraria.GameContent.Achievements;
+using Terraria.GameContent.Events;
+using Terraria.GameContent.Tile_Entities;
 using Terraria.GameInput;
 using Terraria.ModLoader.Audio;
 using Terraria.ModLoader.Default;
 using Terraria.ModLoader.Exceptions;
 using Terraria.ModLoader.IO;
 using Terraria.ModLoader.UI;
+using ReLogic.Utilities;
+using Terraria.Audio;
+using Terraria.DataStructures;
+using Terraria.Enums;
+using Terraria.Utilities;
+using Terraria.World.Generation;
 
 namespace ZZLocalizationMod
 {
@@ -33,8 +43,7 @@ namespace ZZLocalizationMod
 				Autoload = true,
 				AutoloadGores = true,
 				AutoloadSounds = true,
-			};	
-			instance = this;
+			};
 		}
 
 		public static Mod Instance;
@@ -44,7 +53,7 @@ namespace ZZLocalizationMod
 		internal static UserInterface ZZPlayerInterfaceUserInfo;
 		internal ZZPlayerInfo ZZPlayerInfoUI;
 		internal static UserInterface ZZRecipeInterfaceUserInfo;
-		internal ZZRicipeInfo ZZRecipeInfoUI;
+		//internal ZZRicipeInfo ZZRecipeInfoUI;
 
 		internal static UserInterface ZZBuffInterfaceUserInfo;
 		internal ZZBuffInfo ZZBuffInfoUI;
@@ -53,28 +62,37 @@ namespace ZZLocalizationMod
 			
 		public override void Load()
 		{
-			
+			Instance = this;
 			ZZPlayerInfoOK = RegisterHotKey("人物信息菜单", "P");
 
-			ZZPlayerInfoUI = new ZZPlayerInfo();
-			ZZPlayerInfoUI.Activate();
-			ZZPlayerInterfaceUserInfo = new UserInterface();
-			ZZPlayerInterfaceUserInfo.SetState(ZZPlayerInfoUI);
+			
 
 			//ZZRecipeInfoOK = RegisterHotKey("物品合成菜单", "O");
 
-			ZZRecipeInfoUI = new ZZRicipeInfo();
+			/*ZZRecipeInfoUI = new ZZRicipeInfo();
 			ZZRecipeInfoUI.Activate();
 			ZZRecipeInterfaceUserInfo = new UserInterface();
 			ZZRecipeInterfaceUserInfo.SetState(ZZRecipeInfoUI);
-
+			*/
 			ZZBuffInfoOK = RegisterHotKey("免疫buff信息", "O");
 
-			ZZBuffInfoUI = new ZZBuffInfo();
-			ZZBuffInfoUI.Activate();
-			ZZBuffInterfaceUserInfo = new UserInterface();
-			ZZBuffInterfaceUserInfo.SetState(ZZBuffInfoUI);
+			
 
+
+			if (!Main.dedServ)
+			{	
+				ZZBuffInfoUI = new ZZBuffInfo();
+				ZZBuffInfoUI.Activate();
+				ZZBuffInterfaceUserInfo = new UserInterface();
+				ZZBuffInterfaceUserInfo.SetState(ZZBuffInfoUI);
+
+				ZZPlayerInfoUI = new ZZPlayerInfo();
+				ZZPlayerInfoUI.Activate();
+				ZZPlayerInterfaceUserInfo = new UserInterface();
+				ZZPlayerInterfaceUserInfo.SetState(ZZPlayerInfoUI);
+			}
+			instance = this;
+			
 			if(ModLoader.GetMod("CalamityMod") != null && LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)
 			{
 				Mod mod = ModLoader.GetMod("CalamityMod");
@@ -91,11 +109,14 @@ namespace ZZLocalizationMod
 
 		public override void Unload() 
 		{
+			Instance = null;
+			instance = null;
 			LootCache.instance = null;
 			modConfiguration = null;
 
 			ZZPlayerInfoOK = null;
 			//ZZRecipeInfoOK = null;
+			ZZBuffInfoOK = null;
 		}
 
 		public override void PostAddRecipes()
@@ -117,6 +138,7 @@ namespace ZZLocalizationMod
 
 		public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers) 
 		{
+			
 			if(ModLoader.GetMod("CalamityMod") != null && LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)
 			{
 				CalamitySupport.CalamityNPCChat();
@@ -125,15 +147,23 @@ namespace ZZLocalizationMod
 			{
 				ThoriumSupport.ThoriumBardClass();
 			}
+			if(ModLoader.GetMod("Redemption") != null && LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)
+			{
+				ModRedemption.ModRedemptionCombat();
+				ModRedemption.ModRedemptionChat();
+			}
+
+			Player player = Main.player[Main.myPlayer];
+			ZZLocalizationMod.instance.ZZPlayerInfoUI.UpdateValue(player);
+			ZZLocalizationMod.instance.ZZBuffInfoUI.UpdateValue(player);
 
 
-
+			
 			int inventoryIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Info Accessories Bar"));
 			if (inventoryIndex != -1) {
 				layers.Insert(inventoryIndex, new LegacyGameInterfaceLayer(
 					"ZZLocalizationMod: Info Accessories Bar2",
 					delegate {
-						// If the current UIState of the UserInterface is null, nothing will draw. We don't need to track a separate .visible value.
 						DrawInterfaceInfoAccs();
 						return true;
 					},
@@ -175,7 +205,7 @@ namespace ZZLocalizationMod
 				);
 			}
 
-			int MouseTextIndexP2 = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Info Accessories Bar"));
+			/* int MouseTextIndexP2 = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Info Accessories Bar"));
 			if (MouseTextIndexP2 != -1)
 			{
 				layers.Insert(MouseTextIndexP2, new LegacyGameInterfaceLayer(
@@ -191,6 +221,7 @@ namespace ZZLocalizationMod
 					InterfaceScaleType.UI)
 				);
 			}
+			*/
 			
 		}
 
@@ -217,9 +248,21 @@ namespace ZZLocalizationMod
 			if(Main.player[Main.myPlayer].ZoneHoly) zone += "\n神圣之地";
 			if(Main.player[Main.myPlayer].ZoneMeteor) zone += "\n陨石";
 			if(Main.player[Main.myPlayer].ZoneSkyHeight) zone += "\n太空";
-
-			if(ZZLocalizationModWorld.zoneMarble > 75) zone += "\n大理石穴";
-			if(ZZLocalizationModWorld.zoneGranite > 75) zone += "\n花岗岩穴";
+			
+			bool zoneMarble = false;
+			bool zoneGranite = false;
+			int num26 = (int)Main.player[Main.myPlayer].Center.X / 16;
+			int num27 = (int)(Main.player[Main.myPlayer].Bottom.Y + 8f) / 16;
+			if (Main.tile[num26, num27].type == 367)
+			{
+				zoneMarble = true;
+			}
+			if (Main.tile[num26, num27].type == 368)
+			{
+				zoneGranite = true;
+			}
+			if(zoneMarble) zone += "\n大理石穴";
+			if(zoneGranite) zone += "\n花岗岩穴";
 
 			bool spiderCave = false;
 			int num39 = (int)Main.player[Main.myPlayer].position.X / 16;
@@ -243,6 +286,7 @@ namespace ZZLocalizationMod
 			if(ModLoader.GetMod("CalamityMod") != null) zone += CalamitySupport.CalamityZone(player);
 			if(ModLoader.GetMod("ThoriumMod") != null) zone += ThoriumSupport.ThoriumZone(player);
 			if(ModLoader.GetMod("SacredTools") != null) zone += SacredtoolsSupport.SacredToolsZone(player);
+			if(ModLoader.GetMod("Redemption") != null) zone += ModRedemption.ModRedemptionZone(player);
 			
 			
 			if(zone == "所处环境: ") 
@@ -257,7 +301,7 @@ namespace ZZLocalizationMod
 			return zone;
 		}
 		public Texture2D[] infoIconTexture = new Texture2D[14];
-
+		
 		private void DrawInterfaceInfoAccs()
 		{
 
@@ -274,7 +318,6 @@ namespace ZZLocalizationMod
 				{
 					string text2 = "";
 					string text3 = "";
-					ZZLocalizationMod.instance.ZZPlayerInfoUI.UpdateValue(player);
 					if ((Main.npcChatText == null || Main.npcChatText == "") && Main.player[Main.myPlayer].sign < 0 && ZZLocalizationMod.modConfiguration.uitext)
 					{
 						if(i== (Main.playerInventory? 0:-1) && !ZZPlayerInfo.visible)
@@ -316,15 +359,17 @@ namespace ZZLocalizationMod
 							text2 = "哨兵炮塔上限：" + player.maxTurrets;
 							text3 = "炮塔栏";
 						}
+						
 						if(i== (Main.playerInventory? 6:-1)  && !ZZPlayerInfo.visible && ModLoader.GetMod("ThoriumMod") != null)
 						{
 							ModPlayer playerthorium = Main.player[Main.myPlayer].GetModPlayer(ModLoader.GetMod("ThoriumMod"), "ThoriumPlayer");
 							text2 = "瑟银乐师灵感: " + ModLoader.GetMod("ThoriumMod").GetPlayer("ThoriumPlayer").GetType().GetField("bardResource").GetValue(playerthorium)+"灵感";
 							text3 = "瑟银乐师灵感";
 						}
+						
 						if(i== (Main.playerInventory? 8:0) && !flaghitlife)
 						{
-							int num15 = 4000;
+							int num15 = 2500;
 							int num16 = 300;
 							NPC npcaround = null;
 							NPC npcaround2 = null;
@@ -389,6 +434,7 @@ namespace ZZLocalizationMod
 							}
 							flaghitlife = true ;
 						}
+						
 						if(i== (Main.playerInventory? 13:6) && ZZLocalizationMod.modConfiguration.zonetext && !ZZPlayerInfo.visible)
 						{
 							
@@ -396,6 +442,7 @@ namespace ZZLocalizationMod
 							text3 = "所处环境";
 							
 						}
+						
 						
 					}
 					if (text2 != "")
@@ -417,16 +464,18 @@ namespace ZZLocalizationMod
 							}
 							else
 							{
-								int num28 = (int)(52f * Main.inventoryScale);
-								num26 = 697 - num28 * 4 + Main.screenWidth - 800 + 20 * (num3 % 2);
-								num27 = 114 + num28 * 7 + num28 / 2 + 20 * (num3 / 2) + 8 * (num3 / 4) - 320;
+								int num28 = (int)(74f * Main.inventoryScale);
+								num26 = Main.screenWidth - 520;
+								/* num26 = 697 - num28 * 4 + Main.screenWidth - 800 + 20 * (num3 % 2);*/
+								num27 = 114 + num28 * 7 + num28 / 2 + 20 * (num3 / 2) + 8 * (num3 / 4) - 340;
 								if (Main.EquipPage == 2)
 								{
-									num26 += num28 + num28 / 2;
+									/*num26 += num28 + num28 / 2;*/
 									num27 -= num28;
 								}
 							}
 						}
+
 						num26 += num5;
 						if (num >= 0)
 						{

@@ -16,7 +16,7 @@ namespace ZZLocalizationMod.Items
 			{
 				if (item == null)
 				{
-					item.SetNameOverride("");
+					item.consumable = false;
 				}
 				ModLoader.GetMod("CalamityMod").GetBuff("AbyssalDivingSuitPlates").DisplayName.AddTranslation(GameCulture.Chinese, "深渊潜游服破损外壳");
 				ModLoader.GetMod("CalamityMod").GetBuff("AbyssalDivingSuitPlates").Description.AddTranslation(GameCulture.Chinese, "外壳金属正在自我修复中");

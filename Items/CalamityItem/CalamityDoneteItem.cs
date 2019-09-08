@@ -261,6 +261,14 @@ namespace ZZLocalizationMod.Items
 					line.overrideColor = Color.HotPink;
 					tooltips.Insert(write, line);
 				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("RoyalKnivesMelee"))
+				{
+					text += "开发者";
+					text2 += "Phantasmal Deathray";
+					TooltipLine line = new TooltipLine(base.mod, "DedicatedItems", text + text2);
+					line.overrideColor = Color.HotPink;
+					tooltips.Insert(write, line);
+				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Karasawa"))
 				{
 					text += "众筹捐赠者";

@@ -43,17 +43,17 @@ namespace ZZLocalizationMod
 		}
 		public override void ProcessTriggers(TriggersSet triggersSet)
 		{
-
+			
 			if (ZZLocalizationMod.ZZPlayerInfoOK.JustPressed)
 			{
 				ZZPlayerInfo.visible = !ZZPlayerInfo.visible;
+				
 			}
 			if (ZZLocalizationMod.ZZBuffInfoOK.JustPressed)
 			{
 				ZZBuffInfo.visible = !ZZBuffInfo.visible;
-				Player player = Main.player[Main.myPlayer];
-				ZZLocalizationMod.instance.ZZBuffInfoUI.UpdateValue(player);
 			}
+			
 			//if (ZZLocalizationMod.ZZRecipeInfoOK.JustPressed)
 			//{
 			//	Item item = new Item();
@@ -63,7 +63,7 @@ namespace ZZLocalizationMod
 			//		item = Main.HoverItem;
 			//	}
 			//	else ZZRicipeInfo.visible = false;
-			//	Player player = Main.player[Main.myPlayer];
+			//	Player player = player.whoAmI;
 			//	ZZLocalizationMod.instance.ZZRecipeInfoUI.UpdateValue(item,player);
 			//}
 		}

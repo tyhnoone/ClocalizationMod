@@ -16,7 +16,7 @@ namespace ZZLocalizationMod.Items
 			{
 				if (item == null)
 				{
-					item.SetNameOverride("");
+					item.consumable = false;
 				}
 				ModLoader.GetMod("CalamityMod").GetBuff("HolyLight").DisplayName.AddTranslation(GameCulture.Chinese,"神圣之火");
 				ModLoader.GetMod("CalamityMod").GetBuff("HolyLight").Description.AddTranslation(GameCulture.Chinese,"神圣之光分解而来");

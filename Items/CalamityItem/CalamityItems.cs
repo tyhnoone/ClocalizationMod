@@ -486,6 +486,10 @@ namespace ZZLocalizationMod.Items
 					{
 						tooltipLine.text = "只能在食用生命之果已经达到上限时才能使用";
 					}
+					if (tooltipLine.text == "Not consumable")
+					{
+						tooltipLine.text = "无消耗";
+					}
 					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("AnechoicCoating"))
 					{
 						if (tooltipLine.text == "Reduces creature's ability to detect you in the abyss")

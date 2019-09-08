@@ -1,4 +1,5 @@
-﻿using ReLogic.Graphics;
+﻿
+using ReLogic.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,8 +15,24 @@ using Terraria.UI.Chat;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Terraria.DataStructures;
-using ZZLocalizationMod.UIElements;
 using Terraria.GameInput;
+using System.IO;
+using System.Linq.Expressions;
+using System.Reflection;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading;
+using Microsoft.Xna.Framework.Audio;
+using Newtonsoft.Json;
+using Steamworks;
+using Terraria.GameContent.UI;
+using Terraria.ModLoader.Audio;
+using Terraria.ModLoader.Default;
+using Terraria.ModLoader.Exceptions;
+using Terraria.ModLoader.IO;
+using Terraria.ModLoader.UI;
+using ZZLocalizationMod.Interface;
+using ZZLocalizationMod.NPCs;
 
 
 namespace ZZLocalizationMod.Interface
@@ -30,8 +47,6 @@ namespace ZZLocalizationMod.Interface
 
 		public override void OnInitialize()
 		{
-			
-
 			ZZBuffInfoUI = new UIPanel();
 			ZZBuffInfoUI.SetPadding(0);
 			ZZBuffInfoUI.Left.Set(345f, 0f);
@@ -51,9 +66,8 @@ namespace ZZLocalizationMod.Interface
 			ZZBuffInfoUI.Append(BuffInfo);
 
 			Mod mod = ZZLocalizationMod.Instance;
-
-			Texture2D buttonPlayTexture = ModContent.GetTexture("Terraria/UI/ButtonPlay");
-			Texture2D buttonBackTexture = ModContent.GetTexture("ZZLocalizationMod/Interface/ButtonBack");
+			Texture2D buttonPlayTexture = ModContent.GetTexture("Terraria/UI/ButtonPlay");			
+			Texture2D buttonBackTexture = mod.GetTexture("Interface/ButtonBack");
 
 			UIImageButton playButton = new UIImageButton(buttonPlayTexture);
 			playButton.Left.Set(220, 0f);
@@ -536,4 +550,5 @@ namespace ZZLocalizationMod.Interface
 				
 		}
 }
+
 		

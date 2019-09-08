@@ -16,7 +16,7 @@ namespace ZZLocalizationMod.Items
 			{
 				if (item == null)
 				{
-					item.SetNameOverride("");
+					item.consumable = false;
 				}
 				ModLoader.GetMod("CalamityMod").GetBuff("GlacialState").DisplayName.AddTranslation(GameCulture.Chinese,"冰河时代");
 				ModLoader.GetMod("CalamityMod").GetBuff("GlacialState").Description.AddTranslation(GameCulture.Chinese,"无法移动，防御撕裂");

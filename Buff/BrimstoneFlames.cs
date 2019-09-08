@@ -16,7 +16,7 @@ namespace ZZLocalizationMod.Items
 			{
 				if (item == null)
 				{
-					item.SetNameOverride("");
+					item.consumable = false;
 				}
 				ModLoader.GetMod("CalamityMod").GetBuff("BrimstoneFlames").DisplayName.AddTranslation(GameCulture.Chinese,"硫磺火");
 				ModLoader.GetMod("CalamityMod").GetBuff("BrimstoneFlames").Description.AddTranslation(GameCulture.Chinese,"大量生命流失");

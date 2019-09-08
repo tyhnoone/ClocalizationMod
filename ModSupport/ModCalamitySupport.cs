@@ -84,46 +84,19 @@ namespace ZZLocalizationMod
         public static string CalamityZone(Player player)
         {
 				string zone = "";
-				if (ZZLocalizationModWorld.calamityTiles > 50) zone += "\n硫磺火之崖 (灾厄)";
-				if (!player.ZoneDungeon && (ZZLocalizationModWorld.astralTiles > 950 || (player.ZoneSnow && ZZLocalizationModWorld.astralTiles > 300))) zone += "\n星幻之地 (灾厄)";
-				if (ZZLocalizationModWorld.sunkenSeaTiles > 150) zone += "\n沉沦之渊 (灾厄)";
-				Point point = Utils.ToTileCoordinates(player.Center);
-				int maxTilesX = Main.maxTilesX;
-				int maxTilesY = Main.maxTilesY;
-				int num = maxTilesX / 2;
-				int num2 = maxTilesY - 250;
-				int num3 = ZZLocalizationModWorld.abyssSide ? (num - (num - 135)) : (num + (num - 135));
-				bool flag = false;
-				bool flag2 = false;
-				bool flag3 = point.Y <= num2;
-				if (ZZLocalizationModWorld.abyssSide)
-				{
-					if (point.X < 380)
-					{
-						flag2 = true;
-					}
-					if (point.X < num3 + 80)
-					{
-						flag = true;
-					}
-				}
-				else
-				{
-					if (point.X > Main.maxTilesX - 380)
-					{
-						flag2 = true;
-					}
-					if (point.X > num3 - 80)
-					{
-						flag = true;
-					}
-				}
-				bool ZoneAbyss = ((double)point.Y > Main.rockLayer - (double)maxTilesY * 0.05 && !player.lavaWet && !player.honeyWet && flag3 && flag);
-				bool ZoneAbyssLayer1 = (ZoneAbyss && (double)point.Y <= Main.rockLayer + (double)maxTilesY * 0.03);
-				bool ZoneAbyssLayer2 = (ZoneAbyss && (double)point.Y > Main.rockLayer + (double)maxTilesY * 0.03 && (double)point.Y <= Main.rockLayer + (double)maxTilesY * 0.14);
-				bool ZoneAbyssLayer3 = (ZoneAbyss && (double)point.Y > Main.rockLayer + (double)maxTilesY * 0.14 && (double)point.Y <= Main.rockLayer + (double)maxTilesY * 0.26);
-				bool ZoneAbyssLayer4 = (ZoneAbyss && (double)point.Y > Main.rockLayer + (double)maxTilesY * 0.26);
-				bool ZoneSulphur = ((ZZLocalizationModWorld.sulphurTiles > 30 || (player.ZoneOverworldHeight && flag2)) && !ZoneAbyss);
+				ModPlayer playerCalamity = player.GetModPlayer(ModLoader.GetMod("CalamityMod"), "CalamityPlayer");
+				bool ZoneCalamity = (bool)(ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("ZoneCalamity").GetValue(playerCalamity));
+				bool ZoneAstral = (bool)(ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("ZoneAstral").GetValue(playerCalamity));
+				bool ZoneSunkenSea = (bool)(ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("ZoneSunkenSea").GetValue(playerCalamity));
+				bool ZoneSulphur = (bool)(ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("ZoneSulphur").GetValue(playerCalamity));
+				bool ZoneAbyss = (bool)(ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("ZoneAbyss").GetValue(playerCalamity));
+				bool ZoneAbyssLayer1 = (bool)(ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("ZoneAbyssLayer1").GetValue(playerCalamity));
+				bool ZoneAbyssLayer2 = (bool)(ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("ZoneAbyssLayer2").GetValue(playerCalamity));
+				bool ZoneAbyssLayer3 = (bool)(ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("ZoneAbyssLayer3").GetValue(playerCalamity));
+				bool ZoneAbyssLayer4 = (bool)(ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("ZoneAbyssLayer4").GetValue(playerCalamity));
+				if (ZoneCalamity) zone += "\n硫磺火之崖 (灾厄)";
+				if (ZoneAstral) zone += "\n星幻之地 (灾厄)";
+				if (ZoneSunkenSea) zone += "\n沉沦之渊 (灾厄)";
 				if (ZoneAbyss) zone += "\n灾厄深渊";
 				if (ZoneAbyssLayer1) zone += "\n灾厄深渊浅层(第一层)";
 				if (ZoneAbyssLayer2) zone += "\n灾厄深渊中层(第二层)";

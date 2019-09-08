@@ -1,4 +1,5 @@
-﻿using ReLogic.Graphics;
+﻿
+using ReLogic.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -26,20 +27,29 @@ namespace ZZLocalizationMod.Interface
 		public UIPlayerClass PlayerClass;
 		public static bool[] PlayButton = {false, false, false, false, false};
 		public static bool[] PlayButtonThorium = {false, false};
+		public static bool[] PlayButtonRedemption = {false};
 		public override void OnInitialize()
 		{
+			
 			float add = 0f;
 			float width = 0f;
 			float Revenge = 0f;
+			int k =0;
 			if(ModLoader.GetMod("ThoriumMod") != null)
 			{
 				add += 60f;
 				width += 160f;
+				k = k+2;
 			}
 			if(ModLoader.GetMod("CalamityMod") != null)
 			{
 				add += 90f;
 				Revenge = 90f;
+			}
+			if(ModLoader.GetMod("Redemption") != null)
+			{
+				width += 80f;
+				k = k+1;
 			}
 
 			ZZPlayerInfoInterface = new UIPanel();
@@ -112,7 +122,7 @@ namespace ZZLocalizationMod.Interface
 			if(ModLoader.GetMod("ThoriumMod") != null)
 			{
 				UIImageButton PlayButton6 = new UIImageButton(buttonPlayerClass);
-				PlayButton6.Left.Set(440, 0f);
+				PlayButton6.Left.Set(360 + 80, 0f);
 				PlayButton6.Top.Set(240 + add, 0f);
 				PlayButton6.Width.Set(20, 0f);
 				PlayButton6.Height.Set(20, 0f);
@@ -120,18 +130,28 @@ namespace ZZLocalizationMod.Interface
 				ZZPlayerInfoInterface.Append(PlayButton6);
 
 				UIImageButton PlayButton7 = new UIImageButton(buttonPlayerClass);
-				PlayButton7.Left.Set(520, 0f);
+				PlayButton7.Left.Set(360 + 160, 0f);
 				PlayButton7.Top.Set(240 + add, 0f);
 				PlayButton7.Width.Set(20, 0f);
 				PlayButton7.Height.Set(20, 0f);
 				PlayButton7.OnClick += new MouseEvent(PlayButtonThorium2Clicked);
 				ZZPlayerInfoInterface.Append(PlayButton7);
 			}
+
+			if(ModLoader.GetMod("Redemption") != null)
+			{
+				UIImageButton PlayButton8 = new UIImageButton(buttonPlayerClass);
+				PlayButton8.Left.Set(360 + 80 * k, 0f);
+				PlayButton8.Top.Set(240 + add, 0f);
+				PlayButton8.Width.Set(20, 0f);
+				PlayButton8.Height.Set(20, 0f);
+				PlayButton8.OnClick += new MouseEvent(PlayButtonRedemptionClicked);
+				ZZPlayerInfoInterface.Append(PlayButton8);
+			}
 			
 			
 
 			Mod mod = ZZLocalizationMod.Instance;
-			
 			Texture2D buttonDeleteTexture = ModContent.GetTexture("Terraria/UI/ButtonDelete");
 			UIImageButton closeButton = new UIImageButton(buttonDeleteTexture);
 			closeButton.Left.Set(460 + width, 0f);
@@ -140,6 +160,7 @@ namespace ZZLocalizationMod.Interface
 			closeButton.Height.Set(22, 0f);
 			closeButton.OnClick += new MouseEvent(CloseButtonClicked);
 			ZZPlayerInfoInterface.Append(closeButton);
+			
 
 			base.Append(ZZPlayerInfoInterface);
 		}
@@ -152,6 +173,7 @@ namespace ZZLocalizationMod.Interface
 			PlayButton[4] = false;
 			PlayButtonThorium[0] = false;
 			PlayButtonThorium[1] = false;
+			PlayButtonRedemption[0] = false;
 		}
 		private void PlayButton2Clicked(UIMouseEvent evt, UIElement listeningElement)
 		{
@@ -162,6 +184,7 @@ namespace ZZLocalizationMod.Interface
 			PlayButton[4] = false;
 			PlayButtonThorium[0] = false;
 			PlayButtonThorium[1] = false;
+			PlayButtonRedemption[0] = false;
 		}
 		private void PlayButton3Clicked(UIMouseEvent evt, UIElement listeningElement)
 		{
@@ -172,6 +195,7 @@ namespace ZZLocalizationMod.Interface
 			PlayButton[4] = false;
 			PlayButtonThorium[0] = false;
 			PlayButtonThorium[1] = false;
+			PlayButtonRedemption[0] = false;
 		}
 		private void PlayButton4Clicked(UIMouseEvent evt, UIElement listeningElement)
 		{
@@ -182,6 +206,7 @@ namespace ZZLocalizationMod.Interface
 			PlayButton[4] = false;
 			PlayButtonThorium[0] = false;
 			PlayButtonThorium[1] = false;
+			PlayButtonRedemption[0] = false;
 		}
 		private void PlayButton5Clicked(UIMouseEvent evt, UIElement listeningElement)
 		{
@@ -192,6 +217,7 @@ namespace ZZLocalizationMod.Interface
 			PlayButton[4] = true;
 			PlayButtonThorium[0] = false;
 			PlayButtonThorium[1] = false;
+			PlayButtonRedemption[0] = false;
 		}
 		private void PlayButtonThorium1Clicked(UIMouseEvent evt, UIElement listeningElement)
 		{
@@ -202,6 +228,7 @@ namespace ZZLocalizationMod.Interface
 			PlayButton[4] = false;
 			PlayButtonThorium[0] = true;
 			PlayButtonThorium[1] = false;
+			PlayButtonRedemption[0] = false;
 		}
 		private void PlayButtonThorium2Clicked(UIMouseEvent evt, UIElement listeningElement)
 		{
@@ -212,6 +239,18 @@ namespace ZZLocalizationMod.Interface
 			PlayButton[4] = false;
 			PlayButtonThorium[0] = false;
 			PlayButtonThorium[1] = true;
+			PlayButtonRedemption[0] = false;
+		}
+		private void PlayButtonRedemptionClicked(UIMouseEvent evt, UIElement listeningElement)
+		{
+			PlayButton[0] = false;
+			PlayButton[1] = false;
+			PlayButton[2] = false;
+			PlayButton[3] = false;
+			PlayButton[4] = false;
+			PlayButtonThorium[0] = false;
+			PlayButtonThorium[1] = false;
+			PlayButtonRedemption[0] = true;
 		}
 		private void CloseButtonClicked(UIMouseEvent evt, UIElement listeningElement)
 		{
@@ -246,7 +285,7 @@ namespace ZZLocalizationMod.Interface
 			PlayerInfo.slotsMinions = (int)player.slotsMinions;
 			PlayerInfo.maxMinions = player.maxMinions;
 			PlayerInfo.maxTurrets = player.maxTurrets;
-			PlayerInfo.around = ZZLocalizationMod.zoneString(player);
+			//PlayerInfo.around = ZZLocalizationMod.zoneString(player);
 
 			PlayerClass.meleedamage = (int)((player.meleeDamage*100)-100 + (player.allDamage*100)-100);
 			PlayerClass.meleeSpeed = (int)((1/player.meleeSpeed)*100 -100);
@@ -300,9 +339,6 @@ namespace ZZLocalizationMod.Interface
 
 				PlayerClass.magicLevel = (int) ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("magicLevel").GetValue(playerCalamity);
 				PlayerClass.exactmagicLevel = (int) ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("exactMagicLevel").GetValue(playerCalamity);
-
-				PlayerClass.rangedLevel = (int) ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("rangedLevel").GetValue(playerCalamity);
-				PlayerClass.exactRangedLevel = (int) ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("exactRangedLevel").GetValue(playerCalamity);
 
 				PlayerClass.rangedLevel = (int) ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("rangedLevel").GetValue(playerCalamity);
 				PlayerClass.exactRangedLevel = (int) ModLoader.GetMod("CalamityMod").GetPlayer("CalamityPlayer").GetType().GetField("exactRangedLevel").GetValue(playerCalamity);
@@ -411,7 +447,7 @@ namespace ZZLocalizationMod.Interface
 			DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "召唤物栏已用/上限："+ slotsMinions + " / " + maxMinions, new Vector2(shopx, shopy + 120), Minionscolor, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
 			DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "哨兵炮塔上限：" + maxTurrets, new Vector2(shopx, shopy + 150), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
 
-			DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, around, new Vector2(shopx + 250, shopy), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
+			//DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, around, new Vector2(shopx + 250, shopy), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
 
 			if(ModLoader.GetMod("ThoriumMod") != null)
 			{

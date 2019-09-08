@@ -1,4 +1,5 @@
-﻿using ReLogic.Graphics;
+﻿/* 
+using ReLogic.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -247,11 +248,11 @@ namespace ZZLocalizationMod.Interface
 						string text3 = "[c/FF0000:"+" 0/"+itemstack +"]";
 						for(int i=0; i<58 ; i++)
 						{
-							if(Main.player[Main.myPlayer].inventory[i].type==item2.type)
+							if(player.whoAmI.inventory[i].type==item2.type)
 							{
 								if(Main.player [Main.myPlayer].inventory[i].stack >= itemstack)
-								{text3 = text3.Replace(text3,"[c/00FF00: "+ Main.player[Main.myPlayer].inventory[i].stack+"/"+itemstack +"]");}
-								else{text3 = text3.Replace(text3,"[c/FF0000: "+ Main.player[Main.myPlayer].inventory[i].stack+"/"+itemstack +"]");}
+								{text3 = text3.Replace(text3,"[c/00FF00: "+ player.whoAmI.inventory[i].stack+"/"+itemstack +"]");}
+								else{text3 = text3.Replace(text3,"[c/FF0000: "+ player.whoAmI.inventory[i].stack+"/"+itemstack +"]");}
 								
 								break;
 							}
@@ -555,11 +556,11 @@ namespace ZZLocalizationMod.Interface
 						string text3 = "[c/FF0000:"+" 0/"+itemstack +"]";
 						for(int i=0; i<58 ; i++)
 						{
-							if(Main.player[Main.myPlayer].inventory[i].type==item2.type)
+							if(player.whoAmI.inventory[i].type==item2.type)
 							{
-								if(Main.player[Main.myPlayer].inventory[i].stack >= itemstack)
-								{text3 = text3.Replace(text3,"[c/00FF00: "+ Main.player[Main.myPlayer].inventory[i].stack+"/"+itemstack +"]");}
-								else{text3 = text3.Replace(text3,"[c/FF0000: "+ Main.player[Main.myPlayer].inventory[i].stack+"/"+itemstack +"]");}
+								if(player.whoAmI.inventory[i].stack >= itemstack)
+								{text3 = text3.Replace(text3,"[c/00FF00: "+ player.whoAmI.inventory[i].stack+"/"+itemstack +"]");}
+								else{text3 = text3.Replace(text3,"[c/FF0000: "+ player.whoAmI.inventory[i].stack+"/"+itemstack +"]");}
 								
 								break;
 							}
@@ -595,4 +596,5 @@ namespace ZZLocalizationMod.Interface
 		}
 	}
 }
+ */
 		

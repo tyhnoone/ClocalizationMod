@@ -14,9 +14,9 @@ namespace ZZLocalizationMod.Items
 		{
 			if (LanguageManager.Instance.ActiveCulture == GameCulture.Chinese && ModLoader.GetMod("CalamityMod") != null)
 			{
-				if (item.type == 0)
+				if (item == null)
 				{
-					item.SetNameOverride("");
+					item.consumable = false;
 					
 				}
 				//ModLoader.GetMod("CalamityMod").GetBuff("AbyssalDivingSuitPlatesBroken").DisplayName.AddTranslation(GameCulture.Chinese,"深渊潜游服受损外壳");

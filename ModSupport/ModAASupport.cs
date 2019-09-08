@@ -94,7 +94,7 @@ namespace ZZLocalizationMod
                 {"Bunny", RabbitKills},
                 {"Egg", SmashDragonEgg},
                 {"Pod", SmashHydraPod}
-            };
+            	};
 				ModLoader.GetMod("AAMod").GetModWorld("AAWorld").Load(tag);
 				
 			}
@@ -112,16 +112,17 @@ namespace ZZLocalizationMod
         public static string AAZone(Player player)
         {
 				string zone = "";
-            	bool ZoneMire = (ZZLocalizationModWorld.mireTiles > 100);
-            	bool ZoneInferno = ZZLocalizationModWorld.infernoTiles > 100;
-            	bool ZoneMush = ZZLocalizationModWorld.mushTiles > 100;
-            	bool Terrarium = ZZLocalizationModWorld.terraTiles >= 1;
-            	bool ZoneVoid = (ZZLocalizationModWorld.voidTiles > 20 && player.ZoneSkyHeight) || (ZZLocalizationModWorld.voidTiles > 100 && !player.ZoneSkyHeight);
-            	bool ZoneRisingMoonLake = ZZLocalizationModWorld.lakeTiles >= 1;
-            	bool ZoneRisingSunPagoda = ZZLocalizationModWorld.pagodaTiles >= 1;
-            	bool ZoneStars = ZZLocalizationModWorld.Radium >= 20;
-            	bool ZoneHoard = ZZLocalizationModWorld.HoardTiles > 1;
-            	bool ZoneAcropolis = ZZLocalizationModWorld.CloudTiles > 1;
+				ModPlayer playerAA = player.GetModPlayer(ModLoader.GetMod("AAMod"), "AAPlayer");
+            	bool ZoneMire = (bool)(ModLoader.GetMod("AAMod").GetPlayer("AAPlayer").GetType().GetField("ZoneMire").GetValue(playerAA));
+            	bool ZoneInferno = (bool)(ModLoader.GetMod("AAMod").GetPlayer("AAPlayer").GetType().GetField("ZoneInferno").GetValue(playerAA));
+            	bool ZoneMush = (bool)(ModLoader.GetMod("AAMod").GetPlayer("AAPlayer").GetType().GetField("ZoneMush").GetValue(playerAA));
+            	bool Terrarium = (bool)(ModLoader.GetMod("AAMod").GetPlayer("AAPlayer").GetType().GetField("Terrarium").GetValue(playerAA));
+            	bool ZoneVoid = (bool)(ModLoader.GetMod("AAMod").GetPlayer("AAPlayer").GetType().GetField("ZoneVoid").GetValue(playerAA));
+            	bool ZoneRisingMoonLake = (bool)(ModLoader.GetMod("AAMod").GetPlayer("AAPlayer").GetType().GetField("ZoneRisingMoonLake").GetValue(playerAA));
+            	bool ZoneRisingSunPagoda = (bool)(ModLoader.GetMod("AAMod").GetPlayer("AAPlayer").GetType().GetField("ZoneRisingSunPagoda").GetValue(playerAA));
+            	bool ZoneStars = (bool)(ModLoader.GetMod("AAMod").GetPlayer("AAPlayer").GetType().GetField("ZoneStars").GetValue(playerAA));
+            	bool ZoneHoard = (bool)(ModLoader.GetMod("AAMod").GetPlayer("AAPlayer").GetType().GetField("ZoneHoard").GetValue(playerAA));
+            	bool ZoneAcropolis = (bool)(ModLoader.GetMod("AAMod").GetPlayer("AAPlayer").GetType().GetField("ZoneAcropolis").GetValue(playerAA));
 
 				if(ZoneMire) zone += "\n潭渊 (远古觉醒)";
 				if(ZoneInferno) zone += "\n燎狱 (远古觉醒)";

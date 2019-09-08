@@ -12,12 +12,11 @@ namespace ZZLocalizationMod.Tiles
 		public override void SetDefaults()
 		{
 			
+			
 				
 				
 			if (ModLoader.GetMod("CalamityMod") != null)
 			{
-
-
 				ModTile tile = TileLoader.GetTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
 				ModTranslation DraedonsForge = tile.CreateMapEntryName(null);
 				DraedonsForge.AddTranslation(GameCulture.Chinese, "嘉登熔炉");

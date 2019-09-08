@@ -401,16 +401,17 @@ namespace ZZLocalizationMod
 				string lastMod = "";
 				var watch = Stopwatch.StartNew();
 				var oldRand = Main.rand;
+
 				if (Main.rand == null)
 					Main.rand = new Terraria.Utilities.UnifiedRandom();
 
 				Main.hardMode = true;
-
 				Main.expertMode = true;
 				CalamitySupport.CalamityCalculateLootLoad();
 				ThoriumSupport.ThoriumCalculateLootLoad();
 				AASupport.AACalculateLootLoad();
 				SacredtoolsSupport.SacredtoolsCalculateLootLoad();
+				ModRedemption.ModRedemptionCalculateLootLoad();
 
 				for (int i = 1; i < NPCLoader.NPCCount; i++) // for every npc...
 				{
@@ -508,6 +509,25 @@ namespace ZZLocalizationMod
 		internal static void CalculateLoot(NPC npc, Player player)
 		{
 			ModItem itembag = null;
+
+			player.active = true;
+
+			if(npc.type == NPCID.KingSlime) NPC.downedSlimeKing = false;
+			if(npc.type == NPCID.EyeofCthulhu) NPC.downedBoss1 = false;
+			if(npc.type == NPCID.EaterofWorldsHead) NPC.downedBoss2 = false;
+			if(npc.type == NPCID.BrainofCthulhu) NPC.downedBoss2 = false;
+			if(npc.type == NPCID.QueenBee) NPC.downedQueenBee = false;
+			if(npc.type == NPCID.SkeletronHead) NPC.downedBoss3 = false;
+			if(npc.type == NPCID.WallofFlesh) Main.hardMode = false;
+			if(npc.type == NPCID.TheDestroyer) NPC.downedMechBoss1 = false;
+			if(npc.type == NPCID.Retinazer) NPC.downedMechBoss2 = false;
+			if(npc.type == NPCID.Spazmatism) NPC.downedMechBoss2 = false;
+			if(npc.type == NPCID.SkeletronPrime) NPC.downedMechBoss3 = false;
+			if(npc.type == NPCID.Plantera) NPC.downedPlantBoss = false;
+			if(npc.type == NPCID.Golem) NPC.downedGolemBoss = false;
+			if(npc.type == NPCID.DukeFishron) NPC.downedFishron = false;
+			if(npc.type == NPCID.CultistBoss) NPC.downedAncientCultist = false;
+			if(npc.type == NPCID.MoonLordCore) NPC.downedMoonlord = false;
 			
 			if(npc.type == 22)	 npc.GivenName = "Andrew";
 
@@ -631,6 +651,23 @@ namespace ZZLocalizationMod
 			Main.pumpkinMoon = false;
 			Main.bloodMoon = false;
 			DD2Event.Ongoing = false;
+
+			if(npc.type == NPCID.KingSlime) NPC.downedSlimeKing = true;
+			if(npc.type == NPCID.EyeofCthulhu) NPC.downedBoss1 = true;
+			if(npc.type == NPCID.EaterofWorldsHead) NPC.downedBoss2 = true;
+			if(npc.type == NPCID.BrainofCthulhu) NPC.downedBoss2 = true;
+			if(npc.type == NPCID.QueenBee) NPC.downedQueenBee = true;
+			if(npc.type == NPCID.SkeletronHead) NPC.downedBoss3 = true;
+			if(npc.type == NPCID.WallofFlesh) Main.hardMode = true;
+			if(npc.type == NPCID.TheDestroyer) NPC.downedMechBoss1 = true;
+			if(npc.type == NPCID.Retinazer) NPC.downedMechBoss2 = true;
+			if(npc.type == NPCID.Spazmatism) NPC.downedMechBoss2 = true;
+			if(npc.type == NPCID.SkeletronPrime) NPC.downedMechBoss3 = true;
+			if(npc.type == NPCID.Plantera) NPC.downedPlantBoss = true;
+			if(npc.type == NPCID.Golem) NPC.downedGolemBoss = true;
+			if(npc.type == NPCID.DukeFishron) NPC.downedFishron = true;
+			if(npc.type == NPCID.CultistBoss) NPC.downedAncientCultist = true;
+			if(npc.type == NPCID.MoonLordCore) NPC.downedMoonlord = true;
 			
 				for (int i = 0; i < 500; i++)
 				{

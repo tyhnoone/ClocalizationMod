@@ -536,7 +536,7 @@ namespace ZZLocalizationMod.Items
 					tooltips.Add(line5);
 					tooltips.Add(line5ok);
 				}
-			}
+			} 
 			if(ZZLocalizationMod.modConfiguration.droptext != 0)
 			{
 				TooltipLine line3 = new TooltipLine(base.mod, "dropNPC", "");

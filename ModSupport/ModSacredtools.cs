@@ -76,7 +76,7 @@ namespace ZZLocalizationMod
         public static string SacredToolsZone(Player player)
         {
 				string zone = "";
-				ModPlayer playerSacredTools = Main.player[Main.myPlayer].GetModPlayer(ModLoader.GetMod("SacredTools"), "ModdedPlayer");
+				ModPlayer playerSacredTools = player.GetModPlayer(ModLoader.GetMod("SacredTools"), "ModdedPlayer");
 				bool FlameCrimson = (bool)(ModLoader.GetMod("SacredTools").GetPlayer("ModdedPlayer").GetType().GetField("FlameCrimson").GetValue(playerSacredTools));
 				if(FlameCrimson) zone += "\n熔火之地 (圣域)";
 

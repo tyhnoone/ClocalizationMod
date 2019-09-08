@@ -16,7 +16,7 @@ namespace ZZLocalizationMod.Items
 			{
 				if (item == null)
 				{
-					item.SetNameOverride("");
+					item.consumable = false;
 				}
 				ModLoader.GetMod("CalamityMod").GetBuff("AbyssalDivingSuitBuff").DisplayName.AddTranslation(GameCulture.Chinese,"深渊潜游服");
 				ModLoader.GetMod("CalamityMod").GetBuff("AbyssalDivingSuitBuff").Description.AddTranslation(GameCulture.Chinese, "你是铁打的");
