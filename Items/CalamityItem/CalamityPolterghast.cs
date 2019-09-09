@@ -16,7 +16,7 @@ namespace ZZLocalizationMod.Items
 			{
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Affliction"))
 				{
-					item.SetNameOverride("灾劫之尖啸");
+					item.SetNameOverride("苦难");
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("NecroplasmicBeacon"))
 				{

@@ -118,6 +118,66 @@ namespace ZZLocalizationMod.Items
 				{
 					item.SetNameOverride("冰花");
 				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("IchorSpear"))
+				{
+					item.SetNameOverride("灵液标枪");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Lionfish"))
+				{
+					item.SetNameOverride("狮子鱼");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Malachite"))
+				{
+					item.SetNameOverride("孔雀翎");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("MangroveChakram"))
+				{
+					item.SetNameOverride("红木环刃");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("MeteorFist"))
+				{
+					item.SetNameOverride("陨星拳");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("MoltenAmputator"))
+				{
+					item.SetNameOverride("熔岩切割者");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Mycoroot"))
+				{
+					item.SetNameOverride("狂菌根刺");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("MythrilKnife"))
+				{
+					item.SetNameOverride("秘银飞刀");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("NanoblackReaperRogue"))
+				{
+					item.SetNameOverride("黑色纳米收割者");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("OrichalcumSpikedGemstone"))
+				{
+					item.SetNameOverride("山铜宝石钉");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("PalladiumJavelin"))
+				{
+					item.SetNameOverride("钯金投矛");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Prismalline"))
+				{
+					item.SetNameOverride("棱晶飞刃");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ProfanedTrident"))
+				{
+					item.SetNameOverride("炼火狱矛");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Pwnagehammer"))
+				{
+					item.SetNameOverride("圣时之锤");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("RadiantStar"))
+				{
+					item.SetNameOverride("光辉星匕");
+				}
 				
 			}
 		}
@@ -134,6 +194,10 @@ namespace ZZLocalizationMod.Items
 						string resultA = str.Replace("rogue ", "盗贼");
 						tooltipLine.text = resultA;
 						if(resultA!=str) rogue =true;
+					}
+					if (tooltipLine.text == "Legendary Drop")
+					{
+						tooltipLine.text = "传奇物品";
 					}
 					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("AccretionDisk"))
 					{
@@ -287,26 +351,102 @@ namespace ZZLocalizationMod.Items
 							tooltipLine.text = "在玩家垂直移动时，星盘会在击中敌人后炸开，向四周散射幻星法球";
 						}
 					}
-					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Icebreaker"))
-					{
-						if (tooltipLine.text == "Icebreaker")
-						{
-							tooltipLine.text = "破冰者";
-						}
-					}
 					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("IceStar"))
 					{
-						if (tooltipLine.text == "Ice Star")
+						if (tooltipLine.text == "Throws homing ice stars")
 						{
-							tooltipLine.text = "冰花";
+							tooltipLine.text = "投出追踪的冰花";
 						}
-						if (tooltipLine.text == "Throws homing ice stars\nIce Stars are too brittle to be recovered after being thrown")
+						if (tooltipLine.text == "Ice Stars are too brittle to be recovered after being thrown")
 						{
-							tooltipLine.text = "投出追踪的冰花\n用冰做的雪花太脆了，丢出去就会成为碎片";
+							tooltipLine.text = "用冰做的雪花太脆了，丢出去就会成为碎片";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Lionfish"))
+					{
+						if (tooltipLine.text == "Sticks to enemies and injects a potent toxin")
+						{
+							tooltipLine.text = "粘在敌人身上注射一种强力毒素";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Malachite"))
+					{
+						if (tooltipLine.text == "Striking an enemy with the blade causes an earthen eruption")
+						{
+							tooltipLine.text = "用剑击中敌人时，庇护之光会爆发出火焰";
+						}
+						if (tooltipLine.text == "Right click to fire an aegis bolt that costs 4 mana")
+						{
+							tooltipLine.text = "右键发射庇护火矢，消耗4魔法";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("MeteorFist"))
+					{
+						if (tooltipLine.text == "Fires a fist that explodes")
+						{
+							tooltipLine.text = "发射一个爆炸的拳头";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("MoltenAmputator"))
+					{
+						if (tooltipLine.text == "Throws a scythe that emits molten globs on enemy hits")
+						{
+							tooltipLine.text = "投掷一把镰刀，在敌人击中时发出熔化的球";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Mycoroot"))
+					{
+						if (tooltipLine.text == "Fires a stream of short-range fungal roots")
+						{
+							tooltipLine.text = "疯狂发射短距离根系";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("NanoblackReaperRogue"))
+					{
+						if (tooltipLine.text == "Unleashes a storm of nanoblack energy blades")
+						{
+							tooltipLine.text = "释放风暴般的黑色纳米能量刀片";
+						}
+						if (tooltipLine.text == "Blades target bosses whenever possible")
+						{
+							tooltipLine.text = "刀刃以攻击目标Boss为优先";
+						}
+						if (tooltipLine.text == "'She smothered them in Her hatred'")
+						{
+							tooltipLine.text = "“她在仇恨中扼杀了他们”";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Prismalline"))
+					{
+						if (tooltipLine.text == "Throws daggers that split after a while")
+						{
+							tooltipLine.text = "投掷会在一小段时间后分裂的匕首";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ProfanedTrident"))
+					{
+						if (tooltipLine.text == "Throws a homing spear that explodes on enemy hits")
+						{
+							tooltipLine.text = "投掷追踪敌人的矛，在命中时爆炸";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Pwnagehammer"))
+					{
+						if (tooltipLine.text == "Throws an extremely fast hammer")
+						{
+							tooltipLine.text = "投掷一个极快的锤子";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("RadiantStar"))
+					{
+						if (tooltipLine.text == "Throws daggers that explode and split after a while")
+						{
+							tooltipLine.text = "投掷一小段时间后会分裂的匕首";
 						}
 					}
 					
 				}
+				
 				if (rogue)
 				{
 					tooltips.Insert(1, new TooltipLine(base.mod, "rogue", "-盗贼职业-")

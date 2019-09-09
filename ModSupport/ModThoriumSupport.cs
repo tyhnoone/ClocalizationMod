@@ -70,7 +70,7 @@ namespace ZZLocalizationMod
         public static string ThoriumZone(Player player)
         {
 				string zone = "";
-				ModPlayer playerThorium = player.GetModPlayer(ModLoader.GetMod("ThoriumMod"), "CalamityPlayer");
+				ModPlayer playerThorium = player.GetModPlayer(ModLoader.GetMod("ThoriumMod"), "ThoriumPlayer");
 				bool ZoneAqua = (bool)(ModLoader.GetMod("ThoriumMod").GetPlayer("ThoriumPlayer").GetType().GetField("ZoneAqua").GetValue(playerThorium));
 				if (ZoneAqua) zone += "\n瑟银水渊";
 				return zone;
