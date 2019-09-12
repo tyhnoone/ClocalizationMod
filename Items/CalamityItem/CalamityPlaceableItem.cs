@@ -377,7 +377,7 @@ namespace ZZLocalizationMod.Items
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("YharonTrophy"))
 				{
-					item.SetNameOverride("亚戎荣耀之证");
+					item.SetNameOverride("犽戎荣耀之证");
 				}
 			}
 		}

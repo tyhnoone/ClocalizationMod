@@ -27,7 +27,7 @@ namespace ZZLocalizationMod.NPCs
 				}
 				if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("SupremeCalamitas"))
 				{
-					NPCLoader.GetNPC(npc.type).DisplayName.AddTranslation(GameCulture.Chinese, "至尊灾厄之影");
+					NPCLoader.GetNPC(npc.type).DisplayName.AddTranslation(GameCulture.Chinese, "至尊灾厄");
 				}
 				if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("SupremeCataclysm"))
 				{

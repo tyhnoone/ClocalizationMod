@@ -16,23 +16,6 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Terraria.DataStructures;
 using Terraria.GameInput;
-using System.IO;
-using System.Linq.Expressions;
-using System.Reflection;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading;
-using Microsoft.Xna.Framework.Audio;
-using Newtonsoft.Json;
-using Steamworks;
-using Terraria.GameContent.UI;
-using Terraria.ModLoader.Audio;
-using Terraria.ModLoader.Default;
-using Terraria.ModLoader.Exceptions;
-using Terraria.ModLoader.IO;
-using Terraria.ModLoader.UI;
-using ZZLocalizationMod.Interface;
-using ZZLocalizationMod.NPCs;
 
 
 namespace ZZLocalizationMod.Interface
@@ -67,7 +50,7 @@ namespace ZZLocalizationMod.Interface
 
 			Mod mod = ZZLocalizationMod.Instance;
 			Texture2D buttonPlayTexture = ModContent.GetTexture("Terraria/UI/ButtonPlay");			
-			Texture2D buttonBackTexture = mod.GetTexture("Interface/ButtonBack");
+			Texture2D buttonBackTexture = ModContent.GetTexture("ZZLocalizationMod/Interface/ButtonBack");
 
 			UIImageButton playButton = new UIImageButton(buttonPlayTexture);
 			playButton.Left.Set(220, 0f);
@@ -330,7 +313,7 @@ namespace ZZLocalizationMod.Interface
 				BuffLoader.DrawCustomBuffTip(Main.buffString, Main.spriteBatch, X, Y + (int)Main.fontMouseText.MeasureString(Main.buffString).Y);
 			}
 
-			public void MouseText(string cursorText, int rare = 0, byte diff = 0, int hackedMouseX = -1, int hackedMouseY = -1, int hackedScreenWidth = -1, int hackedScreenHeight = -1)
+			private void MouseText(string cursorText, int rare = 0, byte diff = 0, int hackedMouseX = -1, int hackedMouseY = -1, int hackedScreenWidth = -1, int hackedScreenHeight = -1)
 			{
 				if (cursorText == null)
 				{
@@ -449,7 +432,7 @@ namespace ZZLocalizationMod.Interface
 				ChatManager.DrawColorCodedStringWithShadow(Main.spriteBatch, Main.fontMouseText, cursorText, new Vector2((float)num, (float)num2), baseColor, 0f, Vector2.Zero, Vector2.One, -1f, 2f);
 			}
 
-			public void MouseTextHackZoom(string text, int itemRarity, byte diff = 0)
+			private void MouseTextHackZoom(string text, int itemRarity, byte diff = 0)
 			{
 				Main.spriteBatch.End();
 				Main.spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Main.UIScaleMatrix);
@@ -462,8 +445,6 @@ namespace ZZLocalizationMod.Interface
 				PlayerInput.SetZoom_Test();
 				this.MouseText(text, itemRarity, 0, hackedMouseX, hackedMouseY, hackedScreenWidth, hackedScreenHeight);
 			}
-
-			private static Matrix _uiScaleMatrix;
 
 
 			protected override void DrawSelf(SpriteBatch spriteBatch) 

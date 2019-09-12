@@ -20,7 +20,7 @@ namespace ZZLocalizationMod.Items
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("HellcasterFragment"))
 				{
-					item.SetNameOverride("亚戎碎魂");
+					item.SetNameOverride("犽戎碎魂");
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("YharimsGift"))
 				{

@@ -257,7 +257,7 @@ namespace ZZLocalizationMod.Items
 					{
 						if (tooltipLine.text == "Boosts nature-based weapon damage by 15% and damage reduction by 5%")
 						{
-							tooltipLine.text = "使自然属性的武器伤害提高15%，增加5%伤害减免";
+							tooltipLine.text = "使自然属性的武器伤害增加15%，增加5%伤害减免";
 						}
 						if (tooltipLine.text == "Reduces life regen by 1")
 						{

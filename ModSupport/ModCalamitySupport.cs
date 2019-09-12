@@ -741,7 +741,7 @@ namespace ZZLocalizationMod
 					}
 					if(Main.npcChatText == "Ah, the dragon Yharon is fickle. You may find that he will refuse to use his full power unless you are strong enough to unleash the power of the Dark Sun.")
 					{
-						string chatch = "啊, 丛林龙亚戎脾气怪异. 你可能会发现他会拒绝使用他的全部力量, 除非你有足够的力量来释放黑暗之日的全部力量";
+						string chatch = "啊, 丛林龙犽戎脾气怪异. 你可能会发现他会拒绝使用他的全部力量, 除非你有足够的力量来释放黑暗之日的全部力量";
 						string chatresult = Main.npcChatText.Replace(Main.npcChatText, chatch);
 						Main.npcChatText = chatresult;
 					}

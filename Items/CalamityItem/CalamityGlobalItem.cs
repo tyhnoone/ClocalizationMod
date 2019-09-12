@@ -68,7 +68,7 @@ namespace ZZLocalizationMod.Items
 					{
 						if (tooltipLine7.mod == "Terraria" && tooltipLine7.Name == "Tooltip1")
 						{
-							tooltipLine7.text = "在水下提供照明, 并额外提高冰块上的灵活性\n在深渊中提供少量光照\n中等降低深渊中的呼吸流失";
+							tooltipLine7.text = "在水下提供照明, 并额外增加冰块上的灵活性\n在深渊中提供少量光照\n中等降低深渊中的呼吸流失";
 						}
 					}
 				}
@@ -238,7 +238,7 @@ namespace ZZLocalizationMod.Items
 					{
 						if (tooltipLine24.mod == "Terraria" && tooltipLine24.Name == "Tooltip0")
 						{
-							tooltipLine24.text = "提高20%移动速度";
+							tooltipLine24.text = "增加20%移动速度";
 						}
 					}
 				}
@@ -248,7 +248,7 @@ namespace ZZLocalizationMod.Items
 					{
 						if (tooltipLine25.mod == "Terraria" && tooltipLine25.Name == "Tooltip0")
 						{
-							tooltipLine25.text = "增加炮台召唤栏,提高生命再生速度\n增加30%召唤伤害和20%近战暴击率";
+							tooltipLine25.text = "增加炮台召唤栏,增加生命再生速度\n增加30%召唤伤害和20%近战暴击率";
 						}
 					}
 				}
@@ -278,7 +278,7 @@ namespace ZZLocalizationMod.Items
 					{
 						if (tooltipLine28.mod == "Terraria" && tooltipLine28.Name == "Tooltip0")
 						{
-							tooltipLine28.text = "增加炮台召唤栏,提高10%远程暴击率\n增加30%召唤伤害";
+							tooltipLine28.text = "增加炮台召唤栏,增加10%远程暴击率\n增加30%召唤伤害";
 						}
 					}
 				}
@@ -442,7 +442,7 @@ namespace ZZLocalizationMod.Items
 					{
 						if (tooltipLine44.mod == "Terraria" && tooltipLine44.Name == "Tooltip0")
 						{
-							tooltipLine44.text = "大幅度提高生命再生速度";
+							tooltipLine44.text = "大幅度增加生命再生速度";
 						}
 					}
 				}
@@ -632,7 +632,7 @@ namespace ZZLocalizationMod.Items
 					{
 						if (tooltipLine63.mod == "Terraria" && tooltipLine63.Name == "Tooltip0")
 						{
-							tooltipLine63.text = "增加10%弓箭伤害,大大提高弓箭速度";
+							tooltipLine63.text = "增加10%弓箭伤害,大大增加弓箭速度";
 						}
 					}
 				}

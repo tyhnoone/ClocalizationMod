@@ -19,7 +19,7 @@ namespace ZZLocalizationMod.Items
 					item.consumable = false;
 				}
 				ModLoader.GetMod("CalamityMod").GetBuff("AngryChicken").DisplayName.AddTranslation(GameCulture.Chinese, "丛林龙之子");
-				ModLoader.GetMod("CalamityMod").GetBuff("AngryChicken").Description.AddTranslation(GameCulture.Chinese, "亚戎之子会保护着你");
+				ModLoader.GetMod("CalamityMod").GetBuff("AngryChicken").Description.AddTranslation(GameCulture.Chinese, "犽戎之子会保护着你");
 			}
 		}
 	}

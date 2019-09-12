@@ -20,7 +20,7 @@ namespace ZZLocalizationMod
 			{
 				Main.NewText("感谢您使用ZZLocalizationMod，使用过程中出现什么问题欢迎反馈", 67, 100, 238, false);
 				Mod CalamityMod = ModLoader.GetMod("CalamityMod");
-				Version Cala_vers = new Version(1, 4, 1, 104);
+				Version Cala_vers = new Version(1, 4, 2, 104);
 				if (CalamityMod != null)
 				{
 					if (CalamityMod.Version == Cala_vers)

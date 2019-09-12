@@ -344,7 +344,7 @@ namespace ZZLocalizationMod.Items
 				{
 					if (tooltipLine.text == "Revengeance drop")
 					{
-						tooltipLine.text = "复仇模式专属";
+						tooltipLine.text = "复仇模式物品";
 					}
 					if (tooltipLine.text == "Legendary Accessory")
 					{
@@ -861,7 +861,7 @@ namespace ZZLocalizationMod.Items
 						}
 						if (tooltipLine.text == "20% reduced ammo usage and increased life regen, minion knockback, defense, and pick speed")
 						{
-							tooltipLine.text = "减少20%的弹药消耗，提高生命回复、召唤物击退、防御和挖掘速度";
+							tooltipLine.text = "减少20%的弹药消耗，增加生命回复、召唤物击退、防御和挖掘速度";
 						}
 					}
 					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("EtherealTalisman"))

@@ -108,7 +108,7 @@ namespace ZZLocalizationMod.Items
 					{
 						if (tooltipLine.text == "Drains a percentage of enemy health on hit")
 						{
-							tooltipLine.text = "攻击按百分比汲取敌人生命";
+							tooltipLine.text = "攻击按百分比让敌人生命流失";
 						}
 						if (tooltipLine.text == "Cannot inflict critical hits")
 						{

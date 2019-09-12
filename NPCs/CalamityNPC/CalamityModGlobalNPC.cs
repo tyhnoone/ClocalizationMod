@@ -53,7 +53,7 @@ namespace ZZLocalizationMod.NPCs
 							
 					if(chat == "There's a dark solar energy emanating from the moths that appear during this time. Ah, the moths as you progress further get more powerful...hmm...what power was Yharon holding back?")
 					{
-						string chatch = "这次的日食中，蛾怪身上散发着日蚀之阴的能量。啊，随着你的脚步，蛾怪也在变强......嗯..... 亚戎还有什么保留实力？";
+						string chatch = "这次的日食中，蛾怪身上散发着日蚀之阴的能量。啊，随着你的脚步，蛾怪也在变强......嗯..... 犽戎还有什么保留实力？";
 						string chatresult = chat.Replace(chat, chatch);
 						chat = chatresult;
 					}
@@ -364,6 +364,27 @@ namespace ZZLocalizationMod.NPCs
 					string chatresult_2 = chatresult_1.Replace(" lice. Or just lice in general.", chatch_2);
 					chat = chatresult_2;
 					
+				}
+				if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("DILF"))
+				{
+					if(chat == "I deeply appreciate you rescuing me from being trapped within my frozen castle�. It's been many, many years...")
+					{
+						string chatch = "我非常感谢你将我从那寒冰牢狱中救出来，我在那里被困了太多，太多年了...";
+						string chatresult = chat.Replace(chat, chatch);
+						chat = chatresult;
+					}
+					if(chat == "I deeply appreciate you rescuing me from being trapped within my frozen castle. It's been many, many years...")
+					{
+						string chatch = "我非常感谢你将我从那寒冰牢狱中救出来，我在那里被困了太多，太多年了...";
+						string chatresult = chat.Replace(chat, chatch);
+						chat = chatresult;
+					}
+					if(chat == "Thank you for saving me...though now I admit I am without a home since mine got destroyed.")
+					{
+						string chatch = "谢谢你救了我，我不得不承认我的家自从被毁了后，我就没再有家。";
+						string chatresult = chat.Replace(chat, chatch);
+						chat = chatresult;
+					}
 				}
 				
 				

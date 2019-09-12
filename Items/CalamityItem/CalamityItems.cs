@@ -348,7 +348,7 @@ namespace ZZLocalizationMod.Items
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Rock"))
 				{
-					item.SetNameOverride("古恒石");
+					item.SetNameOverride("『石』");
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ShadowspecBar"))
 				{

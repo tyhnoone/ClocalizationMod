@@ -76,7 +76,7 @@ namespace ZZLocalizationMod.Items
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Eradicator"))
 				{
-					item.SetNameOverride("湮灭");
+					item.SetNameOverride("歼灭者");
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ExecutionersBlade"))
 				{
@@ -178,7 +178,90 @@ namespace ZZLocalizationMod.Items
 				{
 					item.SetNameOverride("光辉星匕");
 				}
-				
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("RotBall"))
+				{
+					item.SetNameOverride("腐蚀之球");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("RoyalKnives"))
+				{
+					item.SetNameOverride("圣光飞刀");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SandDollar"))
+				{
+					item.SetNameOverride("沙币");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ScarletDevil"))
+				{
+					item.SetNameOverride("绯红恶魔");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ScourgeoftheCosmosThrown"))
+				{
+					item.SetNameOverride("宙极灾兵");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ScourgeoftheDesert"))
+				{
+					item.SetNameOverride("沙漠灾枪");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SeafoamBomb"))
+				{
+					item.SetNameOverride("海泡石手雷");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SeashellBoomerang"))
+				{
+					item.SetNameOverride("贝壳回力标");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ShatteredSun"))
+				{
+					item.SetNameOverride("裂阳");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SnapClam"))
+				{
+					item.SetNameOverride("夹贝");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SpearofPaleolith"))
+				{
+					item.SetNameOverride("旧石器之矛");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("StellarContemptRogue"))
+				{
+					item.SetNameOverride("蔑星");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("StellarKnife"))
+				{
+					item.SetNameOverride("星辰匕");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("TarragonThrowingDart"))
+				{
+					item.SetNameOverride("龙蒿投矛");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("TitaniumShuriken"))
+				{
+					item.SetNameOverride("钛金手里剑");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ToothBall"))
+				{
+					item.SetNameOverride("血牙刺球");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("TriactisTruePaladinianMageHammerofMight"))
+				{
+					item.SetNameOverride("Triactis的真圣骑士魔锤");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("UrchinStinger"))
+				{
+					item.SetNameOverride("深渊海胆蛰");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Valediction"))
+				{
+					item.SetNameOverride("辞别飞镰");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("WulfrumKnife"))
+				{
+					item.SetNameOverride("钨钢飞刀");
+				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("XerocPitchfork"))
+				{
+					item.SetNameOverride("克希洛克投叉");
+				}
 			}
 		}
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
@@ -442,6 +525,117 @@ namespace ZZLocalizationMod.Items
 						if (tooltipLine.text == "Throws daggers that explode and split after a while")
 						{
 							tooltipLine.text = "投掷一小段时间后会分裂的匕首";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("RoyalKnives"))
+					{
+						if (tooltipLine.text == "Throws a flurry of homing knives that can heal the user")
+						{
+							tooltipLine.text = "抛出一梭可以治愈玩家的追踪匕首";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SandDollar"))
+					{
+						if (tooltipLine.text == "Stacks up to 2")
+						{
+							tooltipLine.text = "至多叠加两个";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ScarletDevil"))
+					{
+						if (tooltipLine.text == "Throws an ultra high velocity spear, which creates more projectiles that home in")
+						{
+							tooltipLine.text = "投掷一柄超高速矛，会衍生诸多追踪弹幕";
+						}
+						if (tooltipLine.text == "The spear creates a Scarlet Blast upon hitting an enemy")
+						{
+							tooltipLine.text = "长矛在击中敌人时产生绯红爆破";
+						}
+						if (tooltipLine.text == "Stealth strikes grant you lifesteal")
+						{
+							tooltipLine.text = "潜行时攻击可以吸血";
+						}
+						if (tooltipLine.text == "'Divine Spear \"Spear the Gungnir\"'")
+						{
+							tooltipLine.text = "神器“冈格尼尔之枪”";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ScourgeoftheCosmosThrown"))
+					{
+						if (tooltipLine.text == "Throws a bouncing cosmic scourge that emits tiny homing cosmic scourges on death and tile hits")
+						{
+							tooltipLine.text = "投掷出可反弹的宇宙之虫，在消失和命中时分裂出更小的追踪宇宙之虫";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ScourgeoftheDesert"))
+					{
+						if (tooltipLine.text == "Gains velocity over time")
+						{
+							tooltipLine.text = "随时间增加的速度";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SeafoamBomb"))
+					{
+						if (tooltipLine.text == "Throws a bomb that explodes into a bubble which deals extra damage to enemies")
+						{
+							tooltipLine.text = "投掷炸弹，爆炸时生成泡泡，对敌人造成额外伤害";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("ShatteredSun"))
+					{
+						if (tooltipLine.text == "Throws daggers that split twice and explode upon contact")
+						{
+							tooltipLine.text = "投掷会分裂两次的匕首，击中敌人时会爆炸";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SnapClam"))
+					{
+						if (tooltipLine.text == "Can latch on enemies and deal damage over time")
+						{
+							tooltipLine.text = "可以夹住敌人，造成持续伤害";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("SpearofPaleolith"))
+					{
+						if (tooltipLine.text == "Throws an ancient spear that shatters enemy armor")
+						{
+							tooltipLine.text = "投掷一支古代长矛，击碎敌人的盔甲";
+						}
+						if (tooltipLine.text == "Spears rain fossil shards as they travel")
+						{
+							tooltipLine.text = "长矛在飞行过程中会残留化石碎片对敌人造成伤害";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("StellarContemptRogue"))
+					{
+						if (tooltipLine.text == "Lunar flares rain down on enemy hits")
+						{
+							tooltipLine.text = "命中敌人时，月耀之雨从天而降";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("StellarKnife"))
+					{
+						if (tooltipLine.text == "Throws knives that stop middair and then home into enemies")
+						{
+							tooltipLine.text = "投掷会在空中停留一阵后追击敌人的匕首";
+						}
+						if (tooltipLine.text == "Za Warudo")
+						{
+							tooltipLine.text = "咋哇路多！";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("TriactisTruePaladinianMageHammerofMight"))
+					{
+						if (tooltipLine.text == "Explodes on enemy hits")
+						{
+							tooltipLine.text = "击中敌人时爆炸";
+						}
+					}
+					if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Valediction"))
+					{
+						if (tooltipLine.text == "Throws a homing reaper scythe")
+						{
+							tooltipLine.text = "投掷追踪的收割者镰刀";
 						}
 					}
 					

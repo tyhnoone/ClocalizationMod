@@ -26,7 +26,7 @@ namespace ZZLocalizationMod.Items
 				//ModLoader.GetMod("CalamityMod").GetBuff("Afflicted").DisplayName.AddTranslation(GameCulture.Chinese,"折磨");
 				//ModLoader.GetMod("CalamityMod").GetBuff("AkatoYharonBuff").DisplayName.AddTranslation(GameCulture.Chinese,"阿卡托");
 				//ModLoader.GetMod("CalamityMod").GetBuff("AnechoicCoating").DisplayName.AddTranslation(GameCulture.Chinese,"吸音涂层");
-				//ModLoader.GetMod("CalamityMod").GetBuff("AngryChicken").DisplayName.AddTranslation(GameCulture.Chinese,"亚戎之子");
+				//ModLoader.GetMod("CalamityMod").GetBuff("AngryChicken").DisplayName.AddTranslation(GameCulture.Chinese,"犽戎之子");
 				//ModLoader.GetMod("CalamityMod").GetBuff("AquaticStar").DisplayName.AddTranslation(GameCulture.Chinese,"渊海海星");
 				//ModLoader.GetMod("CalamityMod").GetBuff("ArmorCrumbling").DisplayName.AddTranslation(GameCulture.Chinese,"装甲击破");
 				//ModLoader.GetMod("CalamityMod").GetBuff("ArmorCrunch").DisplayName.AddTranslation(GameCulture.Chinese,"碎甲");

@@ -40,7 +40,7 @@ namespace ZZLocalizationMod.Items
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("TrinketofChi"))
 				{
-					item.SetNameOverride("极之挂饰");
+					item.SetNameOverride("气之挂饰");
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("TundraLeash"))
 				{

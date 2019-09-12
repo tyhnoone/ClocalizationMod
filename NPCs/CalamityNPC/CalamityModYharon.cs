@@ -22,7 +22,7 @@ namespace ZZLocalizationMod.NPCs
 				}
 				if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("Yharon"))
 				{
-					NPCLoader.GetNPC(npc.type).DisplayName.AddTranslation(GameCulture.Chinese, "丛林龙-亚戎");
+					NPCLoader.GetNPC(npc.type).DisplayName.AddTranslation(GameCulture.Chinese, "丛林龙-犽戎");
 				}
 			}
 		}
