@@ -38,6 +38,10 @@ namespace ZZLocalizationMod.Items
 				{
 					item.SetNameOverride("白羊座");
 				}
+				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("Aeries"))
+				{
+					item.SetNameOverride("白羊座");
+				}
 			}
 		}
 		public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)

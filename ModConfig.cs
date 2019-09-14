@@ -38,9 +38,9 @@ namespace ZZLocalizationMod
 		[Tooltip("是, 将显示玩家所处的环境, 默认为是")]
 		public bool zonetext;
 
-		[DefaultValue(true)]
+		[DefaultValue(false)]
 		[Label("NPC购买信息")]
-		[Tooltip("是, 将显示玩家可购买的npc物品, 默认为是")]
+		[Tooltip("是, 将显示玩家可购买的npc物品, 默认为否（此功能尚在测试中）")]
 		public bool buytext;
 		
 

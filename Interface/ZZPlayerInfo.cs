@@ -10,10 +10,7 @@ using Terraria.GameContent.UI.Elements;
 using Terraria.UI;
 using System;
 using Terraria.ID;
-using System.Linq;
-using System.Collections.Generic;
-using Terraria.DataStructures;
-
+using Terraria.UI.Chat;
 
 namespace ZZLocalizationMod.Interface
 {
@@ -67,7 +64,7 @@ namespace ZZLocalizationMod.Interface
 			PlayerInfo = new UIPlayerInfoDisplay();
 			PlayerInfo.Left.Set(30, 0f);
 			PlayerInfo.Top.Set(30, 0f);
-			PlayerInfo.Width.Set(60, 0f);
+			PlayerInfo.Width.Set(300f, 0f);
 			PlayerInfo.Height.Set(22, 0f);
 			ZZPlayerInfoInterface.Append(PlayerInfo);
 
@@ -285,7 +282,7 @@ namespace ZZLocalizationMod.Interface
 			PlayerInfo.slotsMinions = (int)player.slotsMinions;
 			PlayerInfo.maxMinions = player.maxMinions;
 			PlayerInfo.maxTurrets = player.maxTurrets;
-			//PlayerInfo.around = ZZLocalizationMod.zoneString(player);
+			PlayerInfo.around = ZZLocalizationMod.zoneString(player);
 
 			PlayerClass.meleedamage = (int)((player.meleeDamage*100)-100 + (player.allDamage*100)-100);
 			PlayerClass.meleeSpeed = (int)((1/player.meleeSpeed)*100 -100);
@@ -398,6 +395,25 @@ namespace ZZLocalizationMod.Interface
 				Height.Set(40, 0f);
 			}
 
+			public void  DrawText(int a, int b, String text)
+			{
+				Rectangle hitbox = GetInnerDimensions().ToRectangle();
+
+				int hoveredSnippet = -1;
+
+				TextSnippet[] textSnippets = ChatManager.ParseMessage(text, Color.White).ToArray();
+				ChatManager.ConvertNormalSnippets(textSnippets);
+
+				for (int i = 0; i < ChatManager.ShadowDirections.Length; i++)
+				{
+					ChatManager.DrawColorCodedStringShadow(Main.spriteBatch, Main.fontMouseText, textSnippets, new Vector2(2+a, 15 + 3 +b) + hitbox.TopLeft() + ChatManager.ShadowDirections[i] * 1, 
+					Color.Black, 0f, Vector2.Zero, new Vector2(1f, 1f), hitbox.Width - (7 * 2), 1);
+				}
+
+				Vector2 size = ChatManager.DrawColorCodedString(Main.spriteBatch, Main.fontMouseText, textSnippets,
+				new Vector2(2 + a, 15 + 3 +b) + hitbox.TopLeft(), Color.White, 0f, Vector2.Zero, new Vector2(1f, 1f), out hoveredSnippet, hitbox.Width - (7 * 2), false);
+			}
+
 			protected override void DrawSelf(SpriteBatch spriteBatch) 
 			{
 			CalculatedStyle innerDimensions = GetInnerDimensions();	
@@ -407,77 +423,85 @@ namespace ZZLocalizationMod.Interface
 			float shopy = innerDimensions.Y;
 			float i = 0;
 
-			Color lifeRcolor;
+			String lifeRcolor;
 			if(lifeR > 0)
 			{
-				lifeRcolor = Color.DarkGreen;
+				lifeRcolor = "[c/20c060: " + lifeR + " ]/每秒";
 			}
 			else if(lifeR < 0)
 			{
-				lifeRcolor = Color.DarkRed;
+				lifeRcolor = "[c/c00000: " + lifeR + " ]/每秒";
 			}
-			else {lifeRcolor = Color.Yellow;}
-
-			Color Minionscolor;
+			else {lifeRcolor = "[c/ffff33: " + lifeR + " ]/每秒";}
+			
+			String Minionscolor;
 			float Minions = (float)(slotsMinions)/(float)(maxMinions);
 			if(Minions < 0.33)
 			{
-				Minionscolor = Color.DarkGreen;
+				Minionscolor = "[c/20c060: " + slotsMinions + " / " + maxMinions + " ]";
 			}
 			else if(Minions > 0.66)
 			{
-				Minionscolor = Color.DarkRed;
+				Minionscolor = "[c/c00000: " + slotsMinions + " / " + maxMinions + " ]";
 			}
-			else {Minionscolor = Color.Yellow;}
+			else {Minionscolor = "[c/ffff33: " + slotsMinions + " / " + maxMinions + " ]";}
 
-			Color thoriumbardResourcecolor;
+			String thoriumbardResourcecolor;
 			if(thoriumbardResource > 8)
 			{
-				thoriumbardResourcecolor = Color.Purple;
+				thoriumbardResourcecolor = "[c/663399: " + thoriumbardResource + " ]";
 			}
 			else
 			{
-				thoriumbardResourcecolor = Color.LightGreen;
+				thoriumbardResourcecolor = "[c/00ff66: " + thoriumbardResource + " ]";
 			}
-
-			DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "每秒" + lifeR + "生命再生", new Vector2(shopx, shopy), lifeRcolor, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
-			DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "每秒" + ManaR + "魔力再生", new Vector2(shopx, shopy + 30), Color.DarkBlue, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
-			DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, flytime + "最大飞行时间", new Vector2(shopx, shopy + 60), Color.Coral, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
-			DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "获得" + endurance + "%伤害减免", new Vector2(shopx, shopy + 90), Color.RosyBrown, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
-			DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "召唤物栏已用/上限："+ slotsMinions + " / " + maxMinions, new Vector2(shopx, shopy + 120), Minionscolor, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
-			DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "哨兵炮塔上限：" + maxTurrets, new Vector2(shopx, shopy + 150), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
-
+			DrawText(0, 0, "生命再生：" + lifeRcolor);
+			//DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "生命再生：" + lifeR + "/每秒", new Vector2(shopx, shopy), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
+			DrawText(0, 30, "魔力再生：[c/0033FF: " + ManaR + " ]/每秒");
+			//DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "魔力再生：" + ManaR + "/每秒", new Vector2(shopx, shopy + 30), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
+			DrawText(0, 60, "飞行时间：" + flytime);
+			//DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "飞行时间：" + flytime, new Vector2(shopx, shopy + 60), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
+			DrawText(0, 90,  "伤害减免：" + endurance + "%");
+			//DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "伤害减免：" + endurance + "%", new Vector2(shopx, shopy + 90), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
+			DrawText(0, 120,  "召唤物栏已用/上限："+ Minionscolor);
+			//DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "召唤物栏已用/上限："+ slotsMinions + " / " + maxMinions, new Vector2(shopx, shopy + 120), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
+			DrawText(0, 150,  "哨兵炮塔上限：" + maxTurrets);
+			//DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "哨兵炮塔上限：" + maxTurrets, new Vector2(shopx, shopy + 150), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
+			DrawText(250, 0,  around);
 			//DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, around, new Vector2(shopx + 250, shopy), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
 
 			if(ModLoader.GetMod("ThoriumMod") != null)
 			{
 				i+=60;
-				DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "瑟银乐师灵感：" + thoriumbardResource +"灵感", new Vector2(shopx, shopy + 150 + i), thoriumbardResourcecolor, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
+				DrawText(0, 150 + (int)i,  "瑟银乐师灵感：" + thoriumbardResourcecolor +"灵感");
+				//DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "瑟银乐师灵感：" + thoriumbardResource +"灵感", new Vector2(shopx, shopy + 150 + i), Color.White, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
 			}
 			if(ModLoader.GetMod("CalamityMod") != null)
 			{
-				Color stresscolor;
+				String stresscolor;
 				if(stress == stressMax)
 				{
-					stresscolor = Color.PaleGreen;
+					stresscolor = "[c/009900: " + stress + " ]";
 				}
 				else
 				{
-					stresscolor = Color.IndianRed;
+					stresscolor = "[c/990000: " + stress + " ]";
 				}
-				Color adrenalinecolor;
+				String adrenalinecolor;
 				if(adrenaline == adrenalineMax)
 				{
-					adrenalinecolor = Color.PaleGreen;
+					adrenalinecolor = "[c/009900: " + adrenaline + " ]";
 				}
 				else
 				{
-					adrenalinecolor = Color.DeepSkyBlue;
+					adrenalinecolor = "[c/0099FF: " + adrenaline + " ]";
 				}	
 				i += 60;
-				DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "灾厄复仇模式："+ stress + "怒气压力", new Vector2(shopx, shopy + 150 + i), stresscolor, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
+				DrawText(0, 150 + (int)i,  "灾厄复仇模式："+ stresscolor + "怒气压力");
+				//DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "灾厄复仇模式："+ stress + "怒气压力", new Vector2(shopx, shopy + 150 + i), stresscolor, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
 				i += 30;
-				DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "灾厄复仇模式：" + adrenaline + "肾上腺素", new Vector2(shopx, shopy + 150 + i), adrenalinecolor, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
+				DrawText(0, 150 + (int)i,  "灾厄复仇模式：" + adrenalinecolor + "肾上腺素");
+				//DynamicSpriteFontExtensionMethods.DrawString(Main.spriteBatch, Main.fontMouseText, "灾厄复仇模式：" + adrenaline + "肾上腺素", new Vector2(shopx, shopy + 150 + i), adrenalinecolor, 0f, default(Vector2), new Vector2(1f), SpriteEffects.None, 0f);
 			}
 			}
 		}
