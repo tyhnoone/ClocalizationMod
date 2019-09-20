@@ -40,7 +40,7 @@ namespace ZZLocalizationMod.Items
 				}
 				if (item.type == ModLoader.GetMod("CalamityMod").ItemType("UnholyEssence"))
 				{
-					item.SetNameOverride("亵渎生物的精华");
+					item.SetNameOverride("亵渎精华");
 				}
 			}
 		}

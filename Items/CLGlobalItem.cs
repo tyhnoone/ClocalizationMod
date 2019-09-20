@@ -98,6 +98,7 @@ namespace ZZLocalizationMod.Items
 						int id = dropper.GetID();
 						NPC npc = new NPC();
 						npc.SetDefaults(id);
+						if(npc == null) continue;
 						int i = 0;
 						while(i<k)
 						{
@@ -129,7 +130,7 @@ namespace ZZLocalizationMod.Items
 			int[] shopToNPC = (int[])shopToNPCField.GetValue(null);
 			for (int k = 0; k < 200; k++)
 			{
-				if (Main.npc[k].active && NPCLoader.CanChat(Main.npc[k]))
+				if (Main.npc[k].active && Main.npc[k].townNPC && NPCLoader.CanChat(Main.npc[k]))
 				{
 					int type = Main.npc[k].type;
 					int shop = Array.IndexOf(shopToNPC, type);

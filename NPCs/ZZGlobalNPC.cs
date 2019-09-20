@@ -52,6 +52,7 @@ namespace ZZLocalizationMod.NPCs
 				if (Main.rand.Next(3) == 0) 
 				{
 					chat = "I'll be back";
+					return;
 				}
 			}
 			if(LanguageManager.Instance.ActiveCulture == GameCulture.Chinese)
@@ -146,6 +147,16 @@ namespace ZZLocalizationMod.NPCs
 						chat = "又想用 [i:"  + ModLoader.GetMod("ThoriumMod").ItemType("CelestialBow")+ "] 这个弓作弊通关灾厄了吧，快承认（识破）";
 					}
 				}
+			}
+			return;
+		}
+		public override void NPCLoot(NPC npc)
+		{
+			if(npc.type == NPCID.Guide && npc.GivenName == "Cerberus")
+			{
+				Item.NewItem(npc.getRect(), mod.ItemType("InvokerHood"));
+				Item.NewItem(npc.getRect(), mod.ItemType("InvokerPants"));
+				Item.NewItem(npc.getRect(), mod.ItemType("InvokerRobe"));
 			}
 		}
 	}

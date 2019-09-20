@@ -322,6 +322,7 @@ namespace ZZLocalizationMod
 				if (!li.cachedMods.Any(x => x.Key == modName && x.Value == m.Version)) // if this mod is either updated or doesn't exist yet
 																					   //if (li.cachedMods.ContainsKey(modName) && li.cachedMods[modName] == m.Version)
 				{
+					if(m.Version >= new Version(0,6,3))
 					needsRecalculate = true;
 					// Remove mod from list
 					li.cachedMods.Remove(modName);
@@ -528,8 +529,6 @@ namespace ZZLocalizationMod
 			if(npc.type == NPCID.DukeFishron) NPC.downedFishron = false;
 			if(npc.type == NPCID.CultistBoss) NPC.downedAncientCultist = false;
 			if(npc.type == NPCID.MoonLordCore) NPC.downedMoonlord = false;
-			
-			if(npc.type == 22)	 npc.GivenName = "Andrew";
 
 			if(npc.type == 564 || npc.type == 565 ||npc.type == 576 ||npc.type == 577) DD2Event.Ongoing = true;
 
@@ -598,6 +597,9 @@ namespace ZZLocalizationMod
 					Main.rand = fakeRandom;
 				if (i == 50)
 					Main.rand = realRandom;
+				
+				if(i == 0 && npc.type == 22) npc.GivenName = "Andrew";
+				if(i == 1 && npc.type == 22) npc.GivenName = "Cerberus";
 				
 				try
 				{
